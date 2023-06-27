@@ -6,8 +6,9 @@ module.exports = {
     extends: [
         'plugin:react/recommended',
         'airbnb-typescript',
-        'plugin:prettier/recommended',
         'plugin:react-hooks/recommended',
+        'plugin:i18next/recommended',
+        'plugin:prettier/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -24,7 +25,7 @@ module.exports = {
             version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
         },
     },
-    plugins: ['react', '@typescript-eslint', 'prettier'],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'prettier'],
     rules: {
         'prettier/prettier': 'error',
         'react/jsx-indent': [2, 4],
@@ -34,7 +35,6 @@ module.exports = {
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         '@typescript-eslint/no-unused-vars': 'warn',
-        // 'no-unused-vars': 'warn',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'off',
@@ -46,19 +46,22 @@ module.exports = {
         'no-return-await': 'off',
         'react-hooks/rules-of-hooks': 'error', // Проверяем правила хуков
         'react-hooks/exhaustive-deps': 'warn', // Проверяем зависимости эффекта
-        "@typescript-eslint/naming-convention": [
-          // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/naming-convention.md
-          "error",
-          {
-            "selector": "property",
-            "format": ["strictCamelCase"],
-            "filter": {
-              // you can expand this regex to add more allowed names
-              "regex": "^\_\_",
-              "match": false
-            }
-          }
+
+        '@typescript-eslint/naming-convention': [
+            // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/naming-convention.md
+            'error',
+            {
+                selector: 'property',
+                format: ['strictCamelCase'],
+                filter: {
+                    // you can expand this regex to add more allowed names
+                    regex: '^__',
+                    match: false,
+                },
+            },
         ],
+
+        'i18next/no-literal-string': ['error', { markupOnly: true }],
     },
     globals: {
         __IS_DEV__: true,
