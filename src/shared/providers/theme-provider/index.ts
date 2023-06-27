@@ -1,5 +1,5 @@
-import ThemeProvider from "./ui/ThemeProvider";
+import ThemeProvider, { Theme } from "./ui/ThemeProvider";
 import { useTheme } from "./lib/useTheme";
 
 // public api
-export { ThemeProvider, useTheme };
+export { ThemeProvider, useTheme, Theme };

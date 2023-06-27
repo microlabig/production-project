@@ -1,0 +1,16 @@
+.AppNavLink {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.AppNavLinkIsActive {
+  text-decoration: underline;
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+.secondary {
+  color: var(--inverted-primary-color);
+}

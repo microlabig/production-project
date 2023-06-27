@@ -1,0 +1,12 @@
+.ThemeSwitcherIcon {
+  &.light {
+    path {
+      fill: var(--to-dark-theme-switcher-color);
+    }
+  }
+  &.dark {
+    path {
+      fill: var(--to-light-theme-switcher-color);
+    }
+  }
+}
