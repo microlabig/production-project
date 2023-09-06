@@ -16,7 +16,8 @@
         "ignoreUnits": ["dvh"]
       }
     ],
-    "order/properties-order": [],
+    "declaration-empty-line-before": null,
+
     "plugin/rational-order": [
       true,
       {
