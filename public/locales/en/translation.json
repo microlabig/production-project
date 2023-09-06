@@ -6,5 +6,7 @@
   "Toggle": "Toggle",
   "Главная": "Main",
   "О странице": "About",
-  "Страница не найдена": "Not found page"
+  "Страница не найдена": "Not found page",
+  "Что-то пошло не так": "Something went wrong",
+  "Перезагрузить": "Reload"
 }
