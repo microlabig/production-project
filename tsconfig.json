@@ -41,8 +41,9 @@
             "module": "CommonJS"
         }
     },
-    // "include": [
-    //     ".eslintrc.js"
-    //     // another includes
-    // ]
+    "include": [
+        // TS + our jest config
+        "./config/jest/setupTests.ts",
+        "src"
+    ]
 }

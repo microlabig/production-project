@@ -1,23 +1,19 @@
 {
-  "i18n-ally.localesPaths": [
-    "public/locales",
-    "src/shared/config/i18n"
-  ],
+    "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
+    "i18n-ally.keystyle": "flat",
+    "i18n-ally.ignoreFiles": ["*.spec.ts", "*.test.ts", "*.spec.tsx", "*.test.tsx"],
 
-  "[scss]": {
-    "editor.defaultFormatter": "stylelint.vscode-stylelint"
-  },
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
-  "stylelint.enable": true,
-  "stylelint.validate": [
-    "css",
-    "scss"
-  ],
-  "editor.codeActionsOnSave": {
-		"source.fixAll.stylelint": true
-	},
+    "[scss]": {
+        "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "stylelint.enable": true,
+    "stylelint.validate": ["css", "scss"],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": true
+    },
 
-  "i18n-ally.keystyle": "flat",
+    "jestrunner.configPath": "/config/jest/jest.config.ts"
 }
