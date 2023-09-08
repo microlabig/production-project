@@ -42,8 +42,10 @@
         }
     },
     "include": [
-        // TS + our jest config
-        "./config/jest/setupTests.ts",
+        "./config/jest/setupTests.ts", // TS + our jest config
+        "./config/**/*.ts",
+        "./src/**/*.ts",
+        "./src/**/*.tsx",
         "src"
-    ]
+, "config/storybook/preview.ts"    ]
 }

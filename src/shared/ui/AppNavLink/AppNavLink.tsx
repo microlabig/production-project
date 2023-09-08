@@ -7,6 +7,7 @@ import cls from './AppNavLink.module.scss';
 export enum AppNavLinkTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
+    RED = 'red',
 }
 
 type TAppNavLinkProps = NavLinkProps & {

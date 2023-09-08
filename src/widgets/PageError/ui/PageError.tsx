@@ -11,7 +11,7 @@ type TPageErrorProps = {
     errorInfo: ErrorInfo | null;
 };
 
-function PageError(props: TPageErrorProps) {
+export function PageError(props: TPageErrorProps) {
     const { t } = useTranslation();
 
     const onReload = () => {
@@ -34,5 +34,3 @@ function PageError(props: TPageErrorProps) {
         </div>
     );
 }
-
-export default PageError;

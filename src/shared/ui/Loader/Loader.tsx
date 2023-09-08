@@ -8,7 +8,7 @@ type TLoaderProps = {
     className?: string;
 };
 
-function Loader(props: TLoaderProps) {
+export function Loader(props: TLoaderProps) {
     return (
         <div className={classNames('lds-ellipsis', {}, [props.className])}>
             <div />
@@ -18,5 +18,3 @@ function Loader(props: TLoaderProps) {
         </div>
     );
 }
-
-export default Loader;
