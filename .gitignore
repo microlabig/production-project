@@ -1,5 +1,5 @@
 /build
 /extractedTranslations
-#/storybook-static
+/storybook-static
 node_modules
 .idea
