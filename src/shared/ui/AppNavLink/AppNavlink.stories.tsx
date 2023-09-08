@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AppNavLink, AppNavLinkTheme } from './AppNavLink';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'shared/providers/theme-provider';
+import { AppNavLink, AppNavLinkTheme } from './AppNavLink';
 
 const meta = {
     title: 'shared/AppNavLink',
     component: AppNavLink,
     args: {
-      children: 'Text',
-      to: '',
-    }
+        children: 'Text',
+        to: '',
+    },
 } satisfies Meta<typeof AppNavLink>;
 
 export default meta;
