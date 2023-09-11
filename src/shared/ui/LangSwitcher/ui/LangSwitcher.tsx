@@ -16,7 +16,7 @@ export function LangSwitcher(props: TLangSwitcherProps) {
 
     return (
         <Button theme={ButtonTheme.CLEAR} onClick={toggle} className={classNames('', {}, [props.className])}>
-            {t(props.short ? 'Короткий язык' : 'Язык' )}
+            {t(props.short ? 'Короткий язык' : 'Язык')}
         </Button>
     );
 }
