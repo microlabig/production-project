@@ -8,9 +8,7 @@ interface TNavbarProps {
 export function Navbar(props: TNavbarProps) {
     return (
         <header className={classNames(cls.navbar, {}, [props.className])}>
-            <nav className={cls.links}>
-                /
-            </nav>
+            <nav className={cls.links}>/</nav>
         </header>
     );
 }
