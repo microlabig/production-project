@@ -3,7 +3,11 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button';
+import { Button, ButtonTheme, ButtonSize } from 'shared/ui/Button';
+import { AppNavLink, AppNavLinkTheme } from 'shared/ui/AppNavLink/AppNavLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import MainIcon from 'shared/assets/icons/main-20-20.svg';
+import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import cls from './Sidebar.module.scss';
 
 interface TSidebarProps {
@@ -24,13 +28,32 @@ export const Sidebar: FC<TSidebarProps> = props => {
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [props.className])}
         >
-            <Button data-testid="sidebar-toggle" type="button" onClick={onToggle}>
-                {t('Toggle')}
+            <Button
+                data-testid="sidebar-toggle"
+                type="button"
+                onClick={onToggle}
+                theme={ButtonTheme.BACKGROUND_INVERTED}
+                square
+                size={ButtonSize.L}
+                className={cls.collapseBtn}
+            >
+                {collapsed ? '>' : '<'}
             </Button>
+
+            <div className={cls.items}>
+                <AppNavLink theme={AppNavLinkTheme.SECONDARY} to={RoutePath.main} className={cls.item}>
+                    <MainIcon className={cls.icon} />
+                    <span className={cls.link}>{t('Главная')}</span>
+                </AppNavLink>
+                <AppNavLink theme={AppNavLinkTheme.SECONDARY} to={RoutePath.about} className={cls.item}>
+                    <AboutIcon className={cls.icon} />
+                    <span className={cls.link}>{t('О странице')}</span>
+                </AppNavLink>
+            </div>
 
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher />
+                <LangSwitcher short={collapsed} />
             </div>
         </div>
     );
