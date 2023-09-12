@@ -9,5 +9,8 @@
   "Страница не найдена": "Not found page",
   "Что-то пошло не так": "Something went wrong",
   "Перезагрузить": "Reload",
-  "Короткий язык": "En"
+  "Короткий язык": "En",
+  "Войти": "Login",
+  "increment": "increment",
+  "decrement": "decrement"
 }
