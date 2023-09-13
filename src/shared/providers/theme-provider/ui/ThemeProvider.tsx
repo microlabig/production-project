@@ -1,8 +1,8 @@
-import { type FC, createContext, useMemo, useState } from 'react';
+import { type FC, createContext, useMemo, useState, useEffect } from 'react';
 
 export enum Theme {
-    LIGHT = 'light',
-    DARK = 'dark',
+    LIGHT = 'app-light-theme',
+    DARK = 'app-dark-theme',
 }
 
 export interface ThemeContextProps {
@@ -23,7 +23,16 @@ interface ThemeProviderPros {
 const ThemeProvider: FC<ThemeProviderPros> = ({ children, initialTheme }) => {
     const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
-    const defaultProps = useMemo(
+    useEffect(() => {
+        document.body.classList.add(theme);
+        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
+
+        return () => {
+            document.body.classList.remove(theme);
+        };
+    }, [theme]);
+
+    const defaultProps: ThemeContextProps = useMemo(
         () => ({
             theme,
             setTheme,

@@ -1,11 +1,11 @@
 .ThemeSwitcherIcon {
-    &.light {
+    &.app-light-theme {
         path {
             fill: var(--to-dark-theme-switcher-color);
         }
     }
 
-    &.dark {
+    &.app-dark-theme {
         path {
             fill: var(--to-light-theme-switcher-color);
         }
