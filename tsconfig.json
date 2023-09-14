@@ -42,13 +42,19 @@
         }
     },
     "include": [
-        "./config/jest/setupTests.ts", // TS + our jest config
+        // "./config/jest/setupTests.ts", // TS + our jest config
+        // "./config/**/*.ts",
+        // "./config/**/*.tsx",
+        // "./src/**/*.ts",
+        // "./src/**/*.tsx",
+        // "src",
+        // "./config/storybook/preview.ts",
+        // "./webpack.config.ts"
+
         "./config/**/*.ts",
         "./config/**/*.tsx",
         "./src/**/*.ts",
         "./src/**/*.tsx",
-        "src",
-        "./config/storybook/preview.ts",
         "./webpack.config.ts"
     ]
 }
