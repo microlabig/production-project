@@ -1,7 +1,7 @@
 import { useTheme } from 'shared/providers/theme-provider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './ThemeSwitcher.module.scss';
 
 interface TThemeSwitcherProps {

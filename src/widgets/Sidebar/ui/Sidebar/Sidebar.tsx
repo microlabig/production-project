@@ -1,9 +1,9 @@
 import { type FC, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
-import { LangSwitcher } from 'shared/ui/LangSwitcher';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
+import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme, ButtonSize } from 'shared/ui/Button';
+import { Button, ButtonTheme, ButtonSize } from 'shared/ui/Button/Button';
 import { AppNavLink, AppNavLinkTheme } from 'shared/ui/AppNavLink/AppNavLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';

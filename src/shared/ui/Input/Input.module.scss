@@ -1,0 +1,73 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.placeholder {
+    margin-right: 5px;
+}
+
+.inputWrapper {
+    position: relative;
+
+    display: flex;
+
+    flex-grow: 1;
+    align-items: center;
+}
+
+.input {
+    flex-grow: 1;
+    border: none;
+
+    // скрыть дефолтную каретку у input
+    color: transparent;
+    text-shadow: 0 0 0 var(--primary-color);
+
+    background: transparent;
+    outline: none;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.inputValueFake {
+    position: absolute;
+
+    width: auto;
+
+    white-space: pre;
+
+    visibility: hidden;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.caret {
+    position: absolute;
+    bottom: 0;
+
+    width: 9px;
+    height: 3px;
+
+    background: var(--primary-color);
+
+    animation: blink 0.7s forwards infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.01;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
