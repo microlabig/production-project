@@ -21,6 +21,7 @@ export const Modal = (props: ModalProps) => {
     const [isClosing, setIsClosing] = useState(false);
     const timerRef = useRef<NodeJS.Timer>();
 
+    // ленивая подгрузка модалки, сделано для того, чтобы у инпутов был фокус при открытии модалки и можно было печатать
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true);
