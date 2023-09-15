@@ -24,16 +24,17 @@ type TButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export const Button: FC<TButtonProps> = props => {
-    const { className, children, theme, square, size = ButtonSize.M, ...otherProps } = props;
+    const { className, children, theme, square, size = ButtonSize.M, disabled, ...otherProps } = props;
 
     const mods: Record<string, boolean> = {
         [cls[theme]]: true,
         [cls.square]: square,
         [cls[size]]: true,
+        [cls.disabled]: disabled,
     };
 
     return (
-        <button type="button" {...otherProps} className={classNames(cls.Button, mods, [className])}>
+        <button type="button" {...otherProps} disabled={disabled} className={classNames(cls.Button, mods, [className])}>
             {children}
         </button>
     );

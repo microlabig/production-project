@@ -74,3 +74,12 @@
 .size_xl {
     font: var(--font-xl);
 }
+
+.disabled {
+    cursor: default;
+    opacity: 0.5;
+
+    user-select: none;
+
+    pointer-events: none;
+}

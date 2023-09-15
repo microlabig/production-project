@@ -1,4 +1,5 @@
 import { type FC, createContext, useMemo, useState, useEffect } from 'react';
+import { THEME_LOCAL_STORAGE_KEY } from 'shared/constants/localStorage';
 
 export enum Theme {
     LIGHT = 'app-light-theme',
@@ -12,9 +13,7 @@ export interface ThemeContextProps {
 
 export const ThemeContext = createContext<ThemeContextProps>({});
 
-export const LOCAL_STORAGE_THEME_KEY = 'theme';
-
-const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
+const defaultTheme = (localStorage.getItem(THEME_LOCAL_STORAGE_KEY) as Theme) || Theme.LIGHT;
 
 interface ThemeProviderPros {
     initialTheme?: Theme;
@@ -25,7 +24,7 @@ const ThemeProvider: FC<ThemeProviderPros> = ({ children, initialTheme }) => {
 
     useEffect(() => {
         document.body.classList.add(theme);
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
+        localStorage.setItem(THEME_LOCAL_STORAGE_KEY, theme);
 
         return () => {
             document.body.classList.remove(theme);
