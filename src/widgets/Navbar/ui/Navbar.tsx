@@ -1,9 +1,10 @@
 import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUserName';
-import { useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './Navbar.module.scss';
 
@@ -11,8 +12,8 @@ interface TNavbarProps {
     className?: string;
 }
 
-export function Navbar(props: TNavbarProps) {
-    const dispatch = useDispatch();
+export const Navbar = memo((props: TNavbarProps) => {
+    const dispatch = useAppDispatch();
     const { t } = useTranslation();
 
     const authData = useSelector(getUserAuthData);
@@ -49,4 +50,4 @@ export function Navbar(props: TNavbarProps) {
             {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={handleClose} />}
         </header>
     );
-}
+});

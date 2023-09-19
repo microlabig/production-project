@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import { ReactNode, memo } from 'react';
 import { NavLink, type NavLinkProps } from 'react-router-dom';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -13,9 +13,10 @@ export enum AppNavLinkTheme {
 type TAppNavLinkProps = NavLinkProps & {
     className?: string;
     theme?: AppNavLinkTheme;
+    children?: ReactNode;
 };
 
-export const AppNavLink: FC<TAppNavLinkProps> = props => {
+export const AppNavLink = memo((props: TAppNavLinkProps) => {
     const { to, className, children, theme = AppNavLinkTheme.PRIMARY, ...otherProps } = props;
 
     return (
@@ -29,4 +30,4 @@ export const AppNavLink: FC<TAppNavLinkProps> = props => {
             {children}
         </NavLink>
     );
-};
+});

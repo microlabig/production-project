@@ -1,6 +1,7 @@
 import { Reducer } from '@reduxjs/toolkit';
 import { ReactNode, useEffect } from 'react';
-import { useDispatch, useStore } from 'react-redux';
+import { useStore } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ReduxStoreWithManager } from 'shared/providers/store-provider';
 import { StateSchemaKey } from 'shared/providers/store-provider/config/StateSchema';
 
@@ -17,7 +18,7 @@ type TDynamicModuleLoaderProps = {
 };
 
 export const DynamicModuleLoader = (props: TDynamicModuleLoaderProps) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const { reducers, children, removeAfterUnmount } = props;
 
@@ -33,7 +34,7 @@ export const DynamicModuleLoader = (props: TDynamicModuleLoaderProps) => {
             if (removeAfterUnmount) {
                 Object.entries(reducers).forEach(([name]: ReducersListEntry) => {
                     store.reducerManager.remove(name);
-                    dispatch({ type: `@DESTROY {props.reducerName} reducer` });
+                    dispatch({ type: `@DESTROY ${name} reducer` });
                 });
             }
         };

@@ -1,8 +1,9 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
@@ -20,10 +21,11 @@ const initialReducers: ReducersList = {
 
 export type TLoginFormProps = {
     className?: string;
+    onSuccess: () => void;
 };
 
 const LoginForm = memo((props: TLoginFormProps) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const { t } = useTranslation();
 
     const username = useSelector(getLoginUsername);
@@ -45,8 +47,12 @@ const LoginForm = memo((props: TLoginFormProps) => {
         [dispatch]
     );
 
-    const handleClickButton = () => {
-        dispatch(loginByUsername({ username, password }));
+    const handleClickButton = async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+
+        if (result.meta.requestStatus === 'fulfilled') {
+            props.onSuccess();
+        }
     };
 
     return (

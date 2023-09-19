@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 function AboutPage() {
@@ -6,4 +7,4 @@ function AboutPage() {
     return <div className="wrapper">{t('О сайте')}</div>;
 }
 
-export default AboutPage;
+export default memo(AboutPage);
