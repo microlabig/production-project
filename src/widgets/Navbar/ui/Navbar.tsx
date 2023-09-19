@@ -46,7 +46,7 @@ export function Navbar(props: TNavbarProps) {
         <header className={classNames(cls.navbar, {}, [props.className])}>
             {authData ? renderAuthLayout : renderNoAuthLayout}
 
-            <LoginModal isOpen={isAuthModal} onClose={handleClose} />
+            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={handleClose} />}
         </header>
     );
 }
