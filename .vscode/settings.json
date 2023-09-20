@@ -15,7 +15,5 @@
         "source.fixAll.stylelint": true
     },
 
-    "cssPeek.peekToExclude": ["../node_modules", "../src/**/*.ts"],
-
     "jestrunner.configPath": "/config/jest/jest.config.ts"
 }
