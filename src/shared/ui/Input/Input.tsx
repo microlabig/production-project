@@ -20,8 +20,8 @@ export const Input = memo((props: TInputProps) => {
 
     const [caretPosition, setCaretPosition] = useState(0);
     const [selectionStart, setSelectionStart] = useState(value?.length ?? 0); // старт номера символа выделенного значения в инпуте
-    const inputFakeRef = useRef<HTMLDivElement>();
-    const inputRef = useRef<HTMLInputElement>();
+    const inputFakeRef = useRef<HTMLDivElement | null>(null);
+    const inputRef = useRef<HTMLInputElement | null>(null);
     const inputValue = inputRef.current?.value; // используется для каретки (определяет )
 
     useEffect(() => {

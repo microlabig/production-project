@@ -7,7 +7,7 @@ import { SidebarItemType } from '../../model/items';
 import cls from './SidebarItem.module.scss';
 
 type TSidebarItemProps = {
-    item?: SidebarItemType;
+    item: SidebarItemType;
     collapsed?: boolean;
 };
 

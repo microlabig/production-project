@@ -12,23 +12,24 @@ export default ({ config }: { config: webpack.Configuration }) => {
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
 
-    config.resolve.modules.push(paths.src);
-    config.resolve.extensions.push('.ts', '.tsx');
+    config.resolve?.modules?.push(paths.src);
+    config.resolve?.extensions?.push('.ts', '.tsx');
 
-    // eslint-disable-next-line no-param-reassign
-    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-        // дефолтный лоадер от storybook для обработки файлов svg пропускаем
-        // и ниже после цикла будем использовать свой
-        if (rule.test instanceof RegExp && rule.test.toString().includes('svg')) {
-            return { ...rule, exclude: /\.svg$/ };
-        }
+    if (config.module?.rules) {
+        config.module.rules = config.module.rules.map((rule: RuleSetRule | '...') => {
+            // дефолтный лоадер от storybook для обработки файлов svg пропускаем
+            // и ниже после цикла будем использовать свой
+            if (typeof rule === 'object' && rule.test instanceof RegExp && rule.test.toString().includes('svg')) {
+                return { ...rule, exclude: /\.svg$/ };
+            }
 
-        return rule;
-    });
-    config.module.rules.push(buildSvgLoader());
-    config.module.rules.push(buildSassLoader(true));
+            return rule;
+        });
+        config.module?.rules?.push(buildSvgLoader());
+        config.module?.rules?.push(buildSassLoader(true));
+    }
 
-    config.plugins.push(
+    config.plugins?.push(
         new DefinePlugin({
             __IS_DEV__: true,
             __API__: '',
