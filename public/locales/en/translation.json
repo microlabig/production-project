@@ -6,6 +6,7 @@
   "Переключить": "Toggle",
   "Главная": "Main",
   "О странице": "About",
+  "Профиль": "Profile",
   "Страница не найдена": "Not found page",
   "Что-то пошло не так": "Something went wrong",
   "Перезагрузить": "Reload",
@@ -17,5 +18,7 @@
   "Введите username": "Enter username",
   "Введите пароль": "Enter password",
   "Неверный логин или пароль": "Incorrect login or password",
-  "Форма авторизации": "Auth form"
+  "Форма авторизации": "Auth form",
+  "Укажите валюту": "Change currency",
+  "Укажите страну": "Change country"
 }

@@ -8,21 +8,28 @@ export enum TextTheme {
     ERROR = 'error',
 }
 
+export enum TextAlign {
+    RIGHT = 'right',
+    LEFT = 'left',
+    CENTER = 'center',
+}
+
 type TTextProps = {
     title?: string;
     text?: string;
     theme?: TextTheme;
+    align?: TextAlign;
 
     className?: string;
 };
 
 export const Text = memo((props: TTextProps) => {
-    const { title, text, theme = TextTheme.PRIMARY } = props;
+    const { className, title, text, theme = TextTheme.PRIMARY, align = TextAlign.LEFT } = props;
 
     return (
-        <div className={classNames(cls.Text, { [cls[theme]]: true }, [props.className])}>
-            {props.title && <p className={cls.title}>{title}</p>}
-            {props.text && <p className={cls.text}>{text}</p>}
+        <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align]])}>
+            {title && <p className={cls.title}>{title}</p>}
+            {text && <p className={cls.text}>{text}</p>}
         </div>
     );
 });

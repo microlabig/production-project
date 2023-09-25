@@ -1,28 +1,31 @@
 import { Fragment, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>;
 
 type TInputProps = HTMLInputProps & {
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
     autofocus?: boolean;
+    readonly?: boolean;
 
     className?: string;
 };
 
 export const Input = memo((props: TInputProps) => {
-    const { value, onChange, className, type = 'text', placeholder, autofocus, ...otherProps } = props;
+    const { value, onChange, className, type = 'text', placeholder, autofocus, readonly, ...otherProps } = props;
 
     const [isFocused, setIsFocused] = useState(false);
 
     const [caretPosition, setCaretPosition] = useState(0);
-    const [selectionStart, setSelectionStart] = useState(value?.length ?? 0); // старт номера символа выделенного значения в инпуте
+    const [selectionStart, setSelectionStart] = useState(value?.toString().length ?? 0); // старт номера символа выделенного значения в инпуте
     const inputFakeRef = useRef<HTMLDivElement | null>(null);
     const inputRef = useRef<HTMLInputElement | null>(null);
     const inputValue = inputRef.current?.value; // используется для каретки (определяет )
+
+    const isCaretVisible = isFocused && !readonly;
 
     useEffect(() => {
         const pos = inputFakeRef.current?.getBoundingClientRect().width ?? 0;
@@ -52,8 +55,12 @@ export const Input = memo((props: TInputProps) => {
         setSelectionStart(e?.target?.selectionStart ?? 0);
     };
 
+    const mods: Mods = {
+        [cls.readonly]: readonly,
+    };
+
     return (
-        <div className={classNames(cls.wrapper, {}, [props.className])}>
+        <div className={classNames(cls.wrapper, mods, [props.className])}>
             {placeholder && <div className={cls.placeholder}>{`${placeholder}>`}</div>}
 
             <div className={cls.inputWrapper}>
@@ -66,9 +73,10 @@ export const Input = memo((props: TInputProps) => {
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     onSelect={handleSelect}
+                    readOnly={readonly}
                     className={cls.input}
                 />
-                {isFocused && (
+                {isCaretVisible && (
                     <>
                         <span className={cls.caret} style={{ left: `${caretPosition}px` }} />
                         <span className={classNames(cls.input, {}, [cls.inputValueFake])} ref={inputFakeRef}>

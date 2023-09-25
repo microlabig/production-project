@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
+import { getUserAuthData } from 'entities/User';
 import { memo } from 'react';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppNavLink, AppNavLinkTheme } from 'shared/ui/AppNavLink/AppNavLink';
 import { SidebarItemType } from '../../model/items';
@@ -14,6 +16,12 @@ type TSidebarItemProps = {
 export const SidebarItem = memo((props: TSidebarItemProps) => {
     const { t } = useTranslation();
     const { item, collapsed } = props;
+
+    const isAuth = useSelector(getUserAuthData);
+
+    if (item.authOnly && !isAuth) {
+        return null;
+    }
 
     return (
         <AppNavLink

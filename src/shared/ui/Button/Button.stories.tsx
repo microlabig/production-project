@@ -60,6 +60,13 @@ export const OutlineDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
 };
 
+export const OutlineRed: Story = {
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.OUTLINE_RED,
+    },
+};
+
 export const BackGround: Story = {
     args: {
         children: 'Text',
