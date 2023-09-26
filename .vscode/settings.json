@@ -3,6 +3,10 @@
     "i18n-ally.keystyle": "flat",
     "i18n-ally.ignoreFiles": ["*.spec.ts", "*.test.ts", "*.spec.tsx", "*.test.tsx"],
 
+    "files.associations": {
+        "**/.fttemplates/**": "plaintext"
+    },
+
     "[scss]": {
         "editor.defaultFormatter": "stylelint.vscode-stylelint"
     },

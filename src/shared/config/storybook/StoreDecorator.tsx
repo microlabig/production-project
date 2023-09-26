@@ -16,8 +16,6 @@ export const StoreDecorator =
                 initialState={initialState as StateSchema}
                 asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
             >
-                <div className="app">
-                    <Story />
-                </div>
+                <Story />
             </StoreProvider>
         );
