@@ -1,6 +1,8 @@
 .Sidebar {
     position: relative;
 
+    flex-shrink: 0;
+
     width: var(--sidebar-width);
     height: calc(100vh - var(--navbar-height));
 

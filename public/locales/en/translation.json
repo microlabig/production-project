@@ -21,5 +21,6 @@
   "Неверный логин или пароль": "Incorrect login or password",
   "Форма авторизации": "Auth form",
   "Укажите валюту": "Change currency",
-  "Укажите страну": "Change country"
+  "Укажите страну": "Change country",
+  "Комментарии отсутствуют": "No comments"
 }
