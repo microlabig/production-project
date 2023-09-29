@@ -20,10 +20,10 @@ export function useTheme(): UseThemeResult {
                 newTheme = Theme.ORANGE;
                 break;
             case Theme.ORANGE:
-                newTheme = Theme.LIGHT;
+                newTheme = Theme.DARK;
                 break;
             default:
-                break;
+                newTheme = Theme.LIGHT;
         }
 
         setTheme?.(newTheme);

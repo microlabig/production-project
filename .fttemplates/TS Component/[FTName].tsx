@@ -5,18 +5,18 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './[FTName].module.scss';
 
 type T[FTName]Props = {
-  
+    
 
-  className?: string;
+    className?: string;
 };
 
 export const [FTName] = memo((props: T[FTName]Props) => {
-  const { t } = useTranslation();
-  const { className } = props;
+    const { t } = useTranslation();
+    const { className } = props;
 
-  return (
-    <div className={classNames(cls.[FTName], {}, [className])}>
-      [FTName]
-    </div>
-  )
+    return (
+        <div className={classNames(cls.[FTName], {}, [className])}>
+            [FTName]
+        </div>
+    )
 });
