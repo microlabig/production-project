@@ -2,7 +2,7 @@ import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolki
 import { Comment } from 'entities/Comment';
 import { StateSchema } from 'shared/providers/store-provider';
 import { ArticleDetailsCommentsSchema } from '../types/articleDetailsCommentsSchema';
-import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 // Normalizing: https://redux.js.org/usage/structuring-reducers/normalizing-state-shape
 // createEntityAdapter + CRUD Functions: https://redux-toolkit.js.org/api/createEntityAdapter

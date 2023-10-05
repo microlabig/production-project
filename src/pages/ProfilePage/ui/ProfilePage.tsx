@@ -2,6 +2,7 @@ import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import {
     ProfileCard,
+    ValidateProfileError,
     fetchProfileData,
     getProfileError,
     getProfileForm,
@@ -11,14 +12,15 @@ import {
     profileActions,
     profileReducer,
 } from 'entities/Profile';
-import { ValidateProfileError } from 'entities/Profile/model/types/profileSchema';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
@@ -29,6 +31,8 @@ const initialReducers: ReducersList = {
 function ProfilePage() {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
+
+    const { id } = useParams<{ id: string }>();
 
     const form = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
@@ -45,7 +49,9 @@ function ProfilePage() {
     };
 
     useInitialEffect(() => {
-        dispatch(fetchProfileData());
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
     });
 
     const onChangeFirstName = useCallback(
@@ -107,8 +113,8 @@ function ProfilePage() {
     );
 
     return (
-        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-            <div className={classNames('', {}, [])}>
+        <DynamicModuleLoader reducers={initialReducers}>
+            <Page className={classNames('', {}, [])}>
                 <ProfilePageHeader readonly={readonly} />
                 {!!validateErrors?.length &&
                     validateErrors.map(err => (
@@ -128,7 +134,7 @@ function ProfilePage() {
                     handleChangeCurrency={onChangeCurrency}
                     handleChangeCountry={onChangeCountry}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 }

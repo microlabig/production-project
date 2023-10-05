@@ -69,6 +69,7 @@ module.exports = {
         '@typescript-eslint/lines-between-class-members': 'off',
         indent: 'off',
         'no-extra-boolean-cast': 'off',
+        'react/no-array-index-key': 'off',
     },
     globals: {
         __IS_DEV__: true,
