@@ -4,6 +4,7 @@ import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 
 jest.mock('../fetchArticlesList/fetchArticlesList');
 jest.mock('entities/Article', () => ({
+    // https://stackoverflow.com/questions/76356354/how-do-i-mock-a-typescript-enum-in-my-jest-unit-tests
     ArticleView: {},
 }));
 
