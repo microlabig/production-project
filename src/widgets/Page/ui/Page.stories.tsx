@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { Text } from 'shared/ui/Text/Text';
 import { Page } from './Page';
-import { Text } from '../Text/Text';
 
 const meta = {
     title: 'shared/Page',

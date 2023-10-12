@@ -3,7 +3,7 @@ import { articleDetailsReducer } from 'entities/Article';
 import { profileReducer } from 'entities/Profile';
 import { addCommentFormReducer } from 'features/AddCommentForm';
 import { loginReducer } from 'features/AuthByUserName';
-import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage';
 import { articlesPageReducer } from 'pages/ArticlesPage';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { StateSchema, StoreProvider } from 'shared/providers/store-provider';
@@ -11,10 +11,11 @@ import { StateSchema, StoreProvider } from 'shared/providers/store-provider';
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer,
-    articleDetails: articleDetailsReducer,
-    articleDetailsComments: articleDetailsCommentsReducer,
     addCommentForm: addCommentFormReducer,
     articlesPage: articlesPageReducer,
+
+    articleDetailsPage: articleDetailsPageReducer,
+    articleDetails: articleDetailsReducer,
 };
 
 export const StoreDecorator =

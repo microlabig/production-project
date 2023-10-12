@@ -1,0 +1,19 @@
+.ArticleDetailsPage {
+    // min-height: 100%;
+}
+
+.commentTitle {
+    margin-top: 20px;
+}
+
+.addCommentForm {
+    margin-bottom: 10px;
+}
+
+.recommendations {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}

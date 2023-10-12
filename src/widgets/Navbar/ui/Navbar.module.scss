@@ -10,6 +10,11 @@
     background: var(--inverted-bg-color);
 }
 
+.appName {
+    width: var(--sidebar-width);
+    margin-left: 15px;
+}
+
 .links {
     margin-left: auto;
 }

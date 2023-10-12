@@ -6,21 +6,24 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUserName';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { ScrollRestorationSchema } from 'features/ScrollRestoration';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
 import { NavigateOptions, To } from 'react-router-dom';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    scrollRestoration: ScrollRestorationSchema;
 
     // Асинхронные редьюсеры
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
-    articleDetails?: ArticleDetailsSchema;
-    articleDetailsComments?: ArticleDetailsCommentsSchema;
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlePageSchema;
+
+    articleDetailsPage?: ArticleDetailsPageSchema;
+    articleDetails?: ArticleDetailsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

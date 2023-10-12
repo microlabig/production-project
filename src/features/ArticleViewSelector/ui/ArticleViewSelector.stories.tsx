@@ -4,7 +4,7 @@ import { ArticleView } from 'entities/Article';
 import { ArticleViewSelector } from './ArticleViewSelector';
 
 const meta = {
-    title: 'shared/ArticleViewSelector',
+    title: 'features/Article/ArticleViewSelector',
     component: ArticleViewSelector,
 } satisfies Meta<typeof ArticleViewSelector>;
 

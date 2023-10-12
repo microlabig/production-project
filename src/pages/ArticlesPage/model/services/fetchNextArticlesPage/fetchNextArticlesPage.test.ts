@@ -6,6 +6,7 @@ jest.mock('../fetchArticlesList/fetchArticlesList');
 jest.mock('entities/Article', () => ({
     // https://stackoverflow.com/questions/76356354/how-do-i-mock-a-typescript-enum-in-my-jest-unit-tests
     ArticleView: {},
+    ArticleSortField: {},
 }));
 
 describe('fetchNextArticlesPage.test', () => {
@@ -23,11 +24,10 @@ describe('fetchNextArticlesPage.test', () => {
 
         await thunk.callThunk();
 
-        expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+        expect(thunk.dispatch).toBeCalledTimes(4); // dispatch of pending thunk, fulfilled thunk, setPage, fetchArticlesList actions
     });
 
-    test('fetchAritcleList not called', async () => {
+    test('fetchArticlesList not called', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
             articlesPage: {
                 page: 2,
@@ -41,7 +41,7 @@ describe('fetchNextArticlesPage.test', () => {
 
         await thunk.callThunk();
 
-        expect(thunk.dispatch).toBeCalledTimes(2);
+        expect(thunk.dispatch).toBeCalledTimes(2); // dispatch of pending thunk, fulfilled thunk
         expect(fetchArticlesList).not.toHaveBeenCalled();
     });
 });

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import ArticlesPage from './ArticlesPage';
+import ArticleEditPage from './ArticleEditPage';
 
 const meta = {
-    title: 'pages/ArticlesPage',
-    component: ArticlesPage,
-} satisfies Meta<typeof ArticlesPage>;
+    title: 'pages/Article/ArticleEditPage',
+    component: ArticleEditPage,
+} satisfies Meta<typeof ArticleEditPage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

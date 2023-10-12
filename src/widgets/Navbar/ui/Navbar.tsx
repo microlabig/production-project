@@ -3,9 +3,12 @@ import { LoginModal } from 'features/AuthByUserName';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import cls from './Navbar.module.scss';
 
 interface TNavbarProps {
@@ -45,6 +48,11 @@ export const Navbar = memo((props: TNavbarProps) => {
 
     return (
         <header className={classNames(cls.navbar, {}, [props.className])}>
+            <Text theme={TextTheme.INVERTED} className={cls.appName} title={t('News app')} />
+            <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.article_create} className={cls.createLink}>
+                {t('Создать статью')}
+            </AppLink>
+
             {authData ? renderAuthLayout : renderNoAuthLayout}
 
             {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={handleClose} />}

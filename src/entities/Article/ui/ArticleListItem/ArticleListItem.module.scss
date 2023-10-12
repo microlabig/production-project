@@ -26,14 +26,16 @@
     .footer {
         display: flex;
         align-items: center;
+        margin-top: 8px;
     }
 
     .views {
+        margin-right: 8px;
         margin-left: auto;
     }
 
     .textBlock {
-        max-height: 200px;
+        max-height: 180px;
         overflow: hidden;
 
         text-overflow: ellipsis;

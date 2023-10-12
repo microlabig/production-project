@@ -6,7 +6,7 @@ import { ReduxStoreWithManager } from 'shared/providers/store-provider';
 import { StateSchemaKey } from 'shared/providers/store-provider/config/StateSchema';
 
 export type ReducersList = {
-    [name in StateSchemaKey]?: Reducer;
+    [name in StateSchemaKey]?: Reducer; // Reducer<NonNullable<StateSchema[name]>>;
 };
 
 type TDynamicModuleLoaderProps = {
@@ -23,9 +23,15 @@ export const DynamicModuleLoader = (props: TDynamicModuleLoaderProps) => {
     const store = useStore() as ReduxStoreWithManager;
 
     useEffect(() => {
+        const mountedReducers = store.reducerManager.getReducerMap();
+
         Object.entries(reducers).forEach(([name, reducer]) => {
-            store.reducerManager.add(name as StateSchemaKey, reducer);
-            dispatch({ type: `@INIT ${name} reducer` });
+            const isMounted = !!mountedReducers[name as StateSchemaKey];
+
+            if (!isMounted) {
+                store.reducerManager.add(name as StateSchemaKey, reducer);
+                dispatch({ type: `@INIT ${name} reducer` });
+            }
         });
 
         return () => {
