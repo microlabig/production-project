@@ -5,6 +5,7 @@ jest.mock('entities/Article', () => ({
     // https://stackoverflow.com/questions/76356354/how-do-i-mock-a-typescript-enum-in-my-jest-unit-tests
     ArticleView: {},
     ArticleSortField: {},
+    ArticleType: {},
 }));
 
 describe('initArticlesPage.test', () => {
