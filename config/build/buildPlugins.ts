@@ -2,7 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack, { DefinePlugin } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'; // https://youtu.be/acAH2_YT6bs?t=7661
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { type BuildOptions } from './types/config';
 

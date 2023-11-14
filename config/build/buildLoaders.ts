@@ -38,7 +38,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                     getCustomTransformers: () => ({
                         before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
                     }),
-                    // transpileOnly: isDev, // https://github.com/TypeStrong/ts-loader#transpileonly
+                    // transpileOnly: isDev, // https://github.com/TypeStrong/ts-loader#transpileonly, https://youtu.be/acAH2_YT6bs?t=7373
                 },
             },
         ],
