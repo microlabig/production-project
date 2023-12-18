@@ -16,7 +16,7 @@
     "stylelint.enable": true,
     "stylelint.validate": ["css", "scss"],
     "editor.codeActionsOnSave": {
-        "source.fixAll.stylelint": true
+        "source.fixAll.stylelint": "explicit"
     },
 
     "jestrunner.configPath": "/config/jest/jest.config.ts"

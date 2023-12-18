@@ -1,12 +1,84 @@
-.BIG {
+.ArticleList {
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    width: 100%;
+
+    // min-height: 100%;
+
+    // height: calc(100vh - var(--navbar-height));
+
+    // height: calc(100% - 315px);
+    // min-height: 100%;
+    // padding: 20px 20px 20px 45px;
+
+    // overflow: scroll;
+
+    // overflow-y: auto;
+    // padding: 20px 20px 20px 45px;
 }
 
+// .BIG {
+// }
+
 .SMALL {
+    // flex-wrap: wrap;
+
+    // gap: 20px;
     display: flex;
     flex-wrap: wrap;
+    gap: rem(20);
+    justify-content: space-between;
+}
 
-    gap: 20px;
+.ArticleListItem {
+    margin-top: 16px;
+}
+
+.Virtuoso {
+    & > div[data-viewport-type="element"] {
+        padding: 20px 20px 20px 45px;
+    }
+}
+
+.VirtuosoGrid {
+    & > div {
+        padding: 20px 20px 20px 45px;
+    }
+}
+
+.ArticleListSkeleton {
+    margin-top: 16px;
+
+    &.SMALL {
+        margin-top: 0;
+    }
+}
+
+.ArticleItemSkeleton {
+    margin-top: 16px;
+}
+
+.itemsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+
+    margin-top: 16px;
+}
+
+.itemContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    width: 230px;
+
+    @media (max-width: 1024px) {
+        width: 50%;
+    }
+
+    @media (max-width: 300px) {
+        width: 100%;
+    }
 }

@@ -17,7 +17,6 @@ import {
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer, getArticles } from '../../model/slices/articlePageSlice';
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import cls from './ArticlesPage.module.scss';
 
 const reducers: ReducersList = {
@@ -54,10 +53,16 @@ const ArticlesPage = memo((props: TArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page onScrollEnd={handleLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
-                <ArticlesPageFilters />
-                <ArticleList isLoading={isLoading} view={view} articles={articles} className={cls.list} />
-            </Page>
+            {/* <Page /* onScrollEnd={handleLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}> */}
+            {/* <ArticlesPageFilters /> */}
+            <ArticleList
+                isLoading={isLoading}
+                view={view}
+                articles={articles}
+                className={cls.list}
+                onLoadNextPart={handleLoadNextPart}
+            />
+            {/* </Page> */}
         </DynamicModuleLoader>
     );
 });

@@ -70,6 +70,7 @@ module.exports = {
         indent: 'off',
         'no-extra-boolean-cast': 'off',
         'react/no-array-index-key': 'off',
+        'react/no-unstable-nested-components': 'off',
     },
     globals: {
         __IS_DEV__: true,
