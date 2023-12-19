@@ -7,7 +7,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
+import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
 import cls from './AddCommentForm.module.scss';
 
@@ -26,7 +26,7 @@ const AddCommentForm = memo((props: TAddCommentFormProps) => {
     const dispatch = useAppDispatch();
 
     const text = useSelector(getAddCommentFormText);
-    const error = useSelector(getAddCommentFormError);
+    // const error = useSelector(getAddCommentFormError);
 
     const handleChangeText = useCallback(
         (value: string) => {

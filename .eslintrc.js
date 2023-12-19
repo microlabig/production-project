@@ -24,7 +24,7 @@ module.exports = {
         'plugin:prettier/recommended',
         'plugin:storybook/recommended',
     ],
-    plugins: ['react', '@typescript-eslint', 'react-hooks', 'i18next', 'prettier'],
+    plugins: ['react', '@typescript-eslint', 'react-hooks', 'i18next', 'prettier', 'bzm-fsd-plugin'],
     rules: {
         'no-shadow': 'off',
         '@typescript-eslint/no-shadow': 'warn',
@@ -71,6 +71,7 @@ module.exports = {
         'no-extra-boolean-cast': 'off',
         'react/no-array-index-key': 'off',
         'react/no-unstable-nested-components': 'off',
+        'bzm-fsd-plugin/path-checker': 'error', // Мое первое кастомное eslint правило
     },
     globals: {
         __IS_DEV__: true,

@@ -5,7 +5,7 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppNavLink, AppNavLinkTheme } from 'shared/ui/AppNavLink/AppNavLink';
-import { SidebarItemType } from 'widgets/Sidebar/model/types/sidebar';
+import { SidebarItemType } from '../../model/types/sidebar';
 import cls from './SidebarItem.module.scss';
 
 type TSidebarItemProps = {

@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { getArticleDetailsData } from 'entities/Article';
-import { getArticleCanEdit } from 'pages/ArticleDetailsPage/model/selectors/article';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { getArticleCanEdit } from '../../model/selectors/article';
 import cls from './ArticleDetailsPageHeader.module.scss';
 
 type TArticleDetailsPageHeaderProps = {
