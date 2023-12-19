@@ -20,8 +20,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from 'widgets/Page';
+import { VStack } from 'shared/ui/Stack';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Page } from 'widgets/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const initialReducers: ReducersList = {
@@ -115,25 +116,27 @@ function ProfilePage() {
     return (
         <DynamicModuleLoader reducers={initialReducers}>
             <Page className={classNames('', {}, [])}>
-                <ProfilePageHeader readonly={readonly} />
-                {!!validateErrors?.length &&
-                    validateErrors.map(err => (
-                        <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslates[err]} />
-                    ))}
-                <ProfileCard
-                    data={form}
-                    isLoading={isLoading}
-                    error={error}
-                    readonly={readonly}
-                    handleChangeFirstName={onChangeFirstName}
-                    handleChangeLastName={onChangeLastName}
-                    handleChangeAge={onChangeAge}
-                    handleChangeCity={onChangeCity}
-                    handleChangeUsername={onChangeUsername}
-                    handleChangeAvatar={onChangeAvatar}
-                    handleChangeCurrency={onChangeCurrency}
-                    handleChangeCountry={onChangeCountry}
-                />
+                <VStack gap="16" max>
+                    <ProfilePageHeader readonly={readonly} />
+                    {!!validateErrors?.length &&
+                        validateErrors.map(err => (
+                            <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslates[err]} />
+                        ))}
+                    <ProfileCard
+                        data={form}
+                        isLoading={isLoading}
+                        error={error}
+                        readonly={readonly}
+                        handleChangeFirstName={onChangeFirstName}
+                        handleChangeLastName={onChangeLastName}
+                        handleChangeAge={onChangeAge}
+                        handleChangeCity={onChangeCity}
+                        handleChangeUsername={onChangeUsername}
+                        handleChangeAvatar={onChangeAvatar}
+                        handleChangeCurrency={onChangeCurrency}
+                        handleChangeCountry={onChangeCountry}
+                    />
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     );

@@ -7,6 +7,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
+import { HStack } from 'shared/ui/Stack';
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
 import cls from './AddCommentForm.module.scss';
@@ -42,7 +43,7 @@ const AddCommentForm = memo((props: TAddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.AddCommentForm, {}, [className])}>
+            <HStack align="center" justify="between" max className={classNames(cls.AddCommentForm, {}, [className])}>
                 <Input
                     placeholder={t('Введите текст комментария')}
                     value={text}
@@ -52,7 +53,7 @@ const AddCommentForm = memo((props: TAddCommentFormProps) => {
                 <Button theme={ButtonTheme.OUTLINE} onClick={handleClickSendBtn}>
                     {t('Отправить')}
                 </Button>
-            </div>
+            </HStack>
         </DynamicModuleLoader>
     );
 });

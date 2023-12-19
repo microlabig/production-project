@@ -7,20 +7,6 @@
     border-color: var(--inverted-primary-color);
 }
 
-.avatarWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.input {
-    margin-top: 10px;
-
-    &:first-child {
-        margin-top: 0;
-    }
-}
-
 .loading,
 .error {
     display: flex;
