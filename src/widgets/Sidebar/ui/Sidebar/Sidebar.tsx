@@ -23,7 +23,7 @@ export const Sidebar = memo((props: TSidebarProps) => {
     };
 
     return (
-        <menu
+        <section
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [props.className])}
         >
@@ -39,7 +39,7 @@ export const Sidebar = memo((props: TSidebarProps) => {
                 {collapsed ? '>' : '<'}
             </Button>
 
-            <VStack gap="8" className={cls.items}>
+            <VStack role="navigation" gap="8" className={cls.items}>
                 {sidebarItemsList.map(item => (
                     <SidebarItem key={item.path} item={item} collapsed={collapsed} />
                 ))}
@@ -49,6 +49,6 @@ export const Sidebar = memo((props: TSidebarProps) => {
                 <ThemeSwitcher />
                 <LangSwitcher short={collapsed} />
             </div>
-        </menu>
+        </section>
     );
 });

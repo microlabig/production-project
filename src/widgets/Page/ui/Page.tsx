@@ -45,9 +45,9 @@ export const Page = (props: TPageProps) => {
     }, 500);
 
     return (
-        <section ref={wrapperRef} onScroll={handleScroll} className={classNames(cls.Page, {}, [className])}>
+        <main ref={wrapperRef} onScroll={handleScroll} className={classNames(cls.Page, {}, [className])}>
             {children}
             {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
-        </section>
+        </main>
     );
 };
