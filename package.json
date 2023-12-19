@@ -130,7 +130,7 @@
     "src/**/*.{js,ts,tsx}": [
       "npm run lint:ts"
     ],
-    "src/**/*.{scss}": [
+    "src/**/*.{css,scss}": [
       "npm run lint:scss"
     ]
   },
