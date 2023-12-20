@@ -1,13 +1,12 @@
 import { Listbox as HListBox } from '@headlessui/react';
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, forwardRef } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from '../Button/Button';
-import cls from './ListBox.module.scss';
-import { Text } from '../Text/Text';
+import { DropDownDirection } from 'shared/types/ui';
+import { Button, TButtonProps } from '../Button/Button';
 import { HStack } from '../Stack';
-
-type DropDownDirection = 'top' | 'bottom'; // но лучше использовать библиотеку floating ui, popper js, Tippy.js либо аналагичные
+import { Text } from '../Text/Text';
+import cls from './ListBox.module.scss';
 
 export interface ListBoxItem<T extends string> {
     value: T;
@@ -27,10 +26,23 @@ interface TListBoxProps<T extends string> {
     className?: string;
 }
 
-export const ListBox = <T extends string>(props: TListBoxProps<T>) => {
-    const { items, value, defaultValue, className, onChange, readonly, label, direction = 'bottom' } = props;
+const mapDirectionClasses: Record<DropDownDirection, string> = {
+    'bottom left': cls.optionsBottomLeft,
+    'bottom right': cls.optionsBottomRight,
+    'top left': cls.optionsTopLeft,
+    'top right': cls.optionsTopRight,
+};
 
-    const optionsAdditionalClasses = [cls[direction]];
+// чтобы убрать варнинг "Warning: validateDOMNesting(...): <button> cannot appear as a descendant of <button>"
+const ListBoxButton = forwardRef<HTMLDivElement, TButtonProps>((props, ref) => (
+    <div ref={ref}>
+        <Button {...props} />
+    </div>
+));
+
+export const ListBox = <T extends string>(props: TListBoxProps<T>) => {
+    const { items, value, defaultValue, className, onChange, readonly, label, direction = 'bottom right' } = props;
+    const optionsAdditionalClasses = [mapDirectionClasses[direction]];
     const selectedContent = items?.find(item => item.value === value ?? defaultValue)?.content;
 
     return (
@@ -43,8 +55,8 @@ export const ListBox = <T extends string>(props: TListBoxProps<T>) => {
                 onChange={onChange}
                 className={classNames(cls.ListBox, {}, [className])}
             >
-                <HListBox.Button className={cls.trigger}>
-                    <Button disabled={readonly}>{selectedContent ?? ' - '}</Button>
+                <HListBox.Button as={Fragment}>
+                    <ListBoxButton disabled={readonly}>{selectedContent ?? ' - '}</ListBoxButton>
                 </HListBox.Button>
 
                 <HListBox.Options className={classNames(cls.options, {}, optionsAdditionalClasses)}>

@@ -7,7 +7,9 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import cls from './Navbar.module.scss';
 
@@ -41,9 +43,21 @@ export const Navbar = memo((props: TNavbarProps) => {
     );
 
     const renderAuthLayout = (
-        <Button theme={ButtonTheme.CLEAR_INVERTED} className={cls.links} onClick={handleLogout}>
-            {t('Выйти')}
-        </Button>
+        <Dropdown
+            items={[
+                {
+                    content: t('Профиль'),
+                    href: `${RoutePath.profile}/${authData?.id ?? ''}`,
+                },
+                {
+                    content: t('Выйти'),
+                    onClick: handleLogout,
+                },
+            ]}
+            trigger={<Avatar size={30} src={authData?.avatar} />}
+            direction="bottom left"
+            className={cls.dropdown}
+        />
     );
 
     return (

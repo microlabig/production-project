@@ -29,7 +29,7 @@ export const CountrySelect = memo((props: TCurrencyProps) => {
             onChange={onChange}
             readonly={readonly}
             className={className}
-            direction="top"
+            direction="top right"
         />
     );
 });

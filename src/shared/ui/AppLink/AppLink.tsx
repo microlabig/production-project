@@ -10,7 +10,7 @@ export enum AppLinkTheme {
     RED = 'red',
 }
 
-type TAppLinkProps = NavLinkProps & {
+export type TAppLinkProps = NavLinkProps & {
     className?: string;
     theme?: AppLinkTheme;
 };

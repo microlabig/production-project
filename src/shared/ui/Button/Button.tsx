@@ -17,7 +17,7 @@ export enum ButtonSize {
     XL = 'size_xl',
 }
 
-type TButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+export type TButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     className?: string;
     theme?: ButtonTheme;
     square?: boolean;
