@@ -4,7 +4,7 @@ import { Text } from 'shared/ui/Text/Text';
 import { Page } from './Page';
 
 const meta = {
-    title: 'shared/Page',
+    title: 'widget/Page',
     component: Page,
 } satisfies Meta<typeof Page>;
 

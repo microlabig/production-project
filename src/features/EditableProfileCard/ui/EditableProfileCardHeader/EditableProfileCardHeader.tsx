@@ -1,22 +1,26 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import { profileActions, updateProfileData } from 'entities/Profile';
-import { getProfileCanEdit } from 'entities/Profile/';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
+import { getProfileCanEdit } from '../../model/selectors/getProfileCanEdit/getProfileCanEdit';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../model/slice/profileSlice';
 
-type TProfilePageHeaderProps = {
-    readonly?: boolean;
+type TEditableProfileCardHeaderProps = {
     className?: string;
 };
 
-export const ProfilePageHeader = (props: TProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = memo((props: TEditableProfileCardHeaderProps) => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
+
+    const readonly = useSelector(getProfileReadonly);
 
     const canEdit = useSelector(getProfileCanEdit);
 
@@ -40,7 +44,7 @@ export const ProfilePageHeader = (props: TProfilePageHeaderProps) => {
 
             {canEdit && (
                 <div>
-                    {props.readonly ? (
+                    {readonly ? (
                         <Button theme={ButtonTheme.OUTLINE} onClick={onEdit}>
                             {t('Редактировать')}
                         </Button>
@@ -58,4 +62,4 @@ export const ProfilePageHeader = (props: TProfilePageHeaderProps) => {
             )}
         </HStack>
     );
-};
+});

@@ -1,8 +1,8 @@
 import { StoryFn } from '@storybook/react';
 import { articleDetailsReducer } from 'entities/Article';
-import { profileReducer } from 'entities/Profile';
 import { addCommentFormReducer } from 'features/AddCommentForm';
 import { loginReducer } from 'features/AuthByUserName';
+import { profileReducer } from 'features/EditableProfileCard';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage';
 import { articlesPageReducer } from 'pages/ArticlesPage';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';

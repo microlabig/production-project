@@ -8,7 +8,7 @@ import { Theme } from 'shared/providers/theme-provider';
 import ProfilePage from './ProfilePage';
 
 const meta = {
-    title: 'pages/ProfilePage',
+    title: 'pages/ProfilePage/ProfilePage',
     component: ProfilePage,
     decorators: [StoreDecorator({})],
 } satisfies Meta<typeof ProfilePage>;

@@ -5,6 +5,7 @@ import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/A
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { ARTICLE_INDEX_SESSION_STORAGE_KEY } from 'shared/constants/sessionStorage';
+import { HStack } from 'shared/ui/Stack';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { Article, ArticleView } from '../../model/types/articleDetails';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -24,12 +25,22 @@ type TArticleListProps = {
     view?: ArticleView;
     onLoadNextPart?: () => void;
 
+    withInfiniteScroll?: boolean;
+
     className?: string;
 };
 
 export const ArticleList = memo((props: TArticleListProps) => {
     const { t } = useTranslation('article');
-    const { className, articles, isLoading, view = ArticleView.SMALL, target, onLoadNextPart } = props;
+    const {
+        className,
+        articles,
+        isLoading,
+        view = ArticleView.SMALL,
+        target,
+        onLoadNextPart,
+        withInfiniteScroll = true,
+    } = props;
 
     const [scrollIndex] = useState(Number(sessionStorage.getItem(ARTICLE_INDEX_SESSION_STORAGE_KEY)) || 0);
 
@@ -76,41 +87,46 @@ export const ArticleList = memo((props: TArticleListProps) => {
         );
     }
 
+    const renderVirtuosoInfiniteScrollList =
+        view === ArticleView.BIG ? (
+            <Virtuoso
+                style={{ height: '100%' }}
+                data={articles}
+                itemContent={renderArticles}
+                endReached={onLoadNextPart}
+                components={{
+                    Header,
+                    Footer,
+                }}
+                initialTopMostItemIndex={articles && scrollIndex > articles.length ? 0 : scrollIndex}
+                className={cls.Virtuoso}
+            />
+        ) : (
+            <VirtuosoGrid
+                totalCount={articles?.length}
+                components={{
+                    Header,
+                    ScrollSeekPlaceholder: ItemContainerComponent,
+                    Footer,
+                }}
+                data={articles}
+                endReached={onLoadNextPart}
+                itemContent={renderArticles}
+                scrollSeekConfiguration={{
+                    enter: velocity => Math.abs(velocity) > 200,
+                    exit: velocity => Math.abs(velocity) < 30,
+                }}
+                initialTopMostItemIndex={articles && scrollIndex > articles.length ? 0 : scrollIndex}
+                listClassName={cls.itemsWrapper}
+                className={cls.VirtuosoGrid}
+            />
+        );
+
+    const renderSmallList = <HStack gap="16">{articles?.map((_, index) => renderArticles(index))}</HStack>;
+
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {view === ArticleView.BIG ? (
-                <Virtuoso
-                    style={{ height: '100%' }}
-                    data={articles}
-                    itemContent={renderArticles}
-                    endReached={onLoadNextPart}
-                    components={{
-                        Header,
-                        Footer,
-                    }}
-                    initialTopMostItemIndex={articles && scrollIndex > articles.length ? 0 : scrollIndex}
-                    className={cls.Virtuoso}
-                />
-            ) : (
-                <VirtuosoGrid
-                    totalCount={articles?.length}
-                    components={{
-                        Header,
-                        ScrollSeekPlaceholder: ItemContainerComponent,
-                        Footer,
-                    }}
-                    data={articles}
-                    endReached={onLoadNextPart}
-                    itemContent={renderArticles}
-                    scrollSeekConfiguration={{
-                        enter: velocity => Math.abs(velocity) > 200,
-                        exit: velocity => Math.abs(velocity) < 30,
-                    }}
-                    initialTopMostItemIndex={articles && scrollIndex > articles.length ? 0 : scrollIndex}
-                    listClassName={cls.itemsWrapper}
-                    className={cls.VirtuosoGrid}
-                />
-            )}
+            {withInfiniteScroll ? renderVirtuosoInfiniteScrollList : renderSmallList}
         </div>
     );
 });

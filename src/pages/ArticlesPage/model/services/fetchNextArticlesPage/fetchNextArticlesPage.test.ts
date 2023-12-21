@@ -26,6 +26,7 @@ describe('fetchNextArticlesPage.test', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(4); // dispatch of pending thunk, fulfilled thunk, setPage, fetchArticlesList actions
+        expect(fetchArticlesList).toHaveBeenCalled();
     });
 
     test('fetchArticlesList not called', async () => {
