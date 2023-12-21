@@ -1,12 +1,17 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { [FTName]Schema } from '../types/[FTName | camelcase]Schema';
+const firstCharUpperCase = require('../firstCharUpperCase');
 
-const initialState: [FTName]Schema = {
-    isLoading: false,
+module.exports = (sliceName) => {
+    const typeName = `${firstCharUpperCase(sliceName)}Schema`;
+
+    return `import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ${typeName} } from '../types/${sliceName}Schema';
+
+const initialState: ${typeName} = {
+    
 };
 
-export const [FTName | camelcase]Slice = createSlice({
-    name: '[FTName | camelcase]',
+export const ${sliceName}Slice = createSlice({
+    name: '${sliceName}',
     initialState,
     reducers: {
         template: (state, action: PayloadAction<string>) => {
@@ -29,7 +34,6 @@ export const [FTName | camelcase]Slice = createSlice({
     // },
 });
 
-export const {
-    actions: [FTName | camelcase]Actions,
-    reducer: [FTName | camelcase]Reducer
-} = [FTName | camelcase]Slice;
+export const { actions: ${sliceName}Actions } = ${sliceName}Slice;
+export const { reducer: ${sliceName}Reducer } = ${sliceName}Slice;`;
+};
