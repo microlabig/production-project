@@ -8,6 +8,7 @@
   "О странице": "About",
   "Профиль": "Profile",
   "Статьи": "Articles",
+  "Админка": "Admin",
   "Страница не найдена": "Not found page",
   "Что-то пошло не так": "Something went wrong",
   "Перезагрузить": "Reload",
@@ -27,5 +28,6 @@
   "Отправить": "Send",
   "Читать далее...": "Read more...",
   "News app": "News app",
-  "Создать статью": "Create article"
+  "Создать статью": "Create article",
+  "У вас нет доступа к этой странице": "You not have access to this page"
 }
