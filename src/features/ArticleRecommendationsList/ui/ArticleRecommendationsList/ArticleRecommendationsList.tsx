@@ -6,6 +6,8 @@ import { VStack } from 'shared/ui/Stack';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 
+import cls from './ArticleRecomendatonsList.module.scss';
+
 interface ArticleRecommendationsListProps {
     className?: string;
 }
@@ -21,7 +23,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     }
 
     return (
-        <VStack gap="8" className={classNames('', {}, [className])}>
+        <VStack gap="8" className={classNames(cls.ArticleRecommendationsList, {}, [className])}>
             <Text size={TextSize.L} title={t('Рекомендуем')} />
             <ArticleList
                 view={ArticleView.SMALL}
@@ -29,6 +31,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
                 articles={articles}
                 isLoading={isLoading}
                 target="_blank"
+                className={cls.list}
             />
         </VStack>
     );
