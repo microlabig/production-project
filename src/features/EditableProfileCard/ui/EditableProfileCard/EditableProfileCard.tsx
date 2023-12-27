@@ -19,6 +19,7 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 const initialReducers: ReducersList = {
     profile: profileReducer,
@@ -116,9 +117,15 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     return (
         <DynamicModuleLoader reducers={initialReducers}>
             <VStack gap="16" max className={classNames('', {}, [className])}>
+                <EditableProfileCardHeader />
                 {!!validateErrors?.length &&
                     validateErrors.map(err => (
-                        <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslates[err]} />
+                        <Text
+                            key={err}
+                            data-testid="EditableProfileCard.Error"
+                            theme={TextTheme.ERROR}
+                            text={validateErrorTranslates[err]}
+                        />
                     ))}
                 <ProfileCard
                     data={form}

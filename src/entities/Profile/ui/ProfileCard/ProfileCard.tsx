@@ -85,12 +85,14 @@ export const ProfileCard = (props: TProfileCardProps) => {
                 value={data?.first}
                 placeholder={t('Ваше имя')}
                 onChange={handleChangeFirstName}
+                data-testid="ProfileCard.FirstName"
             />
             <Input
                 readonly={readonly}
                 value={data?.lastname}
                 placeholder={t('Ваша фамилия')}
                 onChange={handleChangeLastName}
+                data-testid="ProfileCard.LastName"
             />
             <Input readonly={readonly} value={data?.age} placeholder={t('Ваш возраст')} onChange={handleChangeAge} />
             <Input readonly={readonly} value={data?.city} placeholder={t('Город')} onChange={handleChangeCity} />

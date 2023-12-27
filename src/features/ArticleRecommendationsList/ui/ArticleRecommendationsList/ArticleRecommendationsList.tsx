@@ -25,7 +25,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
             <Text size={TextSize.L} title={t('Рекомендуем')} />
             <ArticleList
                 view={ArticleView.SMALL}
-                withInfiniteScroll={false}
+                isVirtualized={false}
                 articles={articles}
                 isLoading={isLoading}
                 target="_blank"

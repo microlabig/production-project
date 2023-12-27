@@ -6,7 +6,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page';
-import { EditableProfileCardHeader } from 'features/EditableProfileCard/ui/EditableProfileCardHeader/EditableProfileCardHeader';
 
 function ProfilePage() {
     const { t } = useTranslation('profile');
@@ -20,7 +19,6 @@ function ProfilePage() {
     return (
         <Page className={classNames('', {}, [])}>
             <VStack gap="16" max>
-                <EditableProfileCardHeader />
                 <EditableProfileCard id={id} />
             </VStack>
         </Page>

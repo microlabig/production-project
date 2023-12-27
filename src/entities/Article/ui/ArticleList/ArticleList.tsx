@@ -25,7 +25,7 @@ type TArticleListProps = {
     view?: ArticleView;
     onLoadNextPart?: () => void;
 
-    withInfiniteScroll?: boolean;
+    isVirtualized?: boolean;
 
     className?: string;
 };
@@ -39,7 +39,7 @@ export const ArticleList = memo((props: TArticleListProps) => {
         view = ArticleView.SMALL,
         target,
         onLoadNextPart,
-        withInfiniteScroll = true,
+        isVirtualized = true,
     } = props;
 
     const [scrollIndex] = useState(Number(sessionStorage.getItem(ARTICLE_INDEX_SESSION_STORAGE_KEY)) || 0);
@@ -126,7 +126,7 @@ export const ArticleList = memo((props: TArticleListProps) => {
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {withInfiniteScroll ? renderVirtuosoInfiniteScrollList : renderSmallList}
+            {isVirtualized ? renderVirtuosoInfiniteScrollList : renderSmallList}
         </div>
     );
 });
