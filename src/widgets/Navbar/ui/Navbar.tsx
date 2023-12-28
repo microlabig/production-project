@@ -3,7 +3,7 @@ import { LoginModal } from 'features/AuthByUserName';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from 'shared/config/routeConfig/constants';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';

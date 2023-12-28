@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from 'shared/config/routeConfig/constants';
 import { ARTICLE_INDEX_SESSION_STORAGE_KEY } from 'shared/constants/sessionStorage';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
@@ -60,7 +60,7 @@ export const ArticleListItem = memo((props: TArticleListItemProps) => {
                     <img src={article.img} alt={article.title} className={cls.img} />
                     {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
                     <div className={cls.footer}>
-                        <AppLink to={`${RoutePath.articles_details}/${article.id}`}>
+                        <AppLink to={`${RoutePath.article_details}/${article.id}`}>
                             <Button theme={ButtonTheme.OUTLINE} onClick={handleClickReadMore}>
                                 {t('Читать далее...')}
                             </Button>
@@ -75,7 +75,7 @@ export const ArticleListItem = memo((props: TArticleListItemProps) => {
     return (
         <AppLink
             target={target}
-            to={`${RoutePath.articles_details}/${article.id}`}
+            to={`${RoutePath.article_details}/${article.id}`}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             onClick={handleClickReadMore}
         >

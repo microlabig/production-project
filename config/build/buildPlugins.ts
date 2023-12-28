@@ -2,6 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack, { DefinePlugin } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'; // https://youtu.be/acAH2_YT6bs?t=7661
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { type BuildOptions } from './types/config';
@@ -25,6 +26,10 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
         }),
         new CopyPlugin({
             patterns: [{ from: paths.locales, to: paths.buildLocales }],
+        }),
+        new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
         }),
     ];
 

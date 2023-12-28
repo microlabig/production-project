@@ -1,68 +1,58 @@
 .ArticleList {
+    width: 100%;
+    height: 100%;
+}
+
+// BIG
+
+.VirtuosoBig {
+    width: 100%;
+
+    min-height: 100%;
+
+    margin-top: 16px;
+
+    & > div[data-viewport-type="element"] { // viewport
+        padding-right: 10px;
+    }
+}
+
+.listBig {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    gap: 16px;
 }
 
-// .BIG {
-// }
-
-.SMALL {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-}
-
-.ArticleListItem {
-    margin-top: 16px;
-}
-
-.Virtuoso {
-    & > div[data-viewport-type="element"] {
-        padding: 20px 20px 20px 45px;
-    }
-}
+// SMALL
 
 .VirtuosoGrid {
-    & > div {
-        padding: 20px 20px 20px 45px;
+    width: 100%;
+
+    min-height: 100%;
+
+    margin-top: 16px;
+
+    & > div[data-viewport-type="element"] { // viewport
+        padding-right: 10px;
     }
 }
 
-.ArticleListSkeleton {
+.listSmall {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer {
+    display: flex;
+    gap: 16px;
     margin-top: 16px;
+
+    &.BIG {
+        flex-direction: column;
+    }
 
     &.SMALL {
-        margin-top: 0;
-    }
-}
-
-.ArticleItemSkeleton {
-    margin-top: 16px;
-}
-
-.itemsWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: space-between;
-
-    margin-top: 16px;
-}
-
-.itemContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: space-between;
-    width: 230px;
-
-    @media (max-width: 1024px) {
-        width: 50%;
-    }
-
-    @media (max-width: 300px) {
-        width: 100%;
+        flex-wrap: wrap;
     }
 }

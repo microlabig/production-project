@@ -1,14 +1,13 @@
-import { HTMLAttributeAnchorTarget, memo, useCallback, useState } from 'react';
+import { HTMLAttributeAnchorTarget, forwardRef, memo, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 import { useTranslation } from 'react-i18next';
-import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
+import { Components, Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { ARTICLE_INDEX_SESSION_STORAGE_KEY } from 'shared/constants/sessionStorage';
 import { HStack } from 'shared/ui/Stack';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import { Article } from '../../model/types/articleDetails';
 import { ArticleView } from '../../model/constants/constants';
+import { Article } from '../../model/types/articleDetails';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
@@ -18,6 +17,10 @@ const getSkeletons = (view: ArticleView) => {
         .fill(0)
         .map((_, i) => <ArticleListItemSkeleton key={i} view={view} className={cls.ArticleItemSkeleton} />);
 };
+
+// Virtuoso custom styles docs: https://virtuoso.dev/customize-structure/
+const ListBig: Components['List'] = forwardRef((props, ref) => <div className={cls.listBig} {...props} ref={ref} />);
+const ListItemBig: Components['Item'] = props => <div className={cls.listItemBig} {...props} />;
 
 type TArticleListProps = {
     target?: HTMLAttributeAnchorTarget;
@@ -43,42 +46,43 @@ export const ArticleList = memo((props: TArticleListProps) => {
         isVirtualized = true,
     } = props;
 
+    // индекс элемента, до которого можно проскроллить при возврате на данный список
     const [scrollIndex] = useState(Number(sessionStorage.getItem(ARTICLE_INDEX_SESSION_STORAGE_KEY)) || 0);
 
-    const Header = useCallback(() => <ArticlesPageFilters />, []);
+    // футер отображения скелетонов во время загрузки
     const Footer = useCallback(
-        () =>
-            isLoading ? (
-                <div className={classNames(cls.ArticleListSkeleton, {}, [cls[view]])}>{getSkeletons(view)}</div>
-            ) : null,
+        () => (isLoading ? <div className={classNames(cls.footer, {}, [cls[view]])}>{getSkeletons(view)}</div> : null),
         [isLoading, view]
     );
+
+    // элемент во время прокрутки списка в случае view === SMALL
     const ItemContainerComponent = useCallback(
         (opt: { height: number; width: number; index: number }) => (
-            <div className={cls.itemContainer}>
-                <ArticleListItemSkeleton key={opt.index} view={view} className={cls.ArticleItemSkeleton} />
-            </div>
+            <ArticleListItemSkeleton key={opt.index} view={view} className={cls.ArticleItemSkeleton} />
         ),
         [view]
     );
 
-    const renderArticles = (index: number) => {
-        const article = articles?.[index];
+    const renderArticles = useCallback(
+        (index: number) => {
+            const article = articles?.[index];
 
-        if (!article) {
-            return null;
-        }
-        return (
-            <ArticleListItem
-                key={article.id}
-                article={article}
-                view={view}
-                target={target}
-                className={cls.ArticleListItem}
-                index={index}
-            />
-        );
-    };
+            if (!article) {
+                return null;
+            }
+            return (
+                <ArticleListItem
+                    key={article.id}
+                    article={article}
+                    view={view}
+                    target={target}
+                    className={cls.ArticleListItem}
+                    index={index}
+                />
+            );
+        },
+        [articles, target, view]
+    );
 
     if (!isLoading && !articles?.length) {
         return (
@@ -91,22 +95,21 @@ export const ArticleList = memo((props: TArticleListProps) => {
     const renderVirtuosoInfiniteScrollList =
         view === ArticleView.BIG ? (
             <Virtuoso
-                style={{ height: '100%' }}
-                data={articles}
+                totalCount={articles?.length}
                 itemContent={renderArticles}
                 endReached={onLoadNextPart}
                 components={{
-                    Header,
                     Footer,
+                    List: ListBig,
+                    Item: ListItemBig,
                 }}
                 initialTopMostItemIndex={articles && scrollIndex > articles.length ? 0 : scrollIndex}
-                className={cls.Virtuoso}
+                className={cls.VirtuosoBig}
             />
         ) : (
             <VirtuosoGrid
                 totalCount={articles?.length}
                 components={{
-                    Header,
                     ScrollSeekPlaceholder: ItemContainerComponent,
                     Footer,
                 }}
@@ -118,16 +121,12 @@ export const ArticleList = memo((props: TArticleListProps) => {
                     exit: velocity => Math.abs(velocity) < 30,
                 }}
                 initialTopMostItemIndex={articles && scrollIndex > articles.length ? 0 : scrollIndex}
-                listClassName={cls.itemsWrapper}
+                listClassName={cls.listSmall}
                 className={cls.VirtuosoGrid}
             />
         );
 
     const renderSmallList = <HStack gap="16">{articles?.map((_, index) => renderArticles(index))}</HStack>;
 
-    return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {isVirtualized ? renderVirtuosoInfiniteScrollList : renderSmallList}
-        </div>
-    );
+    return isVirtualized ? renderVirtuosoInfiniteScrollList : renderSmallList;
 });
