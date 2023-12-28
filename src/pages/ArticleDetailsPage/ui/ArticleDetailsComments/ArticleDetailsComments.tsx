@@ -15,7 +15,7 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 
 type TArticleDetailsCommentsProps = {
-    id: string;
+    id?: string;
 
     className?: string;
 };
@@ -40,6 +40,10 @@ export const ArticleDetailsComments = memo((props: TArticleDetailsCommentsProps)
         },
         [dispatch]
     );
+
+    if (!id) {
+        return <Text text={t('Комментарии не найдены')} />;
+    }
 
     return (
         <VStack gap="16" max className={classNames('', {}, [className])}>

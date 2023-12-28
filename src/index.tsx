@@ -1,13 +1,21 @@
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './app/App';
-import { ThemeProvider } from './shared/providers/theme-provider';
 import { ErrorBoundary } from './shared/providers/error-boundary';
 import { StoreProvider, StoreWrapperProvider } from './shared/providers/store-provider';
+import { ThemeProvider } from './shared/providers/theme-provider';
 
 import 'shared/config/i18n/i18n';
 
-render(
+const container = document.getElementById('root');
+
+if (!container) {
+    throw new Error('Контейнер root не найден. Не удалось вмонтировать react-приложение');
+}
+
+const root = createRoot(container);
+
+root.render(
     <BrowserRouter>
         <StoreWrapperProvider>
             <StoreProvider>
@@ -18,6 +26,5 @@ render(
                 </ErrorBoundary>
             </StoreProvider>
         </StoreWrapperProvider>
-    </BrowserRouter>,
-    document.getElementById('root')
+    </BrowserRouter>
 );

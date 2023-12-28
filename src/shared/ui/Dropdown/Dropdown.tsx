@@ -63,14 +63,14 @@ export const Dropdown = memo((props: TDropdownProps) => {
                     if (item.href) {
                         return (
                             <Menu.Item key={index} as={Fragment} disabled={item.disabled}>
-                                <DropdownLink to={item.href}>{content}</DropdownLink>
+                                {({ active }) => <DropdownLink to={item.href!}>{content({ active })}</DropdownLink>}
                             </Menu.Item>
                         );
                     }
 
                     return (
                         <Menu.Item key={index} as={Fragment} disabled={item.disabled}>
-                            {content}
+                            {({ active }) => content({ active })}
                         </Menu.Item>
                     );
                 })}

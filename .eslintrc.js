@@ -71,6 +71,7 @@ module.exports = {
         'no-extra-boolean-cast': 'off',
         'react/no-array-index-key': 'off',
         'react/no-unstable-nested-components': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
         'bzm-fsd-plugin/path-checker': 'error', // Мое первое кастомное eslint правило
     },
     globals: {

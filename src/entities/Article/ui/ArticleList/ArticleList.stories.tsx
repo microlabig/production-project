@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { Article, ArticleView } from '../../model/types/articleDetails';
 import { ArticleList } from './ArticleList';
 
 const meta = {
     title: 'entities/Article/ArticleList',
     component: ArticleList,
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof ArticleList>;
 
 export default meta;

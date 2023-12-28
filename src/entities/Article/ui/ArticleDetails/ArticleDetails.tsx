@@ -47,7 +47,7 @@ const reducers: ReducersList = {
 };
 
 type TArticleDetailsProps = {
-    id: string;
+    id?: string;
 
     className?: string;
 };
@@ -63,10 +63,16 @@ export const ArticleDetails = memo((props: TArticleDetailsProps) => {
     const { id, className } = props;
 
     useInitialEffect(() => {
-        dispatch(fetchArticleDetailsById(id));
+        if (id) {
+            dispatch(fetchArticleDetailsById(id));
+        }
     });
 
     let content;
+
+    if (!id) {
+        return <Text text={t('Статья не найдена')} />;
+    }
 
     if (isLoading) {
         content = (
