@@ -1,6 +1,7 @@
 import { StateSchema } from 'shared/providers/store-provider';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails';
-import { Article, ArticleBlockType, ArticleType } from '../types/articleDetails';
+import { Article } from '../types/articleDetails';
+import { ArticleType, ArticleBlockType } from '../constants/constants';
 
 const data: Article = {
     id: '1',

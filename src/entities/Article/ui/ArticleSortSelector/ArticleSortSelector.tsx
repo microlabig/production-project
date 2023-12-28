@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 import { SortOrder } from 'shared/types';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
-import { ArticleSortField } from '../../model/types/articleDetails';
+import { ArticleSortField } from '../../model/constants/constants';
 import cls from './ArticleSortSelector.module.scss';
 
 type TArticleSortSelectorProps = {
