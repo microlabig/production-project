@@ -31,7 +31,7 @@ export function buildBabelLoader({ isTsx, isDev }: BuildBabelLoaderProps) {
                     ],
                     '@babel/plugin-transform-runtime',
 
-                    // удаляем те пропсы, которые не нужны в билде
+                    // удаляем те пропсы, которые не нужны в продакшен сборке
                     isTsx &&
                         !isDev && [
                             babelRemovePropsPlugin,
