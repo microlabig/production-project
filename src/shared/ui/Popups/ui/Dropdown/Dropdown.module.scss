@@ -1,0 +1,29 @@
+.menu {
+    position: absolute;
+    z-index: var(--dropdown-z-index);
+
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    overflow: hidden;
+
+    background: var(--card-bg);
+}
+
+.item {
+    width: 100%;
+    padding: 10px 25px;
+    border: none;
+
+    color: var(--primary-color);
+
+    background: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        transition: all var(--delay) ease-in-out;
+    }
+}

@@ -1,8 +1,8 @@
-.Dropdown {
+.popup {
     position: relative;
 }
 
-.btn {
+.trigger {
     margin: 0;
     padding: 0;
     border: none;
@@ -12,7 +12,7 @@
     cursor: pointer;
 }
 
-.menu {
+.options {
     position: absolute;
     z-index: var(--dropdown-z-index);
 

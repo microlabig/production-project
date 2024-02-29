@@ -14,4 +14,4 @@ const [FTName | camelcase]Api = rtkApi.injectEndpoints({
     overrideExisting: false,
 });
 
-export const use[FTName] = recommendationsApi.useGet[FTName]Query;
+export const use[FTName] = [FTName | camelcase]Api.useGet[FTName]Query;

@@ -5,12 +5,13 @@ import cls from './Icon.module.scss';
 
 type TIconProps = {
     Svg: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string }>;
+    inverted?: boolean;
 
     className?: string;
 };
 
 export const Icon = memo((props: TIconProps) => {
-    const { Svg, className } = props;
+    const { Svg, inverted, className } = props;
 
-    return <Svg className={classNames(cls.Icon, {}, [className])} />;
+    return <Svg className={classNames(inverted ? cls.inverted : cls.Icon, {}, [className])} />;
 });

@@ -23,8 +23,6 @@ const ArticleDetailsPage = (props: TArticleDetailsPageProps) => {
     const { className } = props;
     const { id } = useParams<{ id: string }>();
 
-    console.log(id);
-
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={classNames('', {}, [className])}>

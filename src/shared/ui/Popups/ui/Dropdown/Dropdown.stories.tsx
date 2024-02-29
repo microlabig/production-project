@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { WrapperCenteredDecorator } from 'shared/config/storybook/WrapperStylesDecorator';
-import { Button } from '../Button/Button';
+import { Button } from '../../../Button/Button';
 import { Dropdown } from './Dropdown';
 
 const meta = {
