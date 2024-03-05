@@ -90,18 +90,17 @@ export const DrawerContent = memo((props: TDrawerProps) => {
     );
 });
 
-const DrawerComponent = memo((props: TDrawerProps) => {
+const DrawerAsync = (props: TDrawerProps) => {
     const { isLoaded } = useAnimationLibs();
 
     if (!isLoaded) {
         return null;
     }
-
     return <DrawerContent {...props} />;
-});
+};
 
-export const Drawer = memo((props: TDrawerProps) => (
+export const Drawer = (props: TDrawerProps) => (
     <AnimationProvider>
-        <DrawerComponent {...props} />
+        <DrawerAsync {...props} />
     </AnimationProvider>
-));
+);
