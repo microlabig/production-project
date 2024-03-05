@@ -5,7 +5,7 @@ import { ErrorBoundary } from './shared/providers/error-boundary';
 import { StoreProvider, StoreWrapperProvider } from './shared/providers/store-provider';
 import { ThemeProvider } from './shared/providers/theme-provider';
 
-import 'shared/config/i18n/i18n';
+import '@/shared/config/i18n/i18n';
 
 const container = document.getElementById('root');
 

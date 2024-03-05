@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/providers/store-provider';
+import { StateSchema } from '@/shared/providers/store-provider';
 import { getProfileCanEdit } from './getProfileCanEdit';
 
 describe('getProfileCanEdit.test', () => {

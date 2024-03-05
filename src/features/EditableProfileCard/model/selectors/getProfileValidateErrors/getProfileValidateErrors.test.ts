@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/providers/store-provider';
+import { StateSchema } from '@/shared/providers/store-provider';
 import { getProfileValidateErrors } from './getProfileValidateErrors';
 import { ValidateProfileError } from '../../constants/constants';
 

@@ -26,8 +26,9 @@
     --sidebar-width: 300px;
     --sidebar-width-collapsed: 80px;
 
-    // Индексы
+    // Z - Индексы
     --modal-z-index: 10;
+    --overlay-z-index: -1;
     --dropdown-z-index: 10000;
     --listbox-z-index: 10000;
     --sidebar-collapse-btn-z-index: 10;

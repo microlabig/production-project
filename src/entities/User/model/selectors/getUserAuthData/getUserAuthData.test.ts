@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/providers/store-provider';
+import { StateSchema } from '@/shared/providers/store-provider';
 import { User } from '../../types/userSchema';
 import { getUserAuthData } from './getUserAuthData';
 

@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-
 import { useParams } from 'react-router-dom';
-import { Page } from 'widgets/Page';
+import { classNames } from '@/shared/lib/classNames/classNames';
+
+import { Page } from '@/widgets/Page';
 
 type TArticleEditPageProps = {
     className?: string;

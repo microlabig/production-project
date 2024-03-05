@@ -27,6 +27,9 @@ export default {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         axios: 'axios/dist/node/axios.cjs',
+
+        // Поддержка Aliases
+        '^@/(.*)$': '<rootDir>src/$1',
     },
     reporters: [
         'default',

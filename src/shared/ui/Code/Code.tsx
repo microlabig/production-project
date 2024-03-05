@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react';
-import CopyIcon from 'shared/assets/icons/copy-20-20.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
+import CopyIcon from '@/shared/assets/icons/copy-20-20.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { copyTextToClipboard } from 'shared/lib/copyTextToClipboard/copyTextToClipboard';
+import { copyTextToClipboard } from '@/shared/lib/copyTextToClipboard/copyTextToClipboard';
 import { Button, ButtonTheme } from '../Button/Button';
 import { Icon } from '../Icon/Icon';
 import cls from './Code.module.scss';

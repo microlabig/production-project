@@ -1,16 +1,16 @@
-import { getUserAuthData } from 'entities/User';
-import { LoginModal } from 'features/AuthByUserName';
-import { AvatarDropDown } from 'features/AvatarDropDown';
-import { NotificationButton } from 'features/NotificationButton';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RoutePath } from 'shared/config/routeConfig/constants';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { HStack } from 'shared/ui/Stack';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { getUserAuthData } from '@/entities/User';
+import { LoginModal } from '@/features/AuthByUserName';
+import { AvatarDropDown } from '@/features/AvatarDropDown';
+import { NotificationButton } from '@/features/NotificationButton';
+import { RoutePath } from '@/shared/config/routeConfig/constants';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { HStack } from '@/shared/ui/Stack';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import cls from './Navbar.module.scss';
 
 interface TNavbarProps {

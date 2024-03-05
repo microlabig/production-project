@@ -1,5 +1,5 @@
 import { type FC, createContext, useMemo, useState, useEffect, ReactNode } from 'react';
-import { THEME_LOCAL_STORAGE_KEY } from 'shared/constants/localStorage';
+import { THEME_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
 
 export enum Theme {
     LIGHT = 'app-light-theme',
