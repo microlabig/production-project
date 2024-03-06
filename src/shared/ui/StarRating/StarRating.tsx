@@ -16,9 +16,9 @@ type TStarRatingProps = {
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: TStarRatingProps) => {
-    const { className, onSelect, selectedStars, size } = props;
+    const { className, onSelect, selectedStars = 0, size } = props;
 
-    const [currentStarsCount, setCurrentStarsCount] = useState(0);
+    const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
     const handleHover = (starsCount: number) => () => {

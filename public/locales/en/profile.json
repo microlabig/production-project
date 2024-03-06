@@ -16,5 +16,7 @@
     "Данные не указаны": "No data",
     "Имя и фамилия обязательны": "Name and second name is required",
     "Некорректный возраст": "Uncorrected age",
-    "Профиль не найден": "Profile not found"
+    "Профиль не найден": "Profile not found",
+    "Оцените профиль":"Rate profile",
+    "Оставьте свой отзыв о профиле": "Leave your rate for this profile"
 }

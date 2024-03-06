@@ -1,5 +1,5 @@
 import { HTMLAttributes, ReactNode, memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Card.module.scss';
 
@@ -12,15 +12,20 @@ type TCardProps = HTMLAttributes<HTMLDivElement> & {
     children: ReactNode;
 
     theme?: CardTheme;
+    max?: boolean;
 
     className?: string;
 };
 
 export const Card = memo((props: TCardProps) => {
-    const { className, children, theme = CardTheme.NORMAL, ...otherProps } = props;
+    const { className, children, theme = CardTheme.NORMAL, max, ...otherProps } = props;
+
+    const mods: Mods = {
+        [cls.max]: max,
+    };
 
     return (
-        <div className={classNames(cls.Card, {}, [className, cls[theme]])} {...otherProps}>
+        <div className={classNames(cls.Card, mods, [className, cls[theme]])} {...otherProps}>
             {children}
         </div>
     );

@@ -16,6 +16,7 @@ type TRatingProps = {
     title?: string;
     feedbackTitle?: string;
     hasFeedback?: boolean;
+    rate?: number;
 
     onCancel?: (starCount: number) => void;
     onAccept?: (starCount: number, feedback?: string) => void;
@@ -23,12 +24,12 @@ type TRatingProps = {
     className?: string;
 };
 
-export const Rating = memo((props: TRatingProps) => {
+export const RatingCard = memo((props: TRatingProps) => {
     const { t } = useTranslation();
-    const { className, feedbackTitle, hasFeedback, onAccept, onCancel, title } = props;
+    const { className, feedbackTitle, hasFeedback, onAccept, onCancel, title, rate = 0 } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starCount, setStarCount] = useState(0);
+    const [starCount, setStarCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
     const handleSelectStars = useCallback(
@@ -61,10 +62,10 @@ export const Rating = memo((props: TRatingProps) => {
     );
 
     return (
-        <Card className={classNames('', {}, [className])}>
+        <Card className={classNames('', {}, [className])} max>
             <VStack align="center" gap="8">
-                <Text title={title} />
-                <StarRating size={40} onSelect={handleSelectStars} />
+                <Text title={starCount ? t('Спасибо за оценку!') : title} />
+                <StarRating selectedStars={starCount} size={40} onSelect={handleSelectStars} />
             </VStack>
 
             <BrowserView>

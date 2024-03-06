@@ -23,3 +23,11 @@ export const Outlined: Story = {
         children: <Text title="title" text="text" />,
     },
 };
+
+export const Max: Story = {
+    args: {
+        theme: CardTheme.OUTLINED,
+        children: <Text title="title" text="text" />,
+        max: true,
+    },
+};

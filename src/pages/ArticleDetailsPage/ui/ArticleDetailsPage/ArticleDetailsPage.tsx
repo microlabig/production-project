@@ -10,6 +10,7 @@ import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleRating } from '@/features/ArticleRating';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -23,6 +24,10 @@ const ArticleDetailsPage = (props: TArticleDetailsPageProps) => {
     const { className } = props;
     const { id } = useParams<{ id: string }>();
 
+    if (!id) {
+        return null;
+    }
+
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={classNames('', {}, [className])}>
@@ -30,6 +35,7 @@ const ArticleDetailsPage = (props: TArticleDetailsPageProps) => {
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     <ArticleRecommendationsList />
+                    <ArticleRating id={id} />
                     <ArticleDetailsComments id={id} />
                 </VStack>
             </Page>

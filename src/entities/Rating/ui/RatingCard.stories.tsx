@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Rating } from './Rating';
+import { RatingCard } from './RatingCard';
 
 const meta = {
-    title: 'shared/Rating',
-    component: Rating,
-} satisfies Meta<typeof Rating>;
+    title: 'entities/RatingCard',
+    component: RatingCard,
+} satisfies Meta<typeof RatingCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

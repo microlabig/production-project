@@ -1,8 +1,8 @@
-import { rtkApi } from 'shared/api/rtkApi';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 const [FTName | camelcase]Api = rtkApi.injectEndpoints({
     endpoints: build => ({
-        get[FTName]: build.query({
+        get[FTName]: build.query<[FTName], number>({
             query: limit => ({
                 url: '',
                 params: {
@@ -14,4 +14,4 @@ const [FTName | camelcase]Api = rtkApi.injectEndpoints({
     overrideExisting: false,
 });
 
-export const use[FTName] = [FTName | camelcase]Api.useGet[FTName]Query;
+export const useGet[FTName] = [FTName | camelcase]Api.useGet[FTName]Query;
