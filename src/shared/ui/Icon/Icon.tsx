@@ -3,7 +3,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Icon.module.scss';
 
-type TIconProps = {
+type TIconProps = React.SVGProps<SVGSVGElement> & {
     Svg: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string }>;
     inverted?: boolean;
 
@@ -11,7 +11,7 @@ type TIconProps = {
 };
 
 export const Icon = memo((props: TIconProps) => {
-    const { Svg, inverted, className } = props;
+    const { Svg, inverted, className, ...otherProps } = props;
 
-    return <Svg className={classNames(inverted ? cls.inverted : cls.Icon, {}, [className])} />;
+    return <Svg {...otherProps} className={classNames(inverted ? cls.inverted : cls.Icon, {}, [className])} />;
 });

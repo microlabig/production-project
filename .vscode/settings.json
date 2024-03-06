@@ -19,5 +19,9 @@
         "source.fixAll.stylelint": "explicit"
     },
 
-    "jestrunner.configPath": "/config/jest/jest.config.ts"
+    "jestrunner.configPath": "/config/jest/jest.config.ts",
+
+    "path-intellisense.mappings": {
+        "@": "${workspaceRoot}/src"
+    }
 }

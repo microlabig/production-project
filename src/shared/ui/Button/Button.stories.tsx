@@ -114,3 +114,11 @@ export const Disabled: Story = {
         disabled: true,
     },
 };
+
+export const FullWidth: Story = {
+    args: {
+        children: 'Press me',
+        theme: ButtonTheme.OUTLINE_RED,
+        fullWidth: true,
+    },
+};

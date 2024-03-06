@@ -1,0 +1,20 @@
+.StarRating {
+    flex-wrap: nowrap;
+    width: auto;
+}
+
+.starIcon {
+    cursor: pointer;
+}
+
+.normal {
+    fill: none;
+}
+
+.hovered {
+    fill: var(--primary-color);
+}
+
+.selected {
+    cursor: default;
+}

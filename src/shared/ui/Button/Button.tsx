@@ -22,6 +22,7 @@ export type TButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     theme?: ButtonTheme;
     square?: boolean;
     size?: ButtonSize;
+    fullWidth?: boolean;
     children?: ReactNode;
 };
 
@@ -33,6 +34,7 @@ export const Button = memo((props: TButtonProps) => {
         square,
         size = ButtonSize.M,
         disabled,
+        fullWidth,
         ...otherProps
     } = props;
 
@@ -41,6 +43,7 @@ export const Button = memo((props: TButtonProps) => {
         [cls.square]: square,
         [cls[size]]: true,
         [cls.disabled]: disabled,
+        [cls.fullWidth]: fullWidth,
     };
 
     return (
