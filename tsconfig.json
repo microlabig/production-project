@@ -57,7 +57,8 @@
         "./config/**/*.tsx",
         "./src/**/*.ts",
         "./src/**/*.tsx",
-        "./webpack.config.ts"
+        "./webpack.config.ts",
+        "./vite.config.mts"
     ],
     "exclude": [
         "./scripts/**/*.js",

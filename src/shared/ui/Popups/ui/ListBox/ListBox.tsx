@@ -39,7 +39,7 @@ const ListBoxButton = forwardRef<HTMLDivElement, TButtonProps>((props, ref) => (
 export const ListBox = <T extends string>(props: TListBoxProps<T>) => {
     const { items, value, defaultValue, className, onChange, readonly, label, direction = 'bottom right' } = props;
     const optionsAdditionalClasses = [mapDirectionClasses[direction]];
-    const selectedContent = items?.find(item => item.value === value ?? defaultValue)?.content;
+    const selectedContent = items?.find(item => item.value === (value ?? defaultValue))?.content;
 
     return (
         <HStack align="center" gap="4">

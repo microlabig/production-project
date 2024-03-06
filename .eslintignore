@@ -2,3 +2,4 @@ node_modules
 .eslintrc.js
 ./json-server/*.js
 scripts
+./vite.config.mts
