@@ -7,7 +7,7 @@ import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/enti
 import { RoutePath } from '@/shared/config/routeConfig/constants';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Dropdown } from '@/shared/ui/Popups';
+import { Dropdown, DropdownItem } from '@/shared/ui/Popups';
 
 type TAvatarDropDownProps = {
     className?: string;
@@ -30,26 +30,28 @@ export const AvatarDropDown = memo((props: TAvatarDropDownProps) => {
         return null;
     }
 
+    const items: DropdownItem[] = [
+        ...(isAdminPanelAvailable
+            ? [
+                  {
+                      content: t('Админка'),
+                      href: RoutePath.admin_panel,
+                  },
+              ]
+            : []),
+        {
+            content: t('Профиль'),
+            href: `${RoutePath.profile}/${authData?.id ?? ''}`,
+        },
+        {
+            content: t('Выйти'),
+            onClick: handleLogout,
+        },
+    ];
+
     return (
         <Dropdown
-            items={[
-                ...(isAdminPanelAvailable
-                    ? [
-                          {
-                              content: t('Админка'),
-                              href: RoutePath.admin_panel,
-                          },
-                      ]
-                    : []),
-                {
-                    content: t('Профиль'),
-                    href: `${RoutePath.profile}/${authData?.id ?? ''}`,
-                },
-                {
-                    content: t('Выйти'),
-                    onClick: handleLogout,
-                },
-            ]}
+            items={items}
             trigger={<Avatar size={30} src={authData.avatar} />}
             direction="bottom left"
             className={classNames('', {}, [className])}
