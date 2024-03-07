@@ -85,7 +85,12 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off',
         'no-console': ['warn', { allow: ['warn', 'error'] }],
         'no-debugger': 'error',
-        'bzm-fsd-plugin/path-checker': 'error', // Мое первое кастомное eslint правило
+        'bzm-fsd-plugin/path-checker': [
+            'error',
+            {
+                alias: '@',
+            },
+        ], // Мое первое кастомное eslint правило
     },
     globals: {
         __IS_DEV__: true,
@@ -100,5 +105,4 @@ module.exports = {
             },
         },
     ],
-    
 };
