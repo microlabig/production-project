@@ -1,6 +1,7 @@
 const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
+const uuid = require('uuid');
 
 const server = jsonServer.create();
 
@@ -16,7 +17,7 @@ server.use(async (req, res, next) => {
     });
     next();
 });
- 
+
 // Эндпоинт для логина
 server.post('/login', (req, res) => {
     try {
@@ -31,6 +32,57 @@ server.post('/login', (req, res) => {
         }
 
         return res.status(403).json({ message: 'User not found' });
+    } catch (e) {
+        console.log(e);
+        return res.status(500).json({ message: e.message });
+    }
+});
+
+// Эндпоинт для проверки существования пользователя
+server.get('/check-user', (req, res) => {
+    try {
+        const { username } = req.query || {};
+
+        if (!username) {
+            return res.status(403).json({ message: 'User not found' });
+        }
+
+        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+        const { users = [] } = db;
+
+        const userFromBd = users.find(user => user.username === username);
+
+        return res.json({ existed: !!userFromBd });
+    } catch (e) {
+        console.log(e);
+        return res.status(500).json({ message: e.message });
+    }
+});
+
+// Эндпоинт для регистрации пользователя
+server.post('/register', (req, res) => {
+    try {
+        const { username, password, roles, avatar = '' } = req.body;
+
+        const userId = uuid.v4();
+        const newUser = { username, password, roles, avatar, id: userId };
+        const newProfile = {
+            id: userId,
+            first: '',
+            lastname: '',
+            age: 0,
+            currency: 'EUR',
+            country: '',
+            city: '',
+            username,
+            avatar,
+        };
+
+        // запись в БД
+        router.db.get('users').push(newUser).write();
+        router.db.get('profile').push(newProfile).write();
+
+        return res.status(201).json(newUser);
     } catch (e) {
         console.log(e);
         return res.status(500).json({ message: e.message });

@@ -64,6 +64,7 @@ module.exports = {
                     'direction',
                     'gap',
                     'border',
+                    'autoComplete'
                 ],
             },
         ],

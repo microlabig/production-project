@@ -676,6 +676,24 @@
         "MANAGER"
       ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "username": "user2",
+      "password": "1",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "",
+      "id": "4acf8972-70ae-406e-a43a-120400e01ef8"
+    },
+    {
+      "username": "user3",
+      "password": "1",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://placehold.co/24x24",
+      "id": "f6d6b418-cf6c-41c0-89af-7fe1e78577ee"
     }
   ],
   "profile": [
@@ -700,6 +718,28 @@
       "city": "Moscow",
       "username": "profile2",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "4acf8972-70ae-406e-a43a-120400e01ef8",
+      "first": "",
+      "lastname": "",
+      "age": 0,
+      "currency": "EUR",
+      "country": "",
+      "city": "",
+      "username": "user2",
+      "avatar": ""
+    },
+    {
+      "id": "f6d6b418-cf6c-41c0-89af-7fe1e78577ee",
+      "first": "",
+      "lastname": "",
+      "age": 0,
+      "currency": "EUR",
+      "country": "",
+      "city": "",
+      "username": "user3",
+      "avatar": "https://placehold.co/24x24"
     }
   ],
   "article-ratings": [

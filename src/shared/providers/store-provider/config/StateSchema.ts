@@ -11,6 +11,7 @@ import { ScrollRestorationSchema } from '@/features/ScrollRestoration';
 import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { ArticlePageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
+import { RegistrationSchema } from '@/features/AuthRegistration';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -19,6 +20,7 @@ export interface StateSchema {
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // Асинхронные редьюсеры
+    registrationForm?: RegistrationSchema;
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     addCommentForm?: AddCommentFormSchema;

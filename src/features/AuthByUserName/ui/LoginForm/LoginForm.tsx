@@ -14,6 +14,7 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
+import { VStack } from '@/shared/ui/Stack';
 
 const initialReducers: ReducersList = {
     loginForm: loginReducer,
@@ -57,7 +58,7 @@ const LoginForm = memo((props: TLoginFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <div className={classNames(cls.LoginForm, {}, [props.className])}>
+            <VStack gap="8" className={classNames(cls.LoginForm, {}, [props.className])}>
                 <Text title={t('Форма авторизации')} />
                 {error && <Text theme={TextTheme.ERROR} text={t('Неверный логин или пароль')} />}
 
@@ -73,11 +74,11 @@ const LoginForm = memo((props: TLoginFormProps) => {
                     theme={ButtonTheme.OUTLINE}
                     className={cls.btn}
                     onClick={handleClickButton}
-                    disabled={isLoading}
+                    disabled={isLoading || !username || !password}
                 >
                     {t('Войти')}
                 </Button>
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 });

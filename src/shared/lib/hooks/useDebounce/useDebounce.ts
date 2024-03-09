@@ -1,4 +1,4 @@
-import { MutableRefObject, useCallback, useRef } from 'react';
+import { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useDebounce(callback: (...args: any[]) => void, delay: number) {
@@ -17,4 +17,21 @@ export function useDebounce(callback: (...args: any[]) => void, delay: number) {
         },
         [callback, delay]
     );
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function useDebounceValue(value: any, delay: number) {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+
+    useEffect(() => {
+        const timerId = setTimeout(() => {
+            setDebouncedValue(value);
+        }, delay);
+
+        return () => {
+            clearTimeout(timerId);
+        };
+    }, [value, delay]);
+
+    return debouncedValue;
 }

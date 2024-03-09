@@ -8,18 +8,24 @@ import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
+import { SIDEBAR_COLLAPSED_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
 
 interface TSidebarProps {
     className?: string;
 }
 
+const sidebarCollapsed = localStorage.getItem(SIDEBAR_COLLAPSED_LOCAL_STORAGE_KEY) === 'true';
+
 export const Sidebar = memo((props: TSidebarProps) => {
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(sidebarCollapsed);
 
     const sidebarItemsList = useSelector(getSidebarItems);
 
     const onToggle = () => {
-        setCollapsed(!collapsed);
+        const newCollapsed = !collapsed;
+
+        setCollapsed(newCollapsed);
+        localStorage.setItem(SIDEBAR_COLLAPSED_LOCAL_STORAGE_KEY, JSON.stringify(newCollapsed));
     };
 
     return (

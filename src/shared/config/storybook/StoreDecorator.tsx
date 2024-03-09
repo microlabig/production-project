@@ -7,8 +7,10 @@ import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage';
 import { articlesPageReducer } from '@/pages/ArticlesPage';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { StateSchema, StoreProvider } from '@/shared/providers/store-provider';
+import { registrationReducer } from '@/features/AuthRegistration';
 
 const defaultAsyncReducers: ReducersList = {
+    registrationForm: registrationReducer,
     loginForm: loginReducer,
     profile: profileReducer,
     addCommentForm: addCommentFormReducer,

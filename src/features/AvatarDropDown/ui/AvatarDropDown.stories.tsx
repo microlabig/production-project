@@ -4,11 +4,12 @@ import { AvatarDropDown } from './AvatarDropDown';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { User, UserRole } from '@/entities/User';
 import { WrapperStylesDecorator } from '@/shared/config/storybook/WrapperStylesDecorator';
+import { DEFAULT_USER_AVATAR } from '@/shared/constants/constants';
 
 const data: User = {
     id: '1',
     username: 'admin',
-    avatar: 'https://placehold.co/24x24',
+    avatar: DEFAULT_USER_AVATAR,
     roles: [UserRole.ADMIN],
 };
 
