@@ -5,7 +5,7 @@ import { Components, Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ARTICLE_INDEX_SESSION_STORAGE_KEY } from '@/shared/constants/sessionStorage';
 import { HStack } from '@/shared/ui/Stack';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { Text, TextSize } from '@/shared/ui/Text';
 import { ArticleView } from '../../model/constants/constants';
 import { Article } from '../../model/types/articleDetails';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
