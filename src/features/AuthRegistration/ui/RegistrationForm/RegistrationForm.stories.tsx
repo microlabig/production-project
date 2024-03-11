@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { RegistrationForm } from './RegistrationForm';
+import RegistrationForm from './RegistrationForm';
 
 const meta = {
     title: 'shared/RegistrationForm',

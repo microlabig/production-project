@@ -1,4 +1,5 @@
 import { FC, lazy } from 'react';
+
 import { TRegistrationFormProps } from './RegistrationForm';
 
 export const RegistrationFormAsync = lazy<FC<TRegistrationFormProps>>(

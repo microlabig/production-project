@@ -1,17 +1,18 @@
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
+
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { CounterSchema } from '@/entities/Counter';
 import { UserSchema } from '@/entities/User';
 import { AddCommentFormSchema } from '@/features/AddCommentForm';
 import { LoginSchema } from '@/features/AuthByUserName';
+import { RegistrationSchema } from '@/features/AuthRegistration';
 import { ProfileSchema } from '@/features/EditableProfileCard';
 import { ScrollRestorationSchema } from '@/features/ScrollRestoration';
 import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { ArticlePageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
-import { RegistrationSchema } from '@/features/AuthRegistration';
 
 export interface StateSchema {
     counter: CounterSchema;

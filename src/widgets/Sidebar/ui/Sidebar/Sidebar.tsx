@@ -1,14 +1,18 @@
 import { memo, useState } from 'react';
+
 import { useSelector } from 'react-redux';
+
+import { LangSwitcher } from '@/features/LangSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { SIDEBAR_COLLAPSED_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import { VStack } from '@/shared/ui/Stack';
-import { LangSwitcher } from '@/features/LangSwitcher';
-import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+
+import cls from './Sidebar.module.scss';
+
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
-import cls from './Sidebar.module.scss';
-import { SIDEBAR_COLLAPSED_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
 
 interface TSidebarProps {
     className?: string;

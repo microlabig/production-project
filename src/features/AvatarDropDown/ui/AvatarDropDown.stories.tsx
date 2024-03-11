@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AvatarDropDown } from './AvatarDropDown';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { User, UserRole } from '@/entities/User';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { WrapperStylesDecorator } from '@/shared/config/storybook/WrapperStylesDecorator';
 import { DEFAULT_USER_AVATAR } from '@/shared/constants/constants';
+
+import { AvatarDropDown } from './AvatarDropDown';
 
 const data: User = {
     id: '1',

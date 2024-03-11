@@ -1,5 +1,5 @@
-import { User, UserSchema } from '../types/userSchema';
 import { userActions, userReducer } from './userSlice';
+import { User, UserSchema } from '../types/userSchema';
 
 const data: User = {
     username: 'admin',

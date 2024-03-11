@@ -1,12 +1,15 @@
 import { memo } from 'react';
+
 import { useTranslation } from 'react-i18next';
+
 import { ArticleList, ArticleView } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
 import { Text, TextSize } from '@/shared/ui/Text';
-import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 
 import cls from './ArticleRecomendatonsList.module.scss';
+
+import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {
     className?: string;

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { WrapperCenteredDecorator } from '@/shared/config/storybook/WrapperStylesDecorator';
+
 import { ListBox } from './ListBox';
 
 const meta = {

@@ -1,10 +1,12 @@
 import { memo } from 'react';
+
 import { useParams } from 'react-router-dom';
+
 import { EditableProfileCard } from '@/features/EditableProfileCard';
+import { ProfileRating } from '@/features/ProfileRating';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
-import { ProfileRating } from '@/features/ProfileRating';
 
 function ProfilePage() {
     const { id } = useParams<{ id: string }>();

@@ -1,8 +1,10 @@
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { Comment } from '@/entities/Comment';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { ArticleDetailsCommentsSchema } from '../types/articleDetailsCommentsSchema';
+import { Comment } from '@/entities/Comment';
+
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { ArticleDetailsCommentsSchema } from '../types/articleDetailsCommentsSchema';
 
 // Normalizing: https://redux.js.org/usage/structuring-reducers/normalizing-state-shape
 // createEntityAdapter + CRUD Functions: https://redux-toolkit.js.org/api/createEntityAdapter

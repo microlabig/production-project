@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Article } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 const article: Article = {

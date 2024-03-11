@@ -1,8 +1,11 @@
 import { memo, useCallback, useEffect, useState } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUserName';
+import { RegistrationModal } from '@/features/AuthRegistration';
 import { AvatarDropDown } from '@/features/AvatarDropDown';
 import { NotificationButton } from '@/features/NotificationButton';
 import { RoutePath } from '@/shared/constants/router';
@@ -11,8 +14,8 @@ import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
 import { Text, TextTheme } from '@/shared/ui/Text';
+
 import cls from './Navbar.module.scss';
-import { RegistrationModal } from '@/features/AuthRegistration';
 
 interface TNavbarProps {
     className?: string;

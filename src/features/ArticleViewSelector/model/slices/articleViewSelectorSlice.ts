@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { ArticleViewSelectorSchema } from '../types/articleViewSelectorSchema';
 
 const initialState: ArticleViewSelectorSchema = {

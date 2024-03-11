@@ -23,8 +23,18 @@ module.exports = {
         'plugin:i18next/recommended',
         'plugin:prettier/recommended',
         'plugin:storybook/recommended',
+        'plugin:import/recommended',
     ],
-    plugins: ['react', '@typescript-eslint', 'react-hooks', 'i18next', 'prettier', 'bzm-fsd-plugin'],
+    plugins: [
+        'react',
+        '@typescript-eslint',
+        'react-hooks',
+        'i18next',
+        'prettier',
+        'import',
+        'unused-imports',
+        'bzm-fsd-plugin',
+    ],
     rules: {
         'no-shadow': 'off',
         '@typescript-eslint/no-shadow': 'warn',
@@ -86,6 +96,39 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off',
         'no-console': ['warn', { allow: ['warn', 'error'] }],
         'no-debugger': 'error',
+
+        'unused-imports/no-unused-imports': 'error',
+
+        'import/order': [
+            // https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/order.md
+            'error',
+            {
+                groups: ['builtin', 'external', 'internal'],
+                pathGroups: [
+                    {
+                        pattern: 'react',
+                        group: 'external',
+                        position: 'before',
+                    },
+                    {
+                        pattern: '@/**',
+                        group: 'external',
+                        position: 'after',
+                    },
+                    {
+                        pattern: './**.module.*',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                ],
+                pathGroupsExcludedImportTypes: ['react'],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: true,
+                },
+            },
+        ],
 
         // Мои кастомные правила
         'bzm-fsd-plugin/path-checker': [

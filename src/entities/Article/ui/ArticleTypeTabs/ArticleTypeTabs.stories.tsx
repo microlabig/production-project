@@ -1,8 +1,8 @@
+import { action } from '@storybook/addon-actions';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { action } from '@storybook/addon-actions';
-import { ArticleType } from '../../model/constants/constants';
 import { ArticleTypeTabs } from './ArticleTypeTabs';
+import { ArticleType } from '../../model/constants/constants';
 
 const meta = {
     title: 'entities/Article/ArticleTypeTabs',

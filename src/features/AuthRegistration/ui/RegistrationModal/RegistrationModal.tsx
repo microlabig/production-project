@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 
 import { Loader } from '@/shared/ui/Loader';
 import { Modal } from '@/shared/ui/Modal';
+
 import { RegistrationFormAsync } from '../RegistrationForm/RegistrationForm.async';
 
 type TLoginModalProps = {
