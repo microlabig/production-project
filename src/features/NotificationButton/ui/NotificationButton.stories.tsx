@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { NotificationButton } from './NotificationButton';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { Notification } from '@/entities/Notification/model/types/notificationSchema';
+import { Notification } from '@/entities/Notification';
 import { WrapperStylesDecorator } from '@/shared/config/storybook/WrapperStylesDecorator';
 
 const notifications: Notification[] = [

@@ -92,6 +92,13 @@ module.exports = {
                 alias: '@',
             },
         ], // Мое первое кастомное eslint правило
+        'bzm-fsd-plugin/fsd-public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
+            },
+        ], // Мое первое кастомное eslint правило
     },
     globals: {
         __IS_DEV__: true,

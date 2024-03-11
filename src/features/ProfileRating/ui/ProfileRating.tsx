@@ -6,7 +6,7 @@ import { RatingCard } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { useGetProfileRating, useRateProfile } from '../api/profileRatingApi';
-import { getProfileError } from '@/features/EditableProfileCard/model/selectors/getProfileError/getProfileError';
+import { getProfileError } from '@/features/EditableProfileCard';
 
 export type TProfileRatingProps = {
     id: string;
