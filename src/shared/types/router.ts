@@ -1,5 +1,6 @@
 import { RouteProps } from 'react-router-dom';
-import { UserRole } from '@/entities/User';
+// eslint-disable-next-line bzm-fsd-plugin/layer-imports
+import { UserRole } from '@/entities/User'; // TODO: fix
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;

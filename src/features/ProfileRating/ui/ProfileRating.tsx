@@ -6,7 +6,6 @@ import { RatingCard } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { useGetProfileRating, useRateProfile } from '../api/profileRatingApi';
-import { getProfileError } from '@/features/EditableProfileCard';
 
 export type TProfileRatingProps = {
     id: string;
@@ -19,7 +18,6 @@ const ProfileRating = memo((props: TProfileRatingProps) => {
     const { className, id } = props;
 
     const userData = useSelector(getUserAuthData);
-    const profileError = useSelector(getProfileError);
 
     const { data, isLoading, error } = useGetProfileRating({ userId: userData?.id ?? '', profileId: id });
     const [rateProfileMutation] = useRateProfile();
@@ -49,7 +47,7 @@ const ProfileRating = memo((props: TProfileRatingProps) => {
         [handleRateProfile]
     );
 
-    if (error || profileError) {
+    if (error) {
         return null;
     }
 

@@ -4,7 +4,7 @@ import { Currency } from '@/entities/Currency';
 import avatar from '@/shared/assets/tests/avatar.jpg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/providers/theme-provider';
+import { Theme } from '@/shared/constants/theme';
 import ProfilePage from './ProfilePage';
 
 const meta = {

@@ -1,4 +1,4 @@
-import { StateSchema } from '@/shared/providers/store-provider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { getLoginPassword } from './getLoginPassword';
 
 describe('getLoginPassword.test', () => {

@@ -64,7 +64,7 @@ module.exports = {
                     'direction',
                     'gap',
                     'border',
-                    'autoComplete'
+                    'autoComplete',
                 ],
             },
         ],
@@ -86,19 +86,28 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off',
         'no-console': ['warn', { allow: ['warn', 'error'] }],
         'no-debugger': 'error',
+
+        // Мои кастомные правила
         'bzm-fsd-plugin/path-checker': [
             'error',
             {
                 alias: '@',
             },
-        ], // Мое первое кастомное eslint правило
+        ],
         'bzm-fsd-plugin/fsd-public-api-imports': [
             'error',
             {
                 alias: '@',
-                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
             },
-        ], // Мое первое кастомное eslint правило
+        ],
+        'bzm-fsd-plugin/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

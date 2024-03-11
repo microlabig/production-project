@@ -3,7 +3,7 @@ import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator';
 import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/providers/theme-provider';
+import { Theme } from '@/shared/constants/theme';
 
 const preview: Preview = {
     parameters: {

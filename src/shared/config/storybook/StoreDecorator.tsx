@@ -1,13 +1,13 @@
 import { StoryFn } from '@storybook/react';
-import { articleDetailsReducer } from '@/entities/Article';
-import { addCommentFormReducer } from '@/features/AddCommentForm';
-import { loginReducer } from '@/features/AuthByUserName';
-import { profileReducer } from '@/features/EditableProfileCard';
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage';
-import { articlesPageReducer } from '@/pages/ArticlesPage';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+import { addCommentFormReducer } from '@/features/AddCommentForm/testing';
+import { loginReducer } from '@/features/AuthByUserName/testing';
+import { profileReducer } from '@/features/EditableProfileCard/testing';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
+import { articlesPageReducer } from '@/pages/ArticlesPage/testing';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { StateSchema, StoreProvider } from '@/shared/providers/store-provider';
-import { registrationReducer } from '@/features/AuthRegistration';
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
+import { registrationReducer } from '@/features/AuthRegistration/testing';
 
 const defaultAsyncReducers: ReducersList = {
     registrationForm: registrationReducer,

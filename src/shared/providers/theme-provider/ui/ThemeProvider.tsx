@@ -1,18 +1,7 @@
-import { type FC, createContext, useMemo, useState, useEffect, ReactNode } from 'react';
+import { type FC, useMemo, useState, useEffect, ReactNode } from 'react';
 import { THEME_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
-
-export enum Theme {
-    LIGHT = 'app-light-theme',
-    DARK = 'app-dark-theme',
-    ORANGE = 'app-orange-theme',
-}
-
-export interface ThemeContextProps {
-    theme?: Theme;
-    setTheme?: (theme: Theme) => void;
-}
-
-export const ThemeContext = createContext<ThemeContextProps>({});
+import { Theme } from '@/shared/constants/theme';
+import { ThemeContext, ThemeContextProps } from '@/shared/lib/context/ThemeContext';
 
 const defaultTheme = (localStorage.getItem(THEME_LOCAL_STORAGE_KEY) as Theme) || Theme.LIGHT;
 

@@ -1,8 +1,7 @@
 import { Reducer } from '@reduxjs/toolkit';
 import { ReactNode, useEffect } from 'react';
 import { useStore } from 'react-redux';
-import { ReduxStoreWithManager } from '@/shared/providers/store-provider';
-import { StateSchemaKey } from '@/shared/providers/store-provider/config/StateSchema';
+import { ReduxStoreWithManager, StateSchemaKey } from '@/app/providers/StoreProvider';
 import { useAppDispatch } from '../../hooks/useAppDispatch/useAppDispatch';
 
 export type ReducersList = {
