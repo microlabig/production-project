@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { User, userActions } from '@/entities/User';
-import { RoutePath } from '@/shared/config/routeConfig/constants';
+import { RoutePath } from '@/shared/constants/router';
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
 import { ThunkConfig } from '@/shared/providers/store-provider';
 
