@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { User, userActions } from '@/entities/User';
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
-import { RoutePath } from '@/shared/constants/router';
+import { getRouteProfile } from '@/shared/constants/router';
 
 interface LoginByUsernameProps {
     username: string;
@@ -25,7 +25,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
             localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
             dispatch(userActions.setAuthData(response.data));
 
-            extra.navigate?.(`${RoutePath.profile}/${response.data.id}`);
+            extra.navigate?.(getRouteProfile(response.data.id));
 
             return response.data;
         } catch (error) {

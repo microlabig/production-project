@@ -4,7 +4,7 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { User, UserRole, userActions } from '@/entities/User';
 import { DEFAULT_USER_AVATAR } from '@/shared/constants/constants';
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
-import { RoutePath } from '@/shared/constants/router';
+import { getRouteProfile } from '@/shared/constants/router';
 
 interface RegistrationProps {
     username: string;
@@ -39,7 +39,7 @@ export const registration = createAsyncThunk<User, RegistrationProps, ThunkConfi
             localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
             dispatch(userActions.setAuthData(response.data));
 
-            extra.navigate?.(`${RoutePath.profile}/${response.data.id}`);
+            extra.navigate?.(getRouteProfile(response.data.id));
 
             return response.data;
         } catch (error) {

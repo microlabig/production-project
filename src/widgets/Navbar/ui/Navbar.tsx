@@ -7,7 +7,7 @@ import { LoginModal } from '@/features/AuthByUserName';
 import { RegistrationModal } from '@/features/AuthRegistration';
 import { AvatarDropDown } from '@/features/AvatarDropDown';
 import { NotificationButton } from '@/features/NotificationButton';
-import { RoutePath } from '@/shared/constants/router';
+import { getRouteArticleCreate } from '@/shared/constants/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
@@ -62,7 +62,7 @@ export const Navbar = memo((props: TNavbarProps) => {
         <header className={classNames(cls.navbar, {}, [props.className])}>
             <Text theme={TextTheme.INVERTED} className={cls.appName} title={t('News app')} />
             {authData && (
-                <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.article_create} className={cls.createLink}>
+                <AppLink theme={AppLinkTheme.SECONDARY} to={getRouteArticleCreate()} className={cls.createLink}>
                     {t('Создать статью')}
                 </AppLink>
             )}
