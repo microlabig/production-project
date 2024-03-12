@@ -16,6 +16,14 @@ const preview: Preview = {
             },
         },
         layout: 'fullscreen', // без паддингов сторибука
+        themes: {
+            default: 'light',
+            list: [
+                { name: 'light', class: Theme.LIGHT, color: '#fff' },
+                { name: 'dark', class: Theme.DARK, color: '#000' },
+                { name: 'orange', class: Theme.ORANGE, color: '#ffb005' },
+            ],
+        },
     },
     decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouterDecorator, SuspenseDecorator],
 };
