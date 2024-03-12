@@ -18,7 +18,7 @@ const article: Article = {
 };
 
 const meta = {
-    title: 'features/ArticleRecommendationsList',
+    title: 'features/Article/ArticleRecommendationsList',
     component: ArticleRecommendationsList,
     parameters: {
         mockData: [

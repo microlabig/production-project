@@ -9,14 +9,13 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
-
-import cls from './ArticlesPage.module.scss';
-
 import { getArticlesPageError } from '../../model/selectors/articlePageSelectors';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlePageSlice';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+
+import cls from './ArticlesPage.module.scss';
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,

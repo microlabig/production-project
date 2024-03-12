@@ -7,10 +7,9 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
+import { Comment } from '../../model/types/comment';
 
 import cls from './CommentCard.module.scss';
-
-import { Comment } from '../../model/types/comment';
 
 type TCommentCardProps = {
     comment?: Comment;

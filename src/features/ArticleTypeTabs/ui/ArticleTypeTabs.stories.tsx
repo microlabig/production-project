@@ -1,11 +1,12 @@
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { ArticleType } from '@/entities/Article';
+
 import { ArticleTypeTabs } from './ArticleTypeTabs';
-import { ArticleType } from '../../model/constants/constants';
 
 const meta = {
-    title: 'entities/Article/ArticleTypeTabs',
+    title: 'features/Article/ArticleTypeTabs',
     component: ArticleTypeTabs,
     args: {
         onChange: action('onChange'),

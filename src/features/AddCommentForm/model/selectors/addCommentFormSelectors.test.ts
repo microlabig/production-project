@@ -1,6 +1,6 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 
-import { getAddCommentFormText, getAddCommentFormError } from './addCommentFormSelectors';
+import { getAddCommentFormError, getAddCommentFormText } from './addCommentFormSelectors';
 
 // const data: Article = {
 //     id: '1',

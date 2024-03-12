@@ -1,5 +1,4 @@
 import { CSSProperties } from 'react';
-
 import { StoryFn } from '@storybook/react';
 
 export const WrapperStylesDecorator = (styles: CSSProperties) => (Story: StoryFn) =>

@@ -8,7 +8,6 @@ import { getRouteArticleEdit, getRouteArticles } from '@/shared/constants/router
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
-
 import { getArticleCanEdit } from '../../model/selectors/article';
 
 type TArticleDetailsPageHeaderProps = {

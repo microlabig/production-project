@@ -7,7 +7,6 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-
 import { getProfileCanEdit } from '../../model/selectors/getProfileCanEdit/getProfileCanEdit';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';

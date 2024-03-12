@@ -5,10 +5,9 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppNavLink, AppNavLinkTheme } from '@/shared/ui/AppNavLink';
+import { SidebarItemType } from '../../model/types/sidebar';
 
 import cls from './SidebarItem.module.scss';
-
-import { SidebarItemType } from '../../model/types/sidebar';
 
 type TSidebarItemProps = {
     item: SidebarItemType;

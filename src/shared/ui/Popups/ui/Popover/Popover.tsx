@@ -1,14 +1,12 @@
-import { ReactNode, memo } from 'react';
-
+import { memo, ReactNode } from 'react';
 import { Popover as HPopover } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropDownDirection } from '@/shared/types/ui';
-
-import cls from './Popover.module.scss';
-
 import { mapDirectionClasses } from '../../styles/constants';
+
 import popupCls from '../../styles/popup.module.scss';
+import cls from './Popover.module.scss';
 
 type TPopoverProps = {
     trigger: ReactNode;

@@ -1,4 +1,4 @@
-import { HTMLAttributeAnchorTarget, forwardRef, memo, useCallback, useState } from 'react';
+import { forwardRef, HTMLAttributeAnchorTarget, memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Components, Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 
@@ -6,13 +6,12 @@ import { ARTICLE_INDEX_SESSION_STORAGE_KEY } from '@/shared/constants/sessionSto
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack } from '@/shared/ui/Stack';
 import { Text, TextSize } from '@/shared/ui/Text';
-
-import cls from './ArticleList.module.scss';
-
 import { ArticleView } from '../../model/constants/constants';
 import { Article } from '../../model/types/articleDetails';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+
+import cls from './ArticleList.module.scss';
 
 const getSkeletons = (view: ArticleView) => {
     return new Array(view === ArticleView.SMALL ? 9 : 3)

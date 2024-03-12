@@ -11,7 +11,7 @@ const rating: Rating = {
 };
 
 const meta = {
-    title: 'features/ArticleRating',
+    title: 'features/Article/ArticleRating',
     component: ArticleRating,
     decorators: [StoreDecorator({})],
 } satisfies Meta<typeof ArticleRating>;

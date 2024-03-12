@@ -9,9 +9,6 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-
-import cls from './RegistrationForm.module.scss';
-
 import { getRegistrationIsLoading } from '../../model/selectors/getRegistrationIsLoading/getRegistrationIsLoading';
 import { getRegistrationPassword } from '../../model/selectors/getRegistrationPassword/getRegistrationPassword';
 import { getRegistrationReqPassword } from '../../model/selectors/getRegistrationReqPassword/getRegistrationReqPassword';
@@ -19,6 +16,8 @@ import { getRegistrationUsername } from '../../model/selectors/getRegistrationUs
 import { registration } from '../../model/services/registration/registration';
 import { registrationActions, registrationReducer } from '../../model/slices/registrationSlice';
 import { RegistrationFormErrors } from '../RegistrationFormErrors/RegistrationFormErrors';
+
+import cls from './RegistrationForm.module.scss';
 
 const initialReducers: ReducersList = {
     registrationForm: registrationReducer,

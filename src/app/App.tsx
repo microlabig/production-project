@@ -1,3 +1,5 @@
+import './styles/index.scss';
+
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -7,7 +9,6 @@ import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 
 import { AppRouter } from './router';
-import './styles/index.scss';
 
 function App() {
     const dispatch = useAppDispatch();

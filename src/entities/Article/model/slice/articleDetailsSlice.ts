@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { fetchArticleDetailsById } from '../services/fetchArticleDetailsById/fetchArticleDetailsById';
 import { Article } from '../types/articleDetails';

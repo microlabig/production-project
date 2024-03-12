@@ -1,5 +1,5 @@
 // https://redux.js.org/usage/code-splitting
-import { AnyAction, Reducer, ReducersMapObject, combineReducers } from '@reduxjs/toolkit';
+import { AnyAction, combineReducers, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 
 import { ReducerManager, StateSchema, StateSchemaKey } from './StateSchema';
 

@@ -5,10 +5,10 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';
 import { $api } from '@/shared/api/api';
-import { ComponentRenderOptions, componentRender } from '@/shared/lib/tests/componentRender/componentRender';
+import { componentRender, ComponentRenderOptions } from '@/shared/lib/tests/componentRender/componentRender';
+import { profileReducer } from '../../model/slice/profileSlice';
 
 import { EditableProfileCard } from './EditableProfileCard';
-import { profileReducer } from '../../model/slice/profileSlice';
 
 const profile: Profile = {
     id: '1',

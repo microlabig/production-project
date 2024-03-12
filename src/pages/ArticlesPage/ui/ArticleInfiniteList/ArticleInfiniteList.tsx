@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-
 import { getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlePageSelectors';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { getArticles } from '../../model/slices/articlePageSlice';

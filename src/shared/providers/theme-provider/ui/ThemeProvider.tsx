@@ -1,4 +1,4 @@
-import { type FC, useMemo, useState, useEffect, ReactNode } from 'react';
+import { type FC, ReactNode, useEffect, useMemo, useState } from 'react';
 
 import { THEME_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
 import { Theme } from '@/shared/constants/theme';

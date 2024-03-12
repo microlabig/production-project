@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { User, UserRole, userActions } from '@/entities/User';
+import { User, userActions, UserRole } from '@/entities/User';
 import { DEFAULT_USER_AVATAR } from '@/shared/constants/constants';
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
 import { getRouteProfile } from '@/shared/constants/router';

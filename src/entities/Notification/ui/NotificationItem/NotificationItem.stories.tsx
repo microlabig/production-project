@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { NotificationItem } from './NotificationItem';
 import { Notification } from '../../model/types/notificationSchema';
+
+import { NotificationItem } from './NotificationItem';
 
 const meta = {
     title: 'entities/Notification/NotificationItem',

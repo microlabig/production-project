@@ -1,5 +1,6 @@
-import { addCommentFormActions, addCommentFormReducer } from './addCommentFormSlice';
 import { AddCommentFormSchema } from '../types/addCommentFormSchema';
+
+import { addCommentFormActions, addCommentFormReducer } from './addCommentFormSlice';
 
 describe('addCommentFormSlice.test', () => {
     test('test setText', () => {

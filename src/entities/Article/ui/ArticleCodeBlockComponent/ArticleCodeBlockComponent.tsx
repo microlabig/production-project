@@ -2,10 +2,9 @@ import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Code } from '@/shared/ui/Code';
+import { ArticleCodeBlock } from '../../model/types/articleDetails';
 
 import cls from './ArticleCodeBlockComponent.module.scss';
-
-import { ArticleCodeBlock } from '../../model/types/articleDetails';
 
 type TArticleCodeBlockComponentProps = {
     block: ArticleCodeBlock;

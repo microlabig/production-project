@@ -1,11 +1,9 @@
-import { ReactNode, createContext, useContext, useMemo, useRef } from 'react';
+import { createContext, ReactNode, useContext, useMemo, useRef } from 'react';
+import { ReducersMapObject } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 
-import { ReducersMapObject } from '@reduxjs/toolkit';
-
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-
 import { StateSchema } from '../config/StateSchema';
 import { createReduxStore } from '../config/store';
 
