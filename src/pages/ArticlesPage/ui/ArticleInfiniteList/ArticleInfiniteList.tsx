@@ -1,5 +1,4 @@
 import { memo, useCallback } from 'react';
-
 import { useSelector } from 'react-redux';
 
 import { ArticleList } from '@/entities/Article';

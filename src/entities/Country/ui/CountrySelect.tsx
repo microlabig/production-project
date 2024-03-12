@@ -1,5 +1,4 @@
 import { memo } from 'react';
-
 import { useTranslation } from 'react-i18next';
 
 import { ListBox, ListBoxItem } from '@/shared/ui/Popups';

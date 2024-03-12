@@ -1,5 +1,4 @@
 import { memo } from 'react';
-
 import { useParams } from 'react-router-dom';
 
 import { EditableProfileCard } from '@/features/EditableProfileCard';

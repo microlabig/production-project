@@ -1,5 +1,4 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-
 import { useTranslation } from 'react-i18next';
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';

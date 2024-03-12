@@ -1,8 +1,8 @@
 import { ReactNode, createContext, useContext, useMemo, useRef } from 'react';
-
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
+
+import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 
 import { StateSchema } from '../config/StateSchema';
 import { createReduxStore } from '../config/store';

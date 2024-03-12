@@ -1,5 +1,4 @@
 import { memo, useState } from 'react';
-
 import { useSelector } from 'react-redux';
 
 import { LangSwitcher } from '@/features/LangSwitcher';
