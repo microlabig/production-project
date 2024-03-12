@@ -2,7 +2,9 @@ import { ReactNode, createContext, useContext, useMemo, useRef } from 'react';
 import { Provider } from 'react-redux';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
+import { ReducersMapObject } from '@reduxjs/toolkit';
+
+import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 import { StateSchema } from '../config/StateSchema';
 import { createReduxStore } from '../config/store';
@@ -21,7 +23,7 @@ export const StoreWrapperProvider = ({ children }: { children: ReactNode }) => {
 type TStoreProviderProps = {
     children: ReactNode;
     initialState?: StateSchema;
-    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
+    asyncReducers?: ReducersList; // DeepPartial<ReducersMapObject<StateSchema>>;
 };
 
 export function StoreProvider(props: TStoreProviderProps) {

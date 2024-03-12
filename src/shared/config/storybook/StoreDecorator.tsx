@@ -26,7 +26,7 @@ export const StoreDecorator =
         (
             <StoreProvider
                 initialState={initialState as StateSchema}
-                asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+                asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers } as ReducersList}
             >
                 <Story />
             </StoreProvider>
