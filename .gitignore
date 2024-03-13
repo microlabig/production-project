@@ -5,4 +5,4 @@
 .loki/report.html
 node_modules
 .idea
-/reports
+/reports/unit
