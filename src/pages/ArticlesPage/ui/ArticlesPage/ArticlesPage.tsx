@@ -44,7 +44,10 @@ const ArticlesPage = memo((props: TArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page /* onScrollEnd={handleLoadNextPart} */ className={classNames('', {}, [className])}>
+            <Page
+                /* onScrollEnd={handleLoadNextPart} */ data-testid="ArticlesPage"
+                className={classNames('', {}, [className])}
+            >
                 <VStack max className={cls.listWrapper}>
                     <ArticlesPageFilters />
                     <ArticleInfiniteList />

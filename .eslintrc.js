@@ -190,5 +190,5 @@ module.exports = {
                 'i18next/no-literal-string': 'off',
             },
         },
-    ],
+    ]
 };

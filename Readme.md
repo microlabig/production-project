@@ -27,6 +27,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 - `npm run test:ui:report` - Генерация полного отчета для скриншотных тестов
 - `npm run test:ui:json` - Генерация json отчета для скриншотных тестов
 - `npm run test:ui:html` - Генерация HTML отчета для скриншотных тестов
+- `npm run test:e2e` - Запуск e2e-тестов cypress
 - `npm run storybook` - запуск Storybook
 - `npm run storybook:build` - Сборка storybook билда
 - `npm run prepare` - прекоммит хуки

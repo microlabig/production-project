@@ -694,6 +694,15 @@
       ],
       "avatar": "https://placehold.co/24x24",
       "id": "f6d6b418-cf6c-41c0-89af-7fe1e78577ee"
+    },
+    {
+      "username": "test",
+      "password": "123",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://placehold.co/24x24",
+      "id": "a62568f8-cfa6-481e-bc7c-7ceb7c3e9d30"
     }
   ],
   "profile": [
@@ -739,6 +748,17 @@
       "country": "",
       "city": "",
       "username": "user3",
+      "avatar": "https://placehold.co/24x24"
+    },
+    {
+      "id": "a62568f8-cfa6-481e-bc7c-7ceb7c3e9d30",
+      "first": "",
+      "lastname": "",
+      "age": 0,
+      "currency": "EUR",
+      "country": "",
+      "city": "",
+      "username": "test",
       "avatar": "https://placehold.co/24x24"
     }
   ],
