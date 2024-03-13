@@ -8,9 +8,9 @@ import { Drawer } from '@/shared/ui/Drawer';
 import { Icon } from '@/shared/ui/Icon';
 import { Popover } from '@/shared/ui/Popups';
 
-import cls from './NotificationButton.module.scss';
-
 import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
+
+import cls from './NotificationButton.module.scss';
 
 type TNotificationButtonProps = {
     className?: string;

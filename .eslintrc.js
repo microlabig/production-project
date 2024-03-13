@@ -116,10 +116,10 @@ module.exports = {
                     ['^@', '^'],
                     // 4. relative imports from same folder "./" (I like to have them grouped together)
                     ['^\\./'],
-                    // 5. style module imports always come last, this helps to avoid CSS order issues
-                    ['^.+\\.(module.css|module.scss)$'],
-                    // 6. media imports
+                    // 5. media imports
                     ['^.+\\.(gif|png|svg|jpg)$'],
+                    // 6. style module imports always come last, this helps to avoid CSS order issues
+                    ['^.+\\.(module.css|module.scss)$'],
                 ],
             },
         ],
