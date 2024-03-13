@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Counter } from '@/entities/Counter';
 import { Page } from '@/widgets/Page';
 
 function MainPage() {
@@ -9,7 +8,7 @@ function MainPage() {
 
     return (
         <Page data-testid="MainPage" className="wrapper">
-            <Counter />
+            {/* <Counter /> */}
             {t('Главная страница')}
         </Page>
     );

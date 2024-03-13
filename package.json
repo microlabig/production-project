@@ -152,7 +152,7 @@
     "react-virtuoso": "^4.6.2"
   },
   "lint-staged": {
-    "src/**/*.{js,ts,tsx}": [
+    "src/**/*.{js,jsx,ts,tsx}": [
       "npm run lint:ts"
     ],
     "src/**/*.{css,scss}": [
