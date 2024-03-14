@@ -1,7 +1,5 @@
-import { Comment } from '@/entities/Comment';
-
 let articleId = '';
-let commentId = '';
+// const commentId = '';
 
 describe('Пользователь заходит на страницу отдельной статьи', () => {
     describe('работа с API', () => {
@@ -67,6 +65,7 @@ describe('Пользователь заходит на страницу отде
             const rateStars = 5;
 
             cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+            cy.intercept('GET', '**/article-ratings?*', { fixture: 'article-ratings.json' });
 
             cy.getByTestId('ArticleDetails.Info').should('exist');
             cy.getByTestId('RatingCard').scrollIntoView();

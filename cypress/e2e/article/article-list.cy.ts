@@ -3,7 +3,7 @@ const filterTab = 'Айти';
 describe('Пользователь заходит на страницу статей', () => {
     beforeEach(() => {
         cy.visit('');
-        cy.login().then(data => {
+        cy.login().then(() => {
             cy.visit(`articles`);
         });
     });
@@ -14,7 +14,7 @@ describe('Пользователь заходит на страницу стат
     });
 
     it('На стабах (фикстурах)', () => {
-        cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' })
+        cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' });
         cy.getByTestId('ArticleList').should('exist');
         cy.getByTestId('ArticleListItem').should('have.length.gte', 1);
     });

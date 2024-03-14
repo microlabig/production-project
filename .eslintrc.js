@@ -40,9 +40,9 @@ module.exports = {
         'no-shadow': 'off',
         '@typescript-eslint/no-shadow': 'warn',
         'prettier/prettier': 'error',
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
+        // 'react/jsx-indent': [2, 4],
+        // 'react/jsx-indent-props': [2, 4],
+        // indent: [2, 4],
         'react/jsx-filename-extension': [
             2,
             {
@@ -91,11 +91,11 @@ module.exports = {
         'no-param-reassign': 'off',
         'lines-between-class-members': 'off',
         '@typescript-eslint/lines-between-class-members': 'off',
-        indent: 'off',
         'no-extra-boolean-cast': 'off',
         'react/no-array-index-key': 'off',
         'react/no-unstable-nested-components': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
+
         'no-console': ['warn', { allow: ['warn', 'error'] }],
         'no-debugger': 'error',
 
@@ -185,11 +185,33 @@ module.exports = {
         __PROJECT__: true,
     },
     overrides: [
+        // for storybook
         {
             files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
                 'i18next/no-literal-string': 'off',
             },
         },
+        
+        // for cypress
+        {
+            files: [
+                '**/cypress/**/*.{ts,tsx}',
+                '**/cypress/**/*.cy.{ts,tsx}',
+            ],
+            parser: '@typescript-eslint/parser',
+            parserOptions: {
+                ecmaFeatures: {
+                    jsx: true,
+                },
+                ecmaVersion: 'latest',
+                sourceType: 'module',
+                tsconfigRootDir: __dirname,
+                project: ['./cypress/tsconfig.json'],
+            },
+            rules: {
+                "@typescript-eslint/no-namespace": "off"
+            }
+        }
     ]
 };

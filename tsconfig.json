@@ -58,7 +58,8 @@
         "./src/**/*.ts",
         "./src/**/*.tsx",
         "./webpack.config.ts",
-        "./vite.config.mts"
+        "./vite.config.mts",
+        "./cypress.config.ts"
     ],
     "exclude": [
         "./scripts/**/*.js",
