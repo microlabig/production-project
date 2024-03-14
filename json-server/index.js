@@ -68,11 +68,11 @@ server.post('/register', (req, res) => {
         const newUser = { username, password, roles, avatar, id: userId };
         const newProfile = {
             id: userId,
-            first: '',
-            lastname: '',
-            age: 0,
+            first: username,
+            lastname: username,
+            age: 20,
             currency: 'EUR',
-            country: '',
+            country: 'Belarus',
             city: '',
             username,
             avatar,

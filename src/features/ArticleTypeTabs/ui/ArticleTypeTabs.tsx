@@ -46,6 +46,12 @@ export const ArticleTypeTabs = memo((props: TArticleTypeTabsProps) => {
     );
 
     return (
-        <Tabs tabs={typesTabs} onTabClick={handleChangeTab} value={value} className={classNames('', {}, [className])} />
+        <Tabs
+            tabs={typesTabs}
+            onTabClick={handleChangeTab}
+            value={value}
+            className={classNames('', {}, [className])}
+            dataTestId="ArticleTypeTabs"
+        />
     );
 });

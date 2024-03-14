@@ -69,6 +69,7 @@ module.exports = {
                     'role',
                     'to',
                     'data-testid',
+                    'dataTestId',
                     'target',
                     'justify',
                     'align',

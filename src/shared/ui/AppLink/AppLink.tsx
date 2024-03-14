@@ -14,10 +14,11 @@ export enum AppLinkTheme {
 export type TAppLinkProps = NavLinkProps & {
     className?: string;
     theme?: AppLinkTheme;
+    dataTestId?: string;
 };
 
 export const AppLink = memo((props: TAppLinkProps) => {
-    const { to, className, children, theme = AppLinkTheme.PRIMARY, ...otherProps } = props;
+    const { to, className, children, theme = AppLinkTheme.PRIMARY, dataTestId, ...otherProps } = props;
 
     return (
         <NavLink
@@ -26,6 +27,7 @@ export const AppLink = memo((props: TAppLinkProps) => {
             className={({ isActive }) =>
                 classNames(cls.AppLink, { [cls.AppLinkIsActive]: isActive }, [className, cls[theme]])
             }
+            data-testid={dataTestId}
         >
             {children}
         </NavLink>

@@ -20,7 +20,9 @@ const getSkeletons = (view: ArticleView) => {
 };
 
 // Virtuoso custom styles docs: https://virtuoso.dev/customize-structure/
-const ListBig: Components['List'] = forwardRef((props, ref) => <div className={cls.listBig} {...props} ref={ref} />);
+const ListBig: Components['List'] = forwardRef((props, ref) => (
+    <div data-testid="ArticleList" className={cls.listBig} {...props} ref={ref} />
+));
 const ListItemBig: Components['Item'] = props => <div className={cls.listItemBig} {...props} />;
 
 type TArticleListProps = {
