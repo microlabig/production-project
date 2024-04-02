@@ -724,6 +724,10 @@
       "roles": [
         "ADMIN"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      },
       "avatar": "https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
     },
     {
@@ -733,6 +737,10 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": false
+      },
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
     {
@@ -742,6 +750,10 @@
       "roles": [
         "MANAGER"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": false
+      },
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
     {
@@ -750,6 +762,10 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": true
+      },
       "avatar": "",
       "id": "4acf8972-70ae-406e-a43a-120400e01ef8"
     },
@@ -768,6 +784,10 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": true
+      },
       "avatar": "https://placehold.co/24x24",
       "id": "a62568f8-cfa6-481e-bc7c-7ceb7c3e9d30"
     }

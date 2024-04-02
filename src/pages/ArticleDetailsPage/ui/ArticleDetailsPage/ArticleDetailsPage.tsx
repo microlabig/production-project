@@ -2,10 +2,12 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from '@/entities/Article';
+// import { Counter } from '@/entities/Counter';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { getFeatureFlag } from '@/shared/lib/features';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slices';
@@ -24,6 +26,9 @@ const ArticleDetailsPage = (props: TArticleDetailsPageProps) => {
     const { className } = props;
     const { id } = useParams<{ id: string }>();
 
+    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+    // const isCounterEnabled = getFeatureFlag('isCounterEnabled');
+
     if (!id) {
         return null;
     }
@@ -35,7 +40,8 @@ const ArticleDetailsPage = (props: TArticleDetailsPageProps) => {
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     <ArticleRecommendationsList />
-                    <ArticleRating id={id} />
+                    {/* {isCounterEnabled && <Counter />} */}
+                    {isArticleRatingEnabled && <ArticleRating id={id} />}
                     <ArticleDetailsComments id={id} />
                 </VStack>
             </Page>
