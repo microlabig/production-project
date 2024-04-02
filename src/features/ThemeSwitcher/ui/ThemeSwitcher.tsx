@@ -1,6 +1,8 @@
 import { memo } from 'react';
 
+import { saveJsonSettings } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 
@@ -15,12 +17,19 @@ interface TThemeSwitcherProps {
 export const ThemeSwitcher = memo((props: TThemeSwitcherProps) => {
     const { className } = props;
     const { theme, toggleTheme } = useTheme();
+    const dispatch = useAppDispatch();
+
+    const handleToggleTheme = () => {
+        toggleTheme(newTheme => {
+            dispatch(saveJsonSettings({ theme: newTheme }));
+        });
+    };
 
     return (
         <Button
             theme={ButtonTheme.CLEAR}
             className={classNames(cls.ThemeSwitcher, {}, [className])}
-            onClick={toggleTheme}
+            onClick={handleToggleTheme}
         >
             <DarkIcon className={classNames(cls.ThemeSwitcherIcon, {}, [cls[theme]])} />
         </Button>

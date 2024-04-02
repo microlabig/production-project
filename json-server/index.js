@@ -65,7 +65,15 @@ server.post('/register', (req, res) => {
         const { username, password, roles, avatar = '' } = req.body;
 
         const userId = uuid.v4();
-        const newUser = { username, password, roles, avatar, id: userId };
+        const newUser = {
+            username,
+            password,
+            roles,
+            avatar,
+            features: {},
+            jsonSettings: {},
+            id: userId
+        };
         const newProfile = {
             id: userId,
             first: username,

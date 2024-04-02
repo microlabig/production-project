@@ -1,7 +1,8 @@
 import { StoryFn } from '@storybook/react';
 
+// eslint-disable-next-line bzm-fsd-plugin/layer-imports
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { Theme } from '@/shared/constants/theme';
-import { ThemeProvider } from '@/shared/providers/theme-provider';
 
 export const ThemeDecorator = (theme: Theme) => (Story: StoryFn) =>
     (

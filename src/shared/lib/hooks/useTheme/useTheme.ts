@@ -4,14 +4,14 @@ import { Theme } from '../../../constants/theme';
 import { ThemeContext } from '../../context/ThemeContext';
 
 interface UseThemeResult {
-    toggleTheme: () => void;
+    toggleTheme: (saveAction?: (theme?: Theme) => void) => void;
     theme: Theme;
 }
 
 export function useTheme(): UseThemeResult {
     const { theme = Theme.LIGHT, setTheme } = useContext(ThemeContext);
 
-    const toggleTheme = () => {
+    const toggleTheme = (saveAction?: (theme?: Theme) => void) => {
         let newTheme: Theme = Theme.LIGHT;
 
         switch (theme) {
@@ -29,6 +29,7 @@ export function useTheme(): UseThemeResult {
         }
 
         setTheme?.(newTheme);
+        saveAction?.(newTheme);
     };
 
     return { theme, toggleTheme };

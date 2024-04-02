@@ -728,6 +728,11 @@
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true
       },
+      "jsonSettings": {
+        "theme": "app-dark-theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "avatar": "https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
     },
     {
@@ -740,6 +745,11 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app-orange-theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
       },
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
@@ -754,6 +764,11 @@
         "isArticleRatingEnabled": true,
         "isCounterEnabled": false
       },
+      "jsonSettings": {
+        "theme": "app-dark-theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
     {
@@ -766,6 +781,11 @@
         "isArticleRatingEnabled": false,
         "isCounterEnabled": true
       },
+      "jsonSettings": {
+        "theme": "app-light-theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "avatar": "",
       "id": "4acf8972-70ae-406e-a43a-120400e01ef8"
     },
@@ -775,6 +795,15 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app-light-theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "avatar": "https://placehold.co/24x24",
       "id": "f6d6b418-cf6c-41c0-89af-7fe1e78577ee"
     },
@@ -787,6 +816,11 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app-light-theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
       },
       "avatar": "https://placehold.co/24x24",
       "id": "a62568f8-cfa6-481e-bc7c-7ceb7c3e9d30"

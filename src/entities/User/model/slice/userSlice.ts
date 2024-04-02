@@ -2,6 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
 import { setFeatureFlags } from '@/shared/lib/features';
+import { initAuthData } from '../services/initAuthData';
+import { saveJsonSettings } from '../services/saveJsonSettings';
+import { JsonSettings } from '../types/jsonSettings';
 import { User, UserSchema } from '../types/userSchema';
 
 const initialState: UserSchema = {
@@ -15,27 +18,31 @@ export const userSlice = createSlice({
         setAuthData: (state, action: PayloadAction<User>) => {
             state.authData = action.payload;
             setFeatureFlags(action.payload.features);
-        },
-        initAuthData: state => {
-            const user = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
 
-            if (user) {
-                try {
-                    const json = JSON.parse(user) as User;
-
-                    state.authData = JSON.parse(user);
-                    setFeatureFlags(json.features);
-                } catch (error) {
-                    console.error(error);
-                }
-            }
-
-            state._inited = true;
+            localStorage.setItem(USER_LOCAL_STORAGE_KEY, action.payload.id);
         },
         logout: state => {
             state.authData = undefined;
             localStorage.removeItem(USER_LOCAL_STORAGE_KEY);
         },
+    },
+    extraReducers: builder => {
+        // Save Json settings
+        builder.addCase(saveJsonSettings.fulfilled, (state, { payload }: PayloadAction<JsonSettings>) => {
+            if (state.authData) {
+                state.authData.jsonSettings = payload;
+            }
+        });
+
+        // Get user data by Id
+        builder.addCase(initAuthData.fulfilled, (state, { payload }: PayloadAction<User>) => {
+            state.authData = payload;
+            setFeatureFlags(payload.features);
+            state._inited = true;
+        });
+        builder.addCase(initAuthData.rejected, state => {
+            state._inited = true;
+        });
     },
 });
 

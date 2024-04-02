@@ -19,13 +19,13 @@ describe('profileSlice.test', () => {
         });
     });
 
-    test('test initAuthData', () => {
-        const state: DeepPartial<UserSchema> = {};
+    // test('test initAuthData', () => {
+    //     const state: DeepPartial<UserSchema> = {};
 
-        expect(userReducer(state as UserSchema, userActions.initAuthData())).toEqual({
-            _inited: true,
-        });
-    });
+    //     expect(userReducer(state as UserSchema, userActions.initAuthData())).toEqual({
+    //         _inited: true,
+    //     });
+    // });
 
     test('test logout', () => {
         const state: DeepPartial<UserSchema> = {
