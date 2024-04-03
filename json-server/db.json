@@ -729,9 +729,10 @@
         "isCounterEnabled": true
       },
       "jsonSettings": {
-        "theme": "app-dark-theme",
+        "theme": "app-light-theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlesPageWasOpened": false
       },
       "avatar": "https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
     },
@@ -820,7 +821,8 @@
       "jsonSettings": {
         "theme": "app-light-theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlesPageWasOpened": true
       },
       "avatar": "https://placehold.co/24x24",
       "id": "a62568f8-cfa6-481e-bc7c-7ceb7c3e9d30"

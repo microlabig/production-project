@@ -34,6 +34,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 - `npm run generate:slice` - Скрипт для генерации FSD слайсов
 - `refactoring:update-imports` - Скрипт добавляет алиасы `@` для всез FSD-компонентов
 - `refactoring:create-public-api` - Скрипт создает Public api для ui shared-слоя
+- `remove-feature` - Скрипт удаления фичей по feature-flags (см. описание ниже)
 
 ----
 
@@ -188,15 +189,25 @@ export const Outline: Story = {
 
 ### Работа с feature-flags
 
-Разрешено использование feature flags только с помощью хелпера toggleFeatures
+Разрешено использование feature flags только с помощью хелпера toggleFeatures/компонента ToggleFeatures
 
-в него передается объект с опциями 
+Для функции в `toggleFeatures` передается объект с опциями 
 
 ```javascript
 {
    name: название фича-флага, 
    on: функция, которая отработает после Включения фичи 
    of: функция, которая отработает после ВЫключения фичи
+}
+```
+
+Для компонента в `ToggleFeatures` передаются пропсы 
+
+```tsx
+{
+   feature: название фича-флага, 
+   on: компонент, который отработает после Включения фичи 
+   of: компонент, который отработает после ВЫключения фичи
 }
 ```
 

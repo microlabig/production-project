@@ -52,7 +52,7 @@ export const ArticleListItem = memo((props: TArticleListItemProps) => {
         const textBlock = article.blocks.find(item => item.type === ArticleBlockType.TEXT) as ArticleTextBlock;
 
         return (
-            <div data-testId="ArticleListItem" className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div data-testid="ArticleListItem" className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />

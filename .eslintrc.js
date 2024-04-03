@@ -77,6 +77,7 @@ module.exports = {
                     'gap',
                     'border',
                     'autoComplete',
+                    'feature'
                 ],
             },
         ],

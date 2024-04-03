@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -51,6 +52,7 @@ const ArticlesPage = memo((props: TArticlesPageProps) => {
                 <VStack max className={cls.listWrapper}>
                     <ArticlesPageFilters />
                     <ArticleInfiniteList />
+                    <ArticlePageGreeting />
                 </VStack>
             </Page>
         </DynamicModuleLoader>
