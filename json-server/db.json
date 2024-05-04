@@ -726,13 +726,14 @@
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
         "theme": "app-light-theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
-        "isArticlesPageWasOpened": false
+        "isArticlesPageWasOpened": true
       },
       "avatar": "https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
     },
@@ -748,7 +749,7 @@
         "isCounterEnabled": false
       },
       "jsonSettings": {
-        "theme": "app-orange-theme",
+        "theme": "app-dark-theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false
       },

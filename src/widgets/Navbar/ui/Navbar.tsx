@@ -9,6 +9,7 @@ import { AvatarDropDown } from '@/features/AvatarDropDown';
 import { NotificationButton } from '@/features/NotificationButton';
 import { getRouteArticleCreate } from '@/shared/constants/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
@@ -56,6 +57,39 @@ export const Navbar = memo((props: TNavbarProps) => {
             <NotificationButton />
             <AvatarDropDown />
         </HStack>
+    );
+
+    return (
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <header className={classNames(cls.NavbarRedesigned, {}, [props.className])}>
+                    {authData ? renderAuthLayout : renderNoAuthLayout}
+
+                    {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={handleCloseAuthModal} />}
+                    {isRegistrationModal && (
+                        <RegistrationModal isOpen={isRegistrationModal} onClose={handleCloseRegistrationModal} />
+                    )}
+                </header>
+            }
+            off={
+                <header className={classNames(cls.Navbar, {}, [props.className])}>
+                    <Text theme={TextTheme.INVERTED} className={cls.appName} title={t('News app')} />
+                    {authData && (
+                        <AppLink theme={AppLinkTheme.SECONDARY} to={getRouteArticleCreate()} className={cls.createLink}>
+                            {t('Создать статью')}
+                        </AppLink>
+                    )}
+
+                    {authData ? renderAuthLayout : renderNoAuthLayout}
+
+                    {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={handleCloseAuthModal} />}
+                    {isRegistrationModal && (
+                        <RegistrationModal isOpen={isRegistrationModal} onClose={handleCloseRegistrationModal} />
+                    )}
+                </header>
+            }
+        />
     );
 
     return (

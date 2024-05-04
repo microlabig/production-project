@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { scrollRestorationActions } from '@/features/ScrollRestoration';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -46,11 +47,17 @@ export const Page = (props: TPageProps) => {
         );
     }, 500);
 
+    const baseClass = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => cls.PageRedesigned,
+        off: () => cls.Page,
+    });
+
     return (
         <main
             ref={wrapperRef}
             onScroll={handleScroll}
-            className={classNames(cls.Page, {}, [className])}
+            className={classNames(baseClass, {}, [className])}
             data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
