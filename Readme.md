@@ -238,5 +238,3 @@ Changes not staged for commit:
         deleted:    .fttemplates/FSD struct/model/types/[FTName | camelcase]Schema.ts
 ```
 Взять их из другого и смержить в текущую
-
-
