@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ListBox, ListBoxItem } from '@/shared/ui/Popups';
+import { ListBox, ListBoxItem } from '@/shared/ui/deprecated/Popups';
 import { Country } from '../model/types/country';
 
 type TCurrencyProps = {

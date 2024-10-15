@@ -6,8 +6,8 @@ import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/enti
 import { getRouteAdmin, getRouteProfile } from '@/shared/constants/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Dropdown, DropdownItem } from '@/shared/ui/Popups';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown, DropdownItem } from '@/shared/ui/deprecated/Popups';
 
 type TAvatarDropDownProps = {
     className?: string;

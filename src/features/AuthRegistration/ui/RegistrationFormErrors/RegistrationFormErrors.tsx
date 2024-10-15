@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { DEBOUNCED_DELAY } from '@/shared/constants/constants';
 import { useDebounceValue } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { getRegistrationError } from '../../model/selectors/getRegistrationError/getRegistrationError';
 import { getRegistrationPassword } from '../../model/selectors/getRegistrationPassword/getRegistrationPassword';
 import { getRegistrationReqPassword } from '../../model/selectors/getRegistrationReqPassword/getRegistrationReqPassword';
