@@ -1,7 +1,7 @@
 import { FeaturesFlags } from '@/shared/types/features';
 
 // ФИЧИ НЕ МЕНЯЮТСЯ В ХОДЕ СЕССИИ, ИХ НЕОБЯЗАТЕЛЬНО ДЕЛАТЬ РЕАКТИВНЫМИ!
-let featureFlags: FeaturesFlags;
+let featureFlags: FeaturesFlags = {};
 
 export function setFeatureFlags(newFeatureFlags?: FeaturesFlags) {
     if (newFeatureFlags) {
@@ -10,5 +10,5 @@ export function setFeatureFlags(newFeatureFlags?: FeaturesFlags) {
 }
 
 export function getFeatureFlag(flag: keyof FeaturesFlags) {
-    return featureFlags[flag];
+    return featureFlags?.[flag];
 }

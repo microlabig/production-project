@@ -5,8 +5,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
 
-import DarkIcon from '@/shared/assets/icons/theme-dark.svg';
+import ThemeIcon from '@/shared/assets/icons/theme-light.svg';
 
 import cls from './ThemeSwitcher.module.scss';
 
@@ -16,7 +17,7 @@ interface TThemeSwitcherProps {
 
 export const ThemeSwitcher = memo((props: TThemeSwitcherProps) => {
     const { className } = props;
-    const { theme, toggleTheme } = useTheme();
+    const { toggleTheme } = useTheme();
     const dispatch = useAppDispatch();
 
     const handleToggleTheme = () => {
@@ -31,7 +32,7 @@ export const ThemeSwitcher = memo((props: TThemeSwitcherProps) => {
             className={classNames(cls.ThemeSwitcher, {}, [className])}
             onClick={handleToggleTheme}
         >
-            <DarkIcon className={classNames(cls.ThemeSwitcherIcon, {}, [cls[theme]])} />
+            <Icon Svg={ThemeIcon} width={40} height={40} inverted />
         </Button>
     );
 });
