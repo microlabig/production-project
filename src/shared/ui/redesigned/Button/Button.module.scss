@@ -1,5 +1,9 @@
+/* stylelint-disable no-descending-specificity */
 .Button {
-    padding: 6px 15px;
+    display: flex;
+    align-items: center;
+
+    padding: 8px 16px;
 
     color: var(--text-redesigned);
 
@@ -7,7 +11,26 @@
 
     &:hover {
         color: var(--accent-redesigned);
+
+        .addonLeft svg,
+        .addonRight svg {
+            color: var(--accent-redesigned);
+        }
     }
+}
+
+.withAddon {
+    padding: 0 16px;
+}
+
+.addonLeft,
+.addonRight {
+    display: flex;
+}
+
+.addonRight svg,
+.addonLeft svg {
+    color: var(--hint-redesigned);
 }
 
 .clear {
@@ -25,6 +48,14 @@
     color: var(--primary-color);
 
     background: none;
+}
+
+.filled {
+    border: none;
+    border-radius: 34px;
+
+    background: var(--light-bg-redesigned);
+    outline: none;
 }
 
 .square {

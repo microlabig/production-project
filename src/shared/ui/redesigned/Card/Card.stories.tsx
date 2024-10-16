@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Text } from '../Text/Text';
 
-import { Card, CardTheme } from './Card';
+import { Card } from './Card';
 
 const meta = {
     title: 'shared/Card',
@@ -20,14 +20,13 @@ export const Normal: Story = {
 
 export const Outlined: Story = {
     args: {
-        theme: CardTheme.OUTLINED,
+        variant: 'outlined',
         children: <Text title="title" text="text" />,
     },
 };
 
 export const Max: Story = {
     args: {
-        theme: CardTheme.OUTLINED,
         children: <Text title="title" text="text" />,
         max: true,
     },

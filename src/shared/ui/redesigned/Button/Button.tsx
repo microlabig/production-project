@@ -4,7 +4,7 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 import cls from './Button.module.scss';
 
-type ButtonVariant = 'clear' | 'outline';
+type ButtonVariant = 'clear' | 'outline' | 'filled';
 
 type ButtonSize = 'm' | 'l' | 'xl';
 
@@ -15,15 +15,29 @@ export type TButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     size?: ButtonSize;
     fullWidth?: boolean;
     children?: ReactNode;
+    addonLeft?: ReactNode;
+    addonRight?: ReactNode;
 };
 
 export const Button = memo((props: TButtonProps) => {
-    const { className, children, variant = 'outline', square, size = 'm', disabled, fullWidth, ...otherProps } = props;
+    const {
+        className,
+        children,
+        variant = 'outline',
+        square,
+        size = 'm',
+        disabled,
+        fullWidth,
+        addonLeft,
+        addonRight,
+        ...otherProps
+    } = props;
 
     const mods: Mods = {
         [cls.square]: square,
         [cls.disabled]: disabled,
         [cls.fullWidth]: fullWidth,
+        [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
     };
 
     return (
@@ -33,7 +47,9 @@ export const Button = memo((props: TButtonProps) => {
             disabled={disabled}
             className={classNames(cls.Button, mods, [className, cls[variant], cls[size]])}
         >
+            <div className={cls.addonLeft}>{addonLeft}</div>
             {children}
+            <div className={cls.addonRight}>{addonRight}</div>
         </button>
     );
 });

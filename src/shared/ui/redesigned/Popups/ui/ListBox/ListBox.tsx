@@ -4,9 +4,12 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropDownDirection } from '@/shared/types/ui';
 import { Button, TButtonProps } from '../../../Button/Button';
+import { Icon } from '../../../Icon';
 import { HStack } from '../../../Stack';
 import { Text } from '../../../Text/Text';
 import { mapDirectionClasses } from '../../styles/constants';
+
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 
 import popupCls from '../../styles/popup.module.scss';
 import cls from './ListBox.module.scss';
@@ -32,12 +35,13 @@ interface TListBoxProps<T extends string> {
 // чтобы убрать варнинг "Warning: validateDOMNesting(...): <button> cannot appear as a descendant of <button>"
 const ListBoxButton = forwardRef<HTMLDivElement, TButtonProps>((props, ref) => (
     <div ref={ref}>
-        <Button {...props} />
+        <Button variant="filled" addonRight={<Icon Svg={ArrowIcon} />} {...props} />
     </div>
 ));
 
 export const ListBox = <T extends string>(props: TListBoxProps<T>) => {
     const { items, value, defaultValue, className, onChange, readonly, label, direction = 'bottom right' } = props;
+
     const optionsAdditionalClasses = [mapDirectionClasses[direction], popupCls.menu];
     const selectedContent = items?.find(item => item.value === (value ?? defaultValue))?.content;
 

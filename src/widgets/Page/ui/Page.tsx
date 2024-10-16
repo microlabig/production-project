@@ -32,7 +32,11 @@ export const Page = (props: TPageProps) => {
     const scrollPosition = useSelector((state: StateSchema) => state.scrollRestoration.scroll[location.pathname]);
 
     useInfiniteScroll({
-        wrapperRef,
+        wrapperRef: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => undefined,
+            off: () => wrapperRef,
+        }),
         triggerRef,
         callback: onScrollEnd,
     });

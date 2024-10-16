@@ -11,6 +11,8 @@
 .item {
     padding: 10px 20px;
 
+    cursor: pointer;
+
     &:hover {
         transition: all var(--delay) ease-in-out;
     }
