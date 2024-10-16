@@ -7,8 +7,8 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/Dynam
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';

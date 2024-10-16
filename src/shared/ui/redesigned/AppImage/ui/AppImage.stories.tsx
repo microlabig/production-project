@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 export const NormalWithError: Story = {
     args: {
-        errorFallback: <Icon inverted width={150} height={150} Svg={UserFilledIcon} />,
+        errorFallback: <Icon width={150} height={150} Svg={UserFilledIcon} />,
     },
 };
 

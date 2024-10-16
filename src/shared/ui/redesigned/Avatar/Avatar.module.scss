@@ -1,0 +1,9 @@
+.Avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

@@ -3,8 +3,8 @@ import { Listbox as HListBox } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropDownDirection } from '@/shared/types/ui';
+import { HStack } from '../../../../redesigned/Stack';
 import { Button, TButtonProps } from '../../../Button/Button';
-import { HStack } from '../../../Stack';
 import { Text } from '../../../Text/Text';
 import { mapDirectionClasses } from '../../styles/constants';
 

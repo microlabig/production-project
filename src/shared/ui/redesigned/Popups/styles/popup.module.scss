@@ -1,0 +1,78 @@
+.popup {
+    position: relative;
+}
+
+.menu {
+    border: 1px solid var(--accent-redesigned);
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.trigger {
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.options {
+    position: absolute;
+    z-index: var(--dropdown-z-index);
+
+    display: flex;
+    flex-direction: column;
+
+    // border: 1px solid var(--primary-color);
+    // border-radius: 8px;
+    // overflow: hidden;
+
+    background: var(--card-bg);
+
+    &BottomLeft {
+        top: 100%;
+        right: 0;
+    }
+
+    &BottomRight {
+        top: 100%;
+        left: 0;
+    }
+
+    &TopLeft {
+        right: 0;
+        bottom: 100%;
+    }
+
+    &TopRight {
+        bottom: 100%;
+
+        left: 0;
+    }
+}
+
+.item {
+    width: 100%;
+    padding: 10px 25px;
+    border: none;
+
+    color: var(--primary-color);
+
+    background: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        transition: all var(--delay) ease-in-out;
+    }
+}
+
+.active {
+    background: var(--light-bg-redesigned) !important;
+}
+
+.disabled {
+    opacity: 0.6;
+}

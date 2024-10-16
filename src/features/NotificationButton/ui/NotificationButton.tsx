@@ -3,12 +3,16 @@ import { BrowserView, MobileView } from 'react-device-detect';
 
 import { NotificationList } from '@/entities/Notification';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Drawer } from '@/shared/ui/deprecated/Drawer';
-import { Icon } from '@/shared/ui/deprecated/Icon';
-import { Popover } from '@/shared/ui/deprecated/Popups';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Popover } from '@/shared/ui/redesigned/Popups';
 
-import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
+import NotificationIcon from '@/shared/assets/icons/notification.svg';
+import NotificationIconDeprecated from '@/shared/assets/icons/notification-20-20.svg';
 
 import cls from './NotificationButton.module.scss';
 
@@ -30,17 +34,33 @@ export const NotificationButton = memo((props: TNotificationButtonProps) => {
     }, []);
 
     const trigger = (
-        <Button onClick={handleOpenDrawer} theme={ButtonTheme.CLEAR}>
-            <Icon Svg={NotificationIcon} inverted />
-        </Button>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={<Icon Svg={NotificationIcon} clickable onClick={handleOpenDrawer} />}
+            off={
+                <ButtonDeprecated onClick={handleOpenDrawer} theme={ButtonTheme.CLEAR}>
+                    <IconDeprecated Svg={NotificationIconDeprecated} inverted />
+                </ButtonDeprecated>
+            }
+        />
     );
 
     return (
         <div className={classNames(cls.NotificationButton, {}, [className])}>
             <BrowserView>
-                <Popover trigger={trigger} direction="bottom left">
-                    <NotificationList className={cls.notifications} />
-                </Popover>
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={
+                        <Popover trigger={trigger} direction="bottom left">
+                            <NotificationList className={cls.notifications} />
+                        </Popover>
+                    }
+                    off={
+                        <PopoverDeprecated trigger={trigger} direction="bottom left">
+                            <NotificationList className={cls.notifications} />
+                        </PopoverDeprecated>
+                    }
+                />
             </BrowserView>
 
             <MobileView>

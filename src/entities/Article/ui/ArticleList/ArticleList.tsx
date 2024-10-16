@@ -4,8 +4,8 @@ import { Components, Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 
 import { ARTICLE_INDEX_SESSION_STORAGE_KEY } from '@/shared/constants/sessionStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleView } from '../../model/constants/constants';
 import { Article } from '../../model/types/articleDetails';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';

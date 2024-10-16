@@ -1,0 +1,25 @@
+.menu {
+    position: absolute;
+    z-index: var(--dropdown-z-index);
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--dark-bg-redesigned);
+}
+
+.item {
+    width: 100%;
+    padding: 10px 25px;
+    border: none;
+
+    color: var(--text-redesigned);
+
+    background: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        transition: all var(--delay) ease-in-out;
+    }
+}

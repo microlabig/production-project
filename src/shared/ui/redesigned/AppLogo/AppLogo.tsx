@@ -1,8 +1,8 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { HStack } from '../../deprecated/Stack';
 import { Icon } from '../Icon';
+import { HStack } from '../Stack';
 
 import AppSvg from '@/shared/assets/icons/app-image.svg';
 

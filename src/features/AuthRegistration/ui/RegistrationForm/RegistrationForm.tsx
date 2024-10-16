@@ -7,8 +7,8 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/Dynam
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { getRegistrationIsLoading } from '../../model/selectors/getRegistrationIsLoading/getRegistrationIsLoading';
 import { getRegistrationPassword } from '../../model/selectors/getRegistrationPassword/getRegistrationPassword';
 import { getRegistrationReqPassword } from '../../model/selectors/getRegistrationReqPassword/getRegistrationReqPassword';

@@ -7,10 +7,6 @@ type TAppImageProps = ImgHTMLAttributes<HTMLImageElement> & {
     className?: string;
 };
 
-/**
- * Устарел, используем новые компоненты из директории redesigned
- * @deprecated
- */
 export const AppImage = memo((props: TAppImageProps) => {
     const { className, src, alt = 'image', fallback, errorFallback, ...otherProps } = props;
 
