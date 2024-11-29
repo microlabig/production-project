@@ -226,3 +226,15 @@ TODO:
  - добавить на главную страницу фишки проекта
  - добавить функционал создания статьи
  - добавить изменение аватара пользователя
+
+Ветка feat/16-module, в ней на винде удалил FSD Struct (см. ниже)
+
+```
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    .fttemplates/FSD struct/api/[FTName | camelcase]Api.ts
+        deleted:    .fttemplates/FSD struct/model/slices/[FTName | camelcase]Slice.ts
+        deleted:    .fttemplates/FSD struct/model/types/[FTName | camelcase]Schema.ts
+```
+Взять их из другого и смержить в текущую
