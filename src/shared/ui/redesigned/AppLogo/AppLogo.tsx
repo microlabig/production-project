@@ -18,9 +18,9 @@ export const AppLogo = memo((props: TAppLogoProps) => {
 
     return (
         <HStack max justify="center" className={classNames(cls.appLogoWrapper, {}, [className])}>
+            <Icon Svg={AppSvg} className={cls.appLogo} width={size} height={size} color="black" />
             <div className={cls.gradientBig} />
             <div className={cls.gradientSmall} />
-            <Icon Svg={AppSvg} className={cls.appLogo} width={size} height={size} color="black" />
         </HStack>
     );
 });

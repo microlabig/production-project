@@ -18,5 +18,8 @@
     "Некорректный возраст": "Uncorrected age",
     "Профиль не найден": "Profile not found",
     "Оцените профиль":"Rate profile",
-    "Оставьте свой отзыв о профиле": "Leave your rate for this profile"
+    "Оставьте свой отзыв о профиле": "Leave your rate for this profile",
+    "Имя": "Name",
+    "Фамилия": "Last name",
+    "Возраст": "Age"
 }

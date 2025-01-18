@@ -1,18 +1,24 @@
 import { InputHTMLAttributes, memo, ReactNode, useEffect, useRef, useState } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { HStack } from '../Stack';
+import { Text } from '../Text';
 
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly' | 'size'>;
+
+type InputSize = 's' | 'm' | 'l';
 
 type TInputProps = HTMLInputProps & {
     value?: string | number;
+    label?: string;
     onChange?: (value: string) => void;
     autofocus?: boolean;
     readonly?: boolean;
     addonLeft?: ReactNode;
     addonRight?: ReactNode;
+    size?: InputSize;
 
     className?: string;
 };
@@ -20,6 +26,7 @@ type TInputProps = HTMLInputProps & {
 export const Input = memo((props: TInputProps) => {
     const {
         value,
+        label,
         onChange,
         className,
         type = 'text',
@@ -28,6 +35,7 @@ export const Input = memo((props: TInputProps) => {
         readonly,
         addonLeft,
         addonRight,
+        size = 'm',
         ...otherProps
     } = props;
 
@@ -62,8 +70,8 @@ export const Input = memo((props: TInputProps) => {
         [cls.withAddonRight]: Boolean(addonRight),
     };
 
-    return (
-        <div className={classNames(cls.wrapper, mods, [props.className])}>
+    const input = (
+        <div className={classNames(cls.wrapper, mods, [props.className, cls[size]])}>
             <div className={cls.addonLeft}>{addonLeft}</div>
             <input
                 {...otherProps}
@@ -80,4 +88,15 @@ export const Input = memo((props: TInputProps) => {
             <div className={cls.addonRight}>{addonRight}</div>
         </div>
     );
+
+    if (label) {
+        return (
+            <HStack max gap="8">
+                <Text text={label} />
+                {input}
+            </HStack>
+        );
+    }
+
+    return input;
 });

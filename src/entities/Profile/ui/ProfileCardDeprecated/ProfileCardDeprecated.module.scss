@@ -1,0 +1,16 @@
+.ProfileCardDeprecated {
+    padding: 20px;
+    border: 2px solid var(--inverted-bg-color);
+}
+
+.editing {
+    border-color: var(--inverted-primary-color);
+}
+
+.loading,
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
