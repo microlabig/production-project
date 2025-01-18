@@ -42,20 +42,23 @@
     outline: none;
 }
 
-.outline {
-    border: 1px solid var(--primary-color);
-
-    color: var(--primary-color);
-
-    background: none;
-}
-
 .filled {
     border: none;
     border-radius: 34px;
 
     background: var(--light-bg-redesigned);
     outline: none;
+}
+
+.outline {
+    border: 1px solid var(--icon-redesigned);
+    border-radius: 34px;
+
+    background: none;
+
+    &:hover {
+        border: 1px solid var(--accent-redesigned);
+    }
 }
 
 .square {

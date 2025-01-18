@@ -11,7 +11,7 @@ import { Input } from '@/shared/ui/redesigned/Input';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { TProfileCardProps } from '../../model/types/profileCard';
+import { TProfileCardProps } from '../../../model/types/profileCard';
 import { ProfileCardDeprecated } from '../ProfileCardDeprecated/ProfileCardDeprecated';
 
 import cls from './ProfileCardRedesigned.module.scss';

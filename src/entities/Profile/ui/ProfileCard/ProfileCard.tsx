@@ -1,15 +1,16 @@
 import { ToggleFeatures } from '@/shared/lib/features';
 import { TProfileCardProps } from '../../model/types/profileCard';
+
 import {
     ProfileCardDeprecated,
     ProfileCardDeprecatedError,
     ProfileCardDeprecatedSkeleton,
-} from '../ProfileCardDeprecated/ProfileCardDeprecated';
+} from './ProfileCardDeprecated/ProfileCardDeprecated';
 import {
     ProfileCardRedesigned,
     ProfileCardRedesignedError,
     ProfileCardRedesignedSkeleton,
-} from '../ProfileCardRedesigned/ProfileCardRedesigned';
+} from './ProfileCardRedesigned/ProfileCardRedesigned';
 
 export const ProfileCard = (props: TProfileCardProps) => {
     const { isLoading, error } = props;

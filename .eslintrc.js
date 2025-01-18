@@ -107,7 +107,7 @@ module.exports = {
 
         'simple-import-sort/imports': [
             // https://dev.to/receter/automatic-import-sorting-in-vscode-275m
-            'error',
+            'warn',
             {
                 groups: [
                     // 1. Side effect imports at the start. For me this is important because I want to import reset.css and global styles at the top of my main file.

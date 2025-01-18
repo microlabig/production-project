@@ -9,7 +9,7 @@ import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Loader as LoaderDeprecated } from '@/shared/ui/deprecated/Loader';
 import { Text as TextDeprecated, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { TProfileCardProps } from '../../model/types/profileCard';
+import { TProfileCardProps } from '../../../model/types/profileCard';
 
 import cls from './ProfileCardDeprecated.module.scss';
 

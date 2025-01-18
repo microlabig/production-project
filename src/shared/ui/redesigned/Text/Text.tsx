@@ -16,6 +16,7 @@ type TTextProps = {
     variant?: TextVariant;
     align?: TextAlign;
     size?: TextSize;
+    bold?: boolean;
 
     className?: string;
 
@@ -38,6 +39,7 @@ export const Text = memo((props: TTextProps) => {
         variant = 'primary',
         align = 'left',
         size = 'm',
+        bold,
         'data-testid': dataTestId = '',
     } = props;
 
@@ -45,7 +47,7 @@ export const Text = memo((props: TTextProps) => {
     const additionalClasses = [className, cls[variant], cls[align], cls[size]];
 
     return (
-        <div className={classNames(cls.Text, {}, additionalClasses)}>
+        <div className={classNames(cls.Text, { [cls.bold]: bold }, additionalClasses)}>
             {title && (
                 <HeaderTag className={cls.title} data-testid={`${dataTestId}.Header`}>
                     {title}

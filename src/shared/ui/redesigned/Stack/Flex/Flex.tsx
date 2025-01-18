@@ -7,6 +7,7 @@ import cls from './Flex.module.scss';
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
+export type FlexWrap = 'wrap' | 'nowrap';
 export type FlexGap = '4' | '8' | '16' | '24' | '32';
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -42,7 +43,7 @@ export type TFlexProps = DivProps & {
     justify?: FlexJustify;
     align?: FlexAlign;
     direction?: FlexDirection;
-
+    wrap?: FlexWrap;
     gap?: FlexGap;
 
     max?: boolean;
@@ -51,7 +52,17 @@ export type TFlexProps = DivProps & {
 };
 
 export const Flex = memo((props: TFlexProps) => {
-    const { children, justify = 'start', align = 'center', direction = 'row', gap, max, className, ...rest } = props;
+    const {
+        children,
+        justify = 'start',
+        align = 'center',
+        direction = 'row',
+        wrap = 'nowrap',
+        gap,
+        max,
+        className,
+        ...rest
+    } = props;
 
     const mods: Mods = {
         [cls.max]: max,
@@ -61,6 +72,7 @@ export const Flex = memo((props: TFlexProps) => {
         justifyClasses[justify],
         alignClasses[align],
         directionClasses[direction],
+        wrap && cls[wrap],
         gap && gapClasses[gap],
     ];
 
