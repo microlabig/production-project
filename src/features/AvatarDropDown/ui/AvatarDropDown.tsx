@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
-import { getRouteAdmin, getRouteProfile } from '@/shared/constants/router';
+import { getRouteAdmin, getRouteProfile, getRouteSettings } from '@/shared/constants/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -42,6 +42,10 @@ export const AvatarDropDown = memo((props: TAvatarDropDownProps) => {
                   },
               ]
             : []),
+        {
+            content: t('Настройки'),
+            href: getRouteSettings(),
+        },
         {
             content: t('Профиль'),
             href: getRouteProfile(authData?.id ?? ''),
