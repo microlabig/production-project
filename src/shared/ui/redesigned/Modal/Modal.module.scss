@@ -7,8 +7,6 @@
     align-items: center;
     justify-content: center;
 
-    color: var(--primary-color);
-
     opacity: 0;
 
     pointer-events: none;
@@ -20,7 +18,6 @@
     padding: 20px;
     border-radius: 12px;
 
-    background: var(--bg-color);
     transform: scale(0.5);
 
     transition: 0.3s transform;
@@ -41,5 +38,17 @@
 .isClosing {
     .content {
         transform: scale(0.2);
+    }
+}
+
+.modalNew {
+    .content {
+        background: var(--light-bg-redesigned);
+    }
+}
+
+.modalOld {
+    .content {
+        background: var(--bg-color);
     }
 }

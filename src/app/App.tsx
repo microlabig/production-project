@@ -30,7 +30,7 @@ function App() {
         <ToggleFeatures
             feature="isAppRedesigned"
             on={
-                <div className="app_redesigned">
+                <div id="app" className="app_redesigned">
                     <Suspense fallback="">
                         <MainLayout
                             header={<Navbar />}
@@ -42,7 +42,7 @@ function App() {
                 </div>
             }
             off={
-                <div className="app">
+                <div id="app" className="app">
                     <Suspense fallback="">
                         <Navbar />
                         <div className="content-page">

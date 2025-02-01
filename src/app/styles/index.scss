@@ -14,6 +14,9 @@ body {
 .app {
     min-height: 100vh;
 
+    color: var(--primary-color);
+    font: var(--font-m);
+
     background: var(--bg-color);
 }
 
@@ -24,13 +27,6 @@ body {
     font: var(--font-m-redesigned);
 
     background: var(--bg-redesigned);
-}
-
-.app,
-.app_modal,
-.app_drawer {
-    color: var(--primary-color);
-    font: var(--font-m);
 }
 
 .content-page {
