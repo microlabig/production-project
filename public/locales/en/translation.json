@@ -38,5 +38,9 @@
   "Создать статью": "Create article",
   "У вас нет доступа к этой странице": "You not have access to this page",
   "Ваш отзыв": "Your feedback",
-  "Спасибо за оценку!": "Thank you for the rate!"
+  "Спасибо за оценку!": "Thank you for the rate!",
+  "Редактировать": "Edit",  
+  "{{count}} просмотров_zero": "{{count}} views",
+  "{{count}} просмотров_one": "{{count}} view",
+  "{{count}} просмотров_other": "{{count}} views"
 }

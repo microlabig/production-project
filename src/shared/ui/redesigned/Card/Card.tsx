@@ -25,6 +25,7 @@ type TCardProps = HTMLAttributes<HTMLDivElement> & {
 
     variant?: CardVariant;
     max?: boolean;
+    fullHeight?: boolean;
     padding?: CardPadding;
     border?: CardBorder;
 
@@ -32,10 +33,20 @@ type TCardProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 export const Card = memo((props: TCardProps) => {
-    const { className, children, variant = 'normal', max, padding = '8', border = 'normal', ...otherProps } = props;
+    const {
+        className,
+        children,
+        variant = 'normal',
+        max,
+        fullHeight,
+        padding = '8',
+        border = 'normal',
+        ...otherProps
+    } = props;
 
     const mods: Mods = {
         [cls.max]: max,
+        [cls.fullHeight]: fullHeight,
     };
 
     return (
