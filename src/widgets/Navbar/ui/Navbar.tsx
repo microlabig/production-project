@@ -10,9 +10,10 @@ import { NotificationButton } from '@/features/NotificationButton';
 import { getRouteArticleCreate } from '@/shared/constants/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { AppLink as AppLinkDeprecated, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
+import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './Navbar.module.scss';
@@ -42,14 +43,37 @@ export const Navbar = memo((props: TNavbarProps) => {
     const handleCloseRegistrationModal = useCallback(() => setIsRegistrationModal(false), []);
 
     const renderNoAuthLayout = (
-        <HStack gap="32" className={cls.authButtons}>
-            <Button theme={ButtonTheme.CLEAR_INVERTED} className={cls.links} onClick={handleOpenRegistrationModal}>
-                {t('Регистрация')}
-            </Button>
-            <Button theme={ButtonTheme.CLEAR_INVERTED} className={cls.links} onClick={handleOpenAuthModal}>
-                {t('Войти')}
-            </Button>
-        </HStack>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <HStack gap="32" className={cls.authButtons}>
+                    <Button variant="clear" className={cls.links} onClick={handleOpenRegistrationModal}>
+                        {t('Регистрация')}
+                    </Button>
+                    <Button variant="clear" className={cls.links} onClick={handleOpenAuthModal}>
+                        {t('Войти')}
+                    </Button>
+                </HStack>
+            }
+            off={
+                <HStack gap="32" className={cls.authButtons}>
+                    <ButtonDeprecated
+                        theme={ButtonTheme.CLEAR_INVERTED}
+                        className={cls.links}
+                        onClick={handleOpenRegistrationModal}
+                    >
+                        {t('Регистрация')}
+                    </ButtonDeprecated>
+                    <ButtonDeprecated
+                        theme={ButtonTheme.CLEAR_INVERTED}
+                        className={cls.links}
+                        onClick={handleOpenAuthModal}
+                    >
+                        {t('Войти')}
+                    </ButtonDeprecated>
+                </HStack>
+            }
+        />
     );
 
     const renderAuthLayout = (
@@ -74,11 +98,15 @@ export const Navbar = memo((props: TNavbarProps) => {
             }
             off={
                 <header className={classNames(cls.Navbar, {}, [props.className])}>
-                    <Text theme={TextTheme.INVERTED} className={cls.appName} title={t('News app')} />
+                    <TextDeprecated theme={TextTheme.INVERTED} className={cls.appName} title={t('News app')} />
                     {authData && (
-                        <AppLink theme={AppLinkTheme.SECONDARY} to={getRouteArticleCreate()} className={cls.createLink}>
+                        <AppLinkDeprecated
+                            theme={AppLinkTheme.SECONDARY}
+                            to={getRouteArticleCreate()}
+                            className={cls.createLink}
+                        >
                             {t('Создать статью')}
-                        </AppLink>
+                        </AppLinkDeprecated>
                     )}
 
                     {authData ? renderAuthLayout : renderNoAuthLayout}
@@ -90,23 +118,5 @@ export const Navbar = memo((props: TNavbarProps) => {
                 </header>
             }
         />
-    );
-
-    return (
-        <header className={classNames(cls.navbar, {}, [props.className])}>
-            <Text theme={TextTheme.INVERTED} className={cls.appName} title={t('News app')} />
-            {authData && (
-                <AppLink theme={AppLinkTheme.SECONDARY} to={getRouteArticleCreate()} className={cls.createLink}>
-                    {t('Создать статью')}
-                </AppLink>
-            )}
-
-            {authData ? renderAuthLayout : renderNoAuthLayout}
-
-            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={handleCloseAuthModal} />}
-            {isRegistrationModal && (
-                <RegistrationModal isOpen={isRegistrationModal} onClose={handleCloseRegistrationModal} />
-            )}
-        </header>
     );
 });

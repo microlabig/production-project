@@ -18,7 +18,7 @@ import cls from './ProfileCardRedesigned.module.scss';
 
 export const ProfileCardRedesignedSkeleton = () => {
     return (
-        <Card padding="24" max>
+        <Card padding="24" max  border='partial'>
             <VStack gap="32" max>
                 <HStack max justify="center">
                     <Skeleton width={128} height={128} border="50%" />
@@ -78,7 +78,7 @@ export const ProfileCardRedesigned = memo((props: TProfileCardProps) => {
         <ToggleFeatures
             feature="isAppRedesigned"
             on={
-                <Card max padding="24" className={classNames(cls.ProfileCardRedesigned, {}, [className])}>
+                <Card max padding="24"  border='partial' className={classNames(cls.ProfileCardRedesigned, {}, [className])}>
                     <VStack max gap="32">
                         {data?.avatar && (
                             <HStack align="center" justify="center" max>

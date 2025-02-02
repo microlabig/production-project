@@ -5,12 +5,14 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 type ButtonVariant = 'clear' | 'outline' | 'filled';
+type ButtonColor = 'normal' | 'success' | 'error';
 
 type ButtonSize = 'm' | 'l' | 'xl';
 
 export type TButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     className?: string;
     variant?: ButtonVariant;
+    color?: ButtonColor;
     square?: boolean;
     size?: ButtonSize;
     fullWidth?: boolean;
@@ -24,6 +26,7 @@ export const Button = memo((props: TButtonProps) => {
         className,
         children,
         variant = 'outline',
+        color = 'normal',
         square,
         size = 'm',
         disabled,
@@ -45,7 +48,7 @@ export const Button = memo((props: TButtonProps) => {
             type="button"
             {...otherProps}
             disabled={disabled}
-            className={classNames(cls.Button, mods, [className, cls[variant], cls[size]])}
+            className={classNames(cls.Button, mods, [className, cls[variant], cls[size], cls[color]])}
         >
             <div className={cls.addonLeft}>{addonLeft}</div>
             {children}

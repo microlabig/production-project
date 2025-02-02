@@ -169,7 +169,7 @@ export const RatingCard = memo((props: TRatingProps) => {
                     max
                     data-testid="RatingCard"
                     padding="24"
-                    border="round"
+                    border="partial"
                 >
                     {content}
                 </Card>

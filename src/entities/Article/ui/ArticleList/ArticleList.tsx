@@ -4,8 +4,12 @@ import { Components, Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 
 import { ARTICLE_INDEX_SESSION_STORAGE_KEY } from '@/shared/constants/sessionStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { ArticleView } from '../../model/constants/constants';
 import { Article } from '../../model/types/articleDetails';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -14,6 +18,12 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import cls from './ArticleList.module.scss';
 
 const getSkeletons = (view: ArticleView) => {
+    const Skeleton = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => SkeletonRedesigned,
+        off: () => SkeletonDeprecated,
+    });
+
     return new Array(view === ArticleView.SMALL ? 9 : 3)
         .fill(0)
         .map((_, i) => <ArticleListItemSkeleton key={i} view={view} className={cls.ArticleItemSkeleton} />);
@@ -90,7 +100,11 @@ export const ArticleList = memo((props: TArticleListProps) => {
     if (!isLoading && !articles?.length) {
         return (
             <div className={classNames(cls.ArticleList, {}, [className])}>
-                <Text size={TextSize.L} text={t('Статьи не найдены')} />
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={<Text size="l" text={t('Статьи не найдены')} />}
+                    off={<TextDeprecated size={TextSize.L} text={t('Статьи не найдены')} />}
+                />
             </div>
         );
     }
@@ -107,7 +121,11 @@ export const ArticleList = memo((props: TArticleListProps) => {
                     Item: ListItemBig,
                 }}
                 initialTopMostItemIndex={articles && scrollIndex > articles.length ? 0 : scrollIndex}
-                className={cls.VirtuosoBig}
+                className={toggleFeatures({
+                    name: 'isAppRedesigned',
+                    on: () => cls.VirtuosoBigRedesigned,
+                    off: () => cls.VirtuosoBig,
+                })}
             />
         ) : (
             <VirtuosoGrid
@@ -125,7 +143,11 @@ export const ArticleList = memo((props: TArticleListProps) => {
                 }}
                 initialTopMostItemIndex={articles && scrollIndex > articles.length ? 0 : scrollIndex}
                 listClassName={cls.listSmall}
-                className={cls.VirtuosoGrid}
+                className={toggleFeatures({
+                    name: 'isAppRedesigned',
+                    on: () => cls.VirtuosoGridRedesigned,
+                    off: () => cls.VirtuosoGrid,
+                })}
             />
         );
 

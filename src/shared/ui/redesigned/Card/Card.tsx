@@ -6,7 +6,7 @@ import cls from './Card.module.scss';
 
 export type CardVariant = 'normal' | 'outlined' | 'light';
 export type CardPadding = '0' | '8' | '16' | '24';
-export type CardBorder = 'round' | 'normal';
+export type CardBorder = 'round' | 'normal' | 'partial';
 
 const mapPaddingToClass: Record<CardPadding, string> = {
     0: cls.padding0,
@@ -18,6 +18,7 @@ const mapPaddingToClass: Record<CardPadding, string> = {
 const mapBorderToClass: Record<CardBorder, string> = {
     normal: cls.borderNormal,
     round: cls.borderRound,
+    partial: cls.borderPartial,
 };
 
 type TCardProps = HTMLAttributes<HTMLDivElement> & {

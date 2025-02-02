@@ -9,6 +9,8 @@
 
     cursor: pointer;
 
+    transition: all var(--delay) ease-in-out;
+
     &:hover {
         color: var(--accent-redesigned);
 
@@ -46,18 +48,45 @@
     border: none;
     border-radius: 34px;
 
-    background: var(--light-bg-redesigned);
     outline: none;
+
+    &:hover {
+        box-shadow: 0 0 8px 2px var(--hint-redesigned);
+    }
+
+    &.normal {
+        background: var(--light-bg-redesigned);
+    }
+
+    &.error {
+        border-color: var(--cancel-redesigned);
+    }
+
+    &.success {
+        border-color: var(--save-redesigned);
+    }
 }
 
 .outline {
-    border: 2px solid var(--icon-redesigned);
+    border: 2px solid transparent;
     border-radius: 34px;
 
     background: none;
 
     &:hover {
-        border: 2px solid var(--accent-redesigned);
+        box-shadow: 0 0 8px 2px var(--hint-redesigned);
+    }
+
+    &.normal {
+        border-color: var(--icon-redesigned);
+    }
+
+    &.error {
+        border-color: var(--cancel-redesigned);
+    }
+
+    &.success {
+        border-color: var(--save-redesigned);
     }
 }
 

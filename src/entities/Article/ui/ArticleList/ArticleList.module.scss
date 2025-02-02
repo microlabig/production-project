@@ -17,6 +17,16 @@
     }
 }
 
+.VirtuosoBigRedesigned {
+    width: 100%;
+
+    min-height: 100%;
+
+    & > div[data-viewport-type="element"] { // viewport
+        padding-right: 10px;
+    }
+}
+
 .listBig {
     display: flex;
     flex-direction: column;
@@ -31,6 +41,16 @@
     min-height: 100%;
 
     margin-top: 16px;
+
+    & > div[data-viewport-type="element"] { // viewport
+        padding-right: 10px;
+    }
+}
+
+.VirtuosoGridRedesigned {
+    width: 100%;
+
+    min-height: 100%;
 
     & > div[data-viewport-type="element"] { // viewport
         padding-right: 10px;
