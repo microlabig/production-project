@@ -5,9 +5,7 @@ import { Components, Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { ARTICLE_INDEX_SESSION_STORAGE_KEY } from '@/shared/constants/sessionStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
-import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { ArticleView } from '../../model/constants/constants';
@@ -18,12 +16,6 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import cls from './ArticleList.module.scss';
 
 const getSkeletons = (view: ArticleView) => {
-    const Skeleton = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => SkeletonRedesigned,
-        off: () => SkeletonDeprecated,
-    });
-
     return new Array(view === ArticleView.SMALL ? 9 : 3)
         .fill(0)
         .map((_, i) => <ArticleListItemSkeleton key={i} view={view} className={cls.ArticleItemSkeleton} />);
