@@ -12,12 +12,13 @@ import { Navbar } from '@/widgets/Navbar';
 import { PageLoader } from '@/widgets/PageLoader';
 import { Sidebar } from '@/widgets/Sidebar';
 
+import { useAppToolbar } from './lib/useAppToolbar';
 import { AppRouter } from './router';
 
 function App() {
     const dispatch = useAppDispatch();
-
     const inited = useSelector(getUserInited);
+    const toolbar = useAppToolbar();
 
     useEffect(() => {
         dispatch(initAuthData());
@@ -47,7 +48,7 @@ function App() {
                             header={<Navbar />}
                             content={<AppRouter />}
                             sidebar={<Sidebar />}
-                            toolbar={<div>1234</div>}
+                            toolbar={toolbar}
                         />
                     </Suspense>
                 </div>
