@@ -33,16 +33,32 @@ body {
     display: flex;
 }
 
-::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 12px;               /* width of the entire scrollbar */
     height: 8px;
 }
 
-::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
+    background: var(--light-bg-redesigned);        /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+    border: 2px solid var(--accent-redesigned);  /* creates padding around scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+
+    background-color: var(--icon-redesigned);    /* color of the scroll thumb */
+}
+
+.app ::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+    height: 8px;
+}
+
+.app ::-webkit-scrollbar-track {
     background: var(--card-bg);        /* color of the tracking area */
 }
 
-::-webkit-scrollbar-thumb {
+.app ::-webkit-scrollbar-thumb {
     border: 2px solid var(--primary-color);  /* creates padding around scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
 
