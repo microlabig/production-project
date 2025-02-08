@@ -24,5 +24,6 @@
 
     "path-intellisense.mappings": {
         "@": "${workspaceRoot}/src"
-    }
+    },
+    "typescript.tsdk": "node_modules/typescript/lib"
 }

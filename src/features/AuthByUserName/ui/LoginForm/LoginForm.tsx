@@ -6,6 +6,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
@@ -39,6 +40,7 @@ const LoginForm = memo((props: TLoginFormProps) => {
     const password = useSelector(getLoginPassword);
     const error = useSelector(getLoginError);
     const isLoading = useSelector(getLoginIsLoading);
+    const forceUpdate = useForceUpdate();
 
     const handleChangeUsername = useCallback(
         (value: string) => {
@@ -58,6 +60,8 @@ const LoginForm = memo((props: TLoginFormProps) => {
         const result = await dispatch(loginByUsername({ username, password }));
 
         if (result.meta.requestStatus === 'fulfilled') {
+            forceUpdate();
+            window.location.reload();
             props.onSuccess();
         }
     };

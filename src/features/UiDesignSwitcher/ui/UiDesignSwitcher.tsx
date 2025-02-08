@@ -6,6 +6,7 @@ import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getFeatureFlag, updateFeatureFlag } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 import { ListBoxItem } from '@/shared/ui/deprecated/Popups';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
@@ -21,6 +22,8 @@ export const UiDesignSwitcher = memo((props: TUiDesignSwitcherProps) => {
     const { className } = props;
     const dispatch = useAppDispatch();
     const authData = useSelector(getUserAuthData);
+
+    const forceUpdate = useForceUpdate();
 
     const isAppRedesigned = getFeatureFlag('isAppRedesigned');
 
@@ -54,6 +57,7 @@ export const UiDesignSwitcher = memo((props: TUiDesignSwitcherProps) => {
             })
         ).unwrap();
         setIsLoading(false);
+        forceUpdate();
     };
 
     return (

@@ -57,7 +57,7 @@ export const StarRating = memo((props: TStarRatingProps) => {
                 [className]
             )}
         >
-            {stars.map(star => {
+            {stars.map((star, index) => {
                 const commonProps = {
                     key: star,
                     Svg: StarIcon,
@@ -81,6 +81,7 @@ export const StarRating = memo((props: TStarRatingProps) => {
 
                 return (
                     <ToggleFeatures
+                        key={index}
                         feature="isAppRedesigned"
                         on={<Icon clickable={!isSelected} {...commonProps} />}
                         off={<IconDeprecated {...commonProps} />}
