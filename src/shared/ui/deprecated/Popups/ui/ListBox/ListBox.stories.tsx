@@ -5,7 +5,7 @@ import { WrapperCenteredDecorator } from '@/shared/config/storybook/WrapperStyle
 import { ListBox } from './ListBox';
 
 const meta = {
-    title: 'shared/ListBox',
+    title: 'deprecated/shared/ListBox',
     component: ListBox,
     args: {
         label: 'Выберите значение',

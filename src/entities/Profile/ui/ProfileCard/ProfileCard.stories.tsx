@@ -2,6 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/shared/constants/theme';
+import { Profile } from '../../model/types/profileSchema';
 
 import { ProfileCard } from './ProfileCard';
 
@@ -15,19 +19,31 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-    args: {
-        data: {
-            username: 'admin',
-            age: 22,
-            country: Country.Ukraine,
-            lastname: 'ulbi tv',
-            first: 'asd',
-            city: 'asf',
-            currency: Currency.USD,
-            avatar,
-        },
+const primaryArgs: { data?: Profile } = {
+    data: {
+        username: 'admin',
+        age: 22,
+        country: Country.Ukraine,
+        lastname: 'ulbi tv',
+        first: 'asd',
+        city: 'asf',
+        currency: Currency.USD,
+        avatar,
     },
+};
+
+export const Primary: Story = {
+    args: primaryArgs,
+};
+
+export const PrimaryRedesigned: Story = {
+    args: primaryArgs,
+    decorators: [NewDesignDecorator],
+};
+
+export const PrimaryRedesignedDark: Story = {
+    args: primaryArgs,
+    decorators: [NewDesignDecorator, ThemeDecorator(Theme.DARK)],
 };
 
 export const IsLoading: Story = {

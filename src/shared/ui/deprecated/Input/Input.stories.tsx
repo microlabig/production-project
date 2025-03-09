@@ -6,7 +6,7 @@ import { Theme } from '@/shared/constants/theme';
 import { Input } from './Input';
 
 const meta = {
-    title: 'shared/Input',
+    title: 'deprecated/shared/Input',
     component: Input,
 } satisfies Meta<typeof Input>;
 

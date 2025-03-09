@@ -6,7 +6,7 @@ import { Button } from '../../../Button/Button';
 import { Dropdown } from './Dropdown';
 
 const meta = {
-    title: 'shared/Dropdown',
+    title: 'deprecated/shared/Dropdown',
     component: Dropdown,
     args: {
         trigger: <Button>Open</Button>,

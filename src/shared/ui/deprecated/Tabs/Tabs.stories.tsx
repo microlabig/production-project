@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Tabs } from './Tabs';
 
 const meta = {
-    title: 'shared/Tabs',
+    title: 'deprecated/shared/Tabs',
     component: Tabs,
 } satisfies Meta<typeof Tabs>;
 

@@ -5,7 +5,7 @@ import { Avatar } from './Avatar';
 import Image from '@/shared/assets/tests/avatar.jpg';
 
 const meta = {
-    title: 'shared/Avatar',
+    title: 'deprecated/shared/Avatar',
     component: Avatar,
     args: {
         src: Image,

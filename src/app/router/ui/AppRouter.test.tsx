@@ -6,7 +6,28 @@ import { componentRender } from '@/shared/lib/tests/componentRender/componentRen
 
 import AppRouter from './AppRouter';
 
+// Мокируем хук
+// jest.mock('@/features/ProfileRating', () => ({
+//     useGetProfileRating: jest.fn(),
+// }));
+
+// // Настраиваем мок
+// const mockUseGetProfileRatingQuery = useGetProfileRating as jest.Mock;
+
 describe('app/router/ui/AppRouter', () => {
+    // beforeEach(() => {
+    //     // Возвращаем фиктивные данные при вызове хука
+    //     mockUseGetProfileRatingQuery.mockReturnValue({
+    //         data: [
+    //             {
+    //                 rate: 3,
+    //             },
+    //         ],
+    //         isLoading: false,
+    //         isError: false,
+    //     });
+    // });
+
     test('Страница должна отрендериться', async () => {
         componentRender(<AppRouter />, {
             route: getRouteAbout(),

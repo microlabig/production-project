@@ -6,7 +6,7 @@ import { Theme } from '@/shared/constants/theme';
 import { Skeleton } from './Skeleton';
 
 const meta = {
-    title: 'shared/Skeleton',
+    title: 'deprecated/shared/Skeleton',
     component: Skeleton,
 } satisfies Meta<typeof Skeleton>;
 

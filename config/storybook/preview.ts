@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator';
 import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator';
@@ -25,7 +26,13 @@ const preview: Preview = {
             ],
         },
     },
-    decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouterDecorator, SuspenseDecorator],
+    decorators: [
+        StyleDecorator,
+        ThemeDecorator(Theme.LIGHT),
+        RouterDecorator,
+        SuspenseDecorator,
+        FeaturesFlagsDecorator({}),
+    ],
 };
 
 export default preview;

@@ -6,7 +6,7 @@ import { Theme } from '@/shared/constants/theme';
 import { AppNavLink, AppNavLinkTheme } from './AppNavLink';
 
 const meta = {
-    title: 'shared/AppNavLink',
+    title: 'deprecated/shared/AppNavLink',
     component: AppNavLink,
     args: {
         children: 'Text',

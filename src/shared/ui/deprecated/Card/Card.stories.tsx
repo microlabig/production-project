@@ -5,7 +5,7 @@ import { Text } from '../Text/Text';
 import { Card, CardTheme } from './Card';
 
 const meta = {
-    title: 'shared/Card',
+    title: 'deprecated/shared/Card',
     component: Card,
 } satisfies Meta<typeof Card>;
 
